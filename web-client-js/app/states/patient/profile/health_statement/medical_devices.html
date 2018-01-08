@@ -1,0 +1,170 @@
+<accordion-group heading="Medical devices">
+    <div ng-form="medicalDevices">
+        <h4>I use the following medical devices / support devices</h4>
+
+        <div class="form-group col-sm-8">
+            <input type="checkbox"
+                   id="healthStatement.medicalDevices.none"
+                   name="healthStatement.medicalDevices.none"
+                   class="form-control-static"
+                   ng-model="healthStatement.medicalDevices.none"
+                   ng-change="healthStatement.medicalDevices.glasses = false;
+                              healthStatement.medicalDevices.glassesDetails = '';
+                              healthStatement.medicalDevices.contactLenses = false;
+                              healthStatement.medicalDevices.contactLensesDetails = '';
+                              healthStatement.medicalDevices.hearingAid = false;
+                              healthStatement.medicalDevices.hearingAidDetails = '';
+                              healthStatement.medicalDevices.armProsthesis = false;
+                              healthStatement.medicalDevices.armProsthesisDetails = '';
+                              healthStatement.medicalDevices.legProsthesis = false;
+                              healthStatement.medicalDevices.legProsthesisDetails = '';
+                              healthStatement.medicalDevices.mobilitySupportDevice = false;
+                              healthStatement.medicalDevices.mobilitySupportDeviceDetails = '';
+                              healthStatement.medicalDevices.otherDevice = false;
+                              healthStatement.medicalDevices.otherDeviceDetails = '';">
+            &nbsp;
+            <label class="control-label-left"
+                   for="healthStatement.medicalDevices.none">None</label>
+        </div>
+
+        <div class="form-group col-sm-8">
+            <input type="checkbox"
+                   id="healthStatement.medicalDevices.glasses"
+                   name="healthStatement.medicalDevices.glasses"
+                   class="form-control-static"
+                   ng-model="healthStatement.medicalDevices.glasses"
+                   ng-change="healthStatement.medicalDevices.glassesDetails =
+                        healthStatement.medicalDevices.glasses ? healthStatement.medicalDevices.glassesDetails : '';
+                        healthStatement.medicalDevices.none = false;">
+            &nbsp;
+            <label class="control-label-left"
+                   for="healthStatement.medicalDevices.glasses">Glasses</label>
+            <input type="text"
+                   id="healthStatement.medicalDevices.glassesDetails"
+                   name="healthStatement.medicalDevices.glassesDetails"
+                   class="form-control input-sm"
+                   ng-model="healthStatement.medicalDevices.glassesDetails"
+                   ng-show="healthStatement.medicalDevices.glasses">
+        </div>
+
+        <div class="form-group col-sm-8">
+            <input type="checkbox"
+                   id="healthStatement.medicalDevices.contactLenses"
+                   name="healthStatement.medicalDevices.contactLenses"
+                   class="form-control-static"
+                   ng-model="healthStatement.medicalDevices.contactLenses"
+                   ng-change="healthStatement.medicalDevices.contactLensesDetails =
+                        healthStatement.medicalDevices.contactLenses ? healthStatement.medicalDevices.contactLensesDetails : '';
+                        healthStatement.medicalDevices.none = false;">
+            &nbsp;
+            <label class="control-label-left"
+                   for="healthStatement.medicalDevices.contactLenses">Contact lenses</label>
+            <input type="text"
+                   id="healthStatement.medicalDevices.contactLensesDetails"
+                   name="healthStatement.medicalDevices.contactLensesDetails"
+                   class="form-control input-sm"
+                   ng-model="healthStatement.medicalDevices.contactLensesDetails"
+                   ng-show="healthStatement.medicalDevices.contactLenses">
+        </div>
+
+        <div class="form-group col-sm-8">
+            <input type="checkbox"
+                   id="healthStatement.medicalDevices.hearingAid"
+                   name="healthStatement.medicalDevices.hearingAid"
+                   class="form-control-static"
+                   ng-model="healthStatement.medicalDevices.hearingAid"
+                   ng-change="healthStatement.medicalDevices.hearingAidDetails =
+                        healthStatement.medicalDevices.hearingAid ? healthStatement.medicalDevices.hearingAidDetails : '';
+                        healthStatement.medicalDevices.none = false;">
+            &nbsp;
+            <label class="control-label-left"
+                   for="healthStatement.medicalDevices.hearingAid">Hearing aid / cochlear implant</label>
+            <input type="text"
+                   id="healthStatement.medicalDevices.hearingAidDetails"
+                   name="healthStatement.medicalDevices.hearingAidDetails"
+                   class="form-control input-sm"
+                   ng-model="healthStatement.medicalDevices.hearingAidDetails"
+                   ng-show="healthStatement.medicalDevices.hearingAid">
+        </div>
+
+        <div class="form-group col-sm-8">
+            <input type="checkbox"
+                   id="healthStatement.medicalDevices.armProsthesis"
+                   name="healthStatement.medicalDevices.armProsthesis"
+                   class="form-control-static"
+                   ng-model="healthStatement.medicalDevices.armProsthesis"
+                   ng-change="healthStatement.medicalDevices.armProsthesisDetails =
+                        healthStatement.medicalDevices.armProsthesis ? healthStatement.medicalDevices.armProsthesisDetails : '';
+                        healthStatement.medicalDevices.none = false;">
+            &nbsp;
+            <label class="control-label-left"
+                   for="healthStatement.medicalDevices.armProsthesis">Arm prosthesis</label>
+            <input type="text"
+                   id="healthStatement.medicalDevices.armProsthesisDetails"
+                   name="healthStatement.medicalDevices.armProsthesisDetails"
+                   class="form-control input-sm"
+                   ng-model="healthStatement.medicalDevices.armProsthesisDetails"
+                   ng-show="healthStatement.medicalDevices.armProsthesis">
+        </div>
+
+        <div class="form-group col-sm-8">
+            <input type="checkbox"
+                   id="healthStatement.medicalDevices.legProsthesis"
+                   name="healthStatement.medicalDevices.legProsthesis"
+                   class="form-control-static"
+                   ng-model="healthStatement.medicalDevices.legProsthesis"
+                   ng-change="healthStatement.medicalDevices.legProsthesisDetails =
+                        healthStatement.medicalDevices.legProsthesis ? healthStatement.medicalDevices.legProsthesisDetails : '';
+                        healthStatement.medicalDevices.none = false;">
+            &nbsp;
+            <label class="control-label-left"
+                   for="healthStatement.medicalDevices.legProsthesis">Leg prosthesis</label>
+            <input type="text"
+                   id="healthStatement.medicalDevices.legProsthesisDetails"
+                   name="healthStatement.medicalDevices.legProsthesisDetails"
+                   class="form-control input-sm"
+                   ng-model="healthStatement.medicalDevices.legProsthesisDetails"
+                   ng-show="healthStatement.medicalDevices.legProsthesis">
+        </div>
+
+        <div class="form-group col-sm-8">
+            <input type="checkbox"
+                   id="healthStatement.medicalDevices.mobilitySupportDevice"
+                   name="healthStatement.medicalDevices.mobilitySupportDevice"
+                   class="form-control-static"
+                   ng-model="healthStatement.medicalDevices.mobilitySupportDevice"
+                   ng-change="healthStatement.medicalDevices.mobilitySupportDeviceDetails =
+                        healthStatement.medicalDevices.mobilitySupportDevice ? healthStatement.medicalDevices.mobilitySupportDeviceDetails : '';
+                        healthStatement.medicalDevices.none = false;">
+            &nbsp;
+            <label class="control-label-left"
+                   for="healthStatement.medicalDevices.mobilitySupportDevice">Mobility support device</label>
+            <input type="text"
+                   id="healthStatement.medicalDevices.mobilitySupportDeviceDetails"
+                   name="healthStatement.medicalDevices.mobilitySupportDeviceDetails"
+                   class="form-control input-sm"
+                   ng-model="healthStatement.medicalDevices.mobilitySupportDeviceDetails"
+                   ng-show="healthStatement.medicalDevices.mobilitySupportDevice">
+        </div>
+
+        <div class="form-group col-sm-8">
+            <input type="checkbox"
+                   id="healthStatement.medicalDevices.otherDevice"
+                   name="healthStatement.medicalDevices.otherDevice"
+                   class="form-control-static"
+                   ng-model="healthStatement.medicalDevices.otherDevice"
+                   ng-change="healthStatement.medicalDevices.otherDeviceDetails =
+                        healthStatement.medicalDevices.otherDevice ? healthStatement.medicalDevices.otherDeviceDetails : '';
+                        healthStatement.medicalDevices.none = false;">
+            &nbsp;
+            <label class="control-label-left"
+                   for="healthStatement.medicalDevices.otherDevice">Other support device (please specify, what)</label>
+            <input type="text"
+                   id="healthStatement.medicalDevices.otherDeviceDetails"
+                   name="healthStatement.medicalDevices.otherDeviceDetails"
+                   class="form-control input-sm"
+                   ng-model="healthStatement.medicalDevices.otherDeviceDetails"
+                   ng-show="healthStatement.medicalDevices.otherDevice">
+        </div>
+    </div>
+</accordion-group>

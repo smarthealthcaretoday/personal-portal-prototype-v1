@@ -1,0 +1,60 @@
+<accordion-group heading="Metabolic disorders">
+    <div ng-form="metabolicDisorders">
+        <h4>Metabolic disorders (incl thyroid disease)</h4>
+
+        <div class="form-group col-sm-9">
+            <input type="checkbox"
+                   id="healthStatement.metabolicDisorders.noComplains"
+                   name="healthStatement.metabolicDisorders.noComplains"
+                   class="form-control-static"
+                   ng-model="healthStatement.metabolicDisorders.noComplains"
+                   ng-change="healthStatement.metabolicDisorders.diabetes = false;
+                              healthStatement.metabolicDisorders.diabetesDetails = '';
+                              healthStatement.metabolicDisorders.otherDisease = false;
+                              healthStatement.metabolicDisorders.otherDiseaseDetails = '';">
+            &nbsp;
+            <label class="control-label-left"
+                   for="healthStatement.metabolicDisorders.noComplains">No complains</label>
+        </div>
+
+        <div class="form-group col-sm-9">
+            <input type="checkbox"
+                   id="healthStatement.metabolicDisorders.diabetes"
+                   name="healthStatement.metabolicDisorders.diabetes"
+                   class="form-control-static"
+                   ng-model="healthStatement.metabolicDisorders.diabetes"
+                   ng-change="healthStatement.metabolicDisorders.diabetesDetails =
+                        healthStatement.metabolicDisorders.diabetes ? healthStatement.metabolicDisorders.diabetesDetails : '';
+                        healthStatement.metabolicDisorders.noComplains = false;">
+            &nbsp;
+            <label class="control-label-left"
+                   for="healthStatement.metabolicDisorders.diabetes">Diabetes</label>
+            <input type="text"
+                   id="healthStatement.metabolicDisorders.diabetesDetails"
+                   name="healthStatement.metabolicDisorders.diabetesDetails"
+                   class="form-control input-sm"
+                   ng-model="healthStatement.metabolicDisorders.diabetesDetails"
+                   ng-show="healthStatement.metabolicDisorders.diabetes">
+        </div>
+
+        <div class="form-group col-sm-9">
+            <input type="checkbox"
+                   id="healthStatement.metabolicDisorders.otherDisease"
+                   name="healthStatement.metabolicDisorders.otherDisease"
+                   class="form-control-static"
+                   ng-model="healthStatement.metabolicDisorders.otherDisease"
+                   ng-change="healthStatement.metabolicDisorders.otherDiseaseDetails =
+                        healthStatement.metabolicDisorders.otherDisease ? healthStatement.metabolicDisorders.otherDiseaseDetails : '';
+                        healthStatement.metabolicDisorders.noComplains = false;">
+            &nbsp;
+            <label class="control-label-left"
+                   for="healthStatement.metabolicDisorders.otherDisease">Other disease / condition / symptom (please specify)</label>
+            <input type="text"
+                   id="healthStatement.metabolicDisorders.otherDiseaseDetails"
+                   name="healthStatement.metabolicDisorders.otherDiseaseDetails"
+                   class="form-control input-sm"
+                   ng-model="healthStatement.metabolicDisorders.otherDiseaseDetails"
+                   ng-show="healthStatement.metabolicDisorders.otherDisease">
+        </div>
+    </div>
+</accordion-group>

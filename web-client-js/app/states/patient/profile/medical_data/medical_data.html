@@ -1,0 +1,515 @@
+<ol class="breadcrumb">
+    <li><a ui-sref="personalPortal.patient.dashboard">Dashboard</a></li>
+    <li class="active">Profile</li>
+</ol>
+
+<div class="col-md-8">
+
+<h3>Patient medical profile data</h3>
+
+</br>
+
+<form novalidate role="form" class="form-horizontal" name="patientData">
+
+<div class="alert alert-danger" role="alert" ng-show="patientData.$submitted && patientData.$invalid">
+    Some of entered values are incorrect, please check
+
+    </br>
+</div>
+
+<div class="alert alert-success" role="alert" ng-show="!patientData.$dirty && dataSaved">
+    Data saved
+
+    </br>
+</div>
+
+<tabset>
+<tab>
+    <tab-heading ng-class="{true: 'text-danger'}[patientData.$submitted && general.$invalid]">
+        Anamnesis
+    </tab-heading>
+    </br>
+
+    <div ng-form="general">
+        <div class="form-group">
+            <label class="col-sm-3 control-label-left-left" for="patient.smoking">Smoking</label>
+
+            <div class="col-sm-1">
+                <input type="checkbox" id="patient.smoking" name="patient.smoking"
+                       class="form-control-static"
+                       ng-model="patient.smoking">
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="col-sm-3 control-label-left-left" for="patient.pregnancy">Pregnancy</label>
+
+            <div class="col-sm-1">
+                <input type="checkbox" id="patient.pregnancy" name="patient.pregnancy"
+                       class="form-control-static"
+                       ng-model="patient.pregnancy">
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="col-sm-3 control-label-left-left" for="patient.lactation">Lactation</label>
+
+            <div class="col-sm-1">
+                <input type="checkbox" id="patient.lactation" name="patient.lactation"
+                       class="form-control-static"
+                       ng-model="patient.lactation">
+            </div>
+        </div>
+    </div>
+</tab>
+
+<tab>
+    <tab-heading ng-class="{true: 'text-danger'}[patientData.$submitted && measurements.$invalid]">
+        Measurements
+    </tab-heading>
+    </br>
+
+    <div ng-form="measurements">
+        <table st-table="patient.measurements" class="table table-striped">
+            <thead>
+                <tr>
+                    <th st-sort="classifier.name" style="width: 30%">Measurement</th>
+                    <th style="width: 15%">Value</th>
+                    <th style="width: 15%">Unit</th>
+                    <th st-sort="date" st-sort-default="true">Date</th>
+                    <th></th>
+                </tr>
+                <tr>
+                    <th>
+                        <select st-search="classifier.code" class="input-sm form-control">
+                            <option value="">All</option>
+                            <option value="10006">Height</option>
+                            <option value="10014">Weight</option>
+                            <option value="101">Blood Oxygen</option>
+                            <option value="102">Heart Rate</option>
+                            <option value="8462-4">Diastolic BP</option>
+                            <option value="8480-6">Systolic BP</option>
+                        </select>
+                    </th>
+                    <th>
+                    </th>
+                    <th>
+                    </th>
+                    <th></th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+
+            <tr ng-repeat="measurement in patient.measurements">
+                <td>
+                    <div ng-if="!measurement.imported"
+                         angucomplete-alt
+                         placeholder="Start typing measurement name..."
+                         pause="400"
+                         selected-object="measurement.classifier"
+                         remote-url="{{baseBackendUrl}}classifiers/measurements?query="
+                         title-field="name"
+                         minlength="2"
+                         input-class="form-control input-sm"
+                         match-class="highlight"
+                         field-required="true"
+                         override-suggestions="false"
+                         initial-value="{{measurement.classifier.name}}">
+                    </div>
+                    <div ng-if="measurement.imported">
+                         {{measurement.classifier.name}}
+                    </div>
+                </td>
+
+                <td>
+                    <span ng-if="!measurement.imported">
+                        <input type="text" name="measurement.value" class="form-control input-sm" ng-model="measurement.value">
+                    </span>
+                    <span ng-if="measurement.imported">
+                         {{measurement.value}}
+                    </span>
+                </td>
+
+                <td>{{measurement.classifier.originalObject === null ? measurement.classifier.unit : measurement.classifier.originalObject.unit}}</td>
+
+                <td>
+                    <span ng-if="!measurement.imported" class="input-group datetime_picker">
+                        <input type="text"
+                               class="form-control input-sm"
+                               name="measurement.date"
+                               datetime-picker="dd/MM/yyyy HH:mm"
+                               ng-model="measurement.date"
+                               is-open="datepickerState.measurementOpened[$index]"
+                               ng-required="true"
+                               max-date="{{today}}"
+                               datepicker-options="dateOptions"
+                               timepicker-options="timeOptions"/>
+
+                        <span class="input-group-btn">
+                            <button type="button" class="btn btn-sm"
+                                    ng-click="openMeasurement($event, $index)">
+                                <i class="glyphicon glyphicon-calendar"></i></button>
+                        </span>
+                    </span>
+                    <span ng-if="measurement.imported">
+                           {{measurement.date | date:"dd/MM/yyyy HH:mm"}}
+                    </span>
+                </td>
+                <td><input type="button" class="btn btn-sm btn-danger" value="-"
+                           ng-click="removeMeasurement($index)"></td>
+            </tr>
+            </ng-repeat>
+            <tr>
+                <td colspan="5"><input type="button" class="btn btn-sm btn-success"
+                                       value="Add measurement"
+                                       ng-click="addMeasurement()"></td>
+            </tr>
+            </tbody>
+            <tfoot>
+                <tr>
+                    <td colspan="5" class="text-center">
+                        <div st-pagination="" st-items-by-page="10" st-displayed-pages="10"></div>
+                    </td>
+                </tr>
+            </tfoot>
+        </table>
+    </div>
+</tab>
+
+<tab>
+    <tab-heading ng-class="{true: 'text-danger'}[patientData.$submitted && medications.$invalid]">
+        Medication
+    </tab-heading>
+    </br>
+
+    <div ng-form="medications">
+        <table class="table">
+            <thead>
+            <th style="width: 25%">Drug</th>
+            <th>Unit</th>
+            <th>Strength</th>
+            <th>Dosage</th>
+            <th class="datetime_picker">Start Date</th>
+            <th class="datetime_picker">End Date</th>
+            <th></th>
+            </thead>
+            <tbody>
+
+            <tr ng-repeat="medication in patient.medications">
+                <td>
+                    <div angucomplete-alt
+                         placeholder="Start typing medication name..."
+                         pause="400"
+                         selected-object="medication.classifier"
+                         remote-url="{{baseBackendUrl}}classifiers/medications?query="
+                         title-field="name"
+                         minlength="3"
+                         input-class="form-control input-sm"
+                         match-class="highlight"
+                         field-required="true"
+                         override-suggestions="false"
+                         initial-value="{{medication.classifier.name}}">
+                    </div>
+                </td>
+
+                <td>{{medication.classifier.originalObject === null ? medication.classifier.unit : medication.classifier.originalObject.unit}}</td>
+
+                <td><input type="text" name="medication.strength" class="form-control input-sm"
+                           ng-model="medication.strength"></td>
+
+
+                <td><input type="text" name="medication.dosage" class="form-control input-sm"
+                           ng-model="medication.dosage"></td>
+
+                <td>
+                    <span class="input-group datetime_picker">
+                        <input type="text"
+                               class="form-control input-sm"
+                               name="medication.startDate"
+                               datetime-picker="dd/MM/yyyy HH:mm"
+                               ng-model="medication.startDate"
+                               is-open="datepickerState.medicationStartOpened[$index]"
+                               ng-required="true"
+                               datepicker-options="dateOptions"
+                               timepicker-options="timeOptions"/>
+
+                        <span class="input-group-btn">
+                            <button type="button" class="btn btn-sm"
+                                    ng-click="openMedicationStart($event, $index)">
+                                <i class="glyphicon glyphicon-calendar"></i></button>
+                        </span>
+                    </span>
+                </td>
+                <td>
+                    <span class="input-group datetime_picker">
+                        <input type="text"
+                               class="form-control input-sm"
+                               name="medication.endDate"
+                               datetime-picker="dd/MM/yyyy HH:mm"
+                               ng-model="medication.endDate"
+                               is-open="datepickerState.medicationEndOpened[$index]"
+                               ng-required="true"
+                               datepicker-options="dateOptions"
+                               timepicker-options="timeOptions"/>
+
+                        <span class="input-group-btn">
+                            <button type="button" class="btn btn-sm"
+                                    ng-click="openMedicationEnd($event, $index)">
+                                <i class="glyphicon glyphicon-calendar"></i></button>
+                        </span>
+                    </span>
+                </td>
+                <td><input type="button" class="btn btn-sm btn-danger" value="-"
+                           ng-click="removeMedication($index)"></td>
+            </tr>
+            </ng-repeat>
+            <tr>
+                <td colspan="8"><input type="button" class="btn btn-sm btn-success"
+                                       value="Add medication"
+                                       ng-click="addMedication()"></td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</tab>
+
+<tab>
+    <tab-heading ng-class="{true: 'text-danger'}[patientData.$submitted && vaccinations.$invalid]">
+        Vaccinations
+    </tab-heading>
+    </br>
+
+    <div ng-form="vaccinations">
+        <table class="table">
+            <thead>
+            <th style="width: 25%">Vaccine</th>
+            <th>Unit</th>
+            <th>Dose</th>
+            <th>Strength</th>
+            <th class="datetime_picker">Start Date</th>
+            <th class="datetime_picker">End Date</th>
+            <th></th>
+            </thead>
+            <tbody>
+
+            <tr ng-repeat="vaccination in patient.vaccinations">
+                <td>
+                    <div angucomplete-alt
+                         placeholder="Start typing vaccination name..."
+                         pause="400"
+                         selected-object="vaccination.classifier"
+                         remote-url="http://{{baseBackendUrl}}classifiers/vaccinations?query="
+                         title-field="name"
+                         minlength="2"
+                         input-class="form-control input-sm"
+                         match-class="highlight"
+                         field-required="true"
+                         override-suggestions="false"
+                         initial-value="{{vaccination.classifier.name}}">
+                    </div>
+                </td>
+
+                <td>{{vaccination.classifier.originalObject === null ? vaccination.classifier.unit : vaccination.classifier.originalObject.unit}}</td>
+
+                <td><input type="text" name="vaccination.strength" class="form-control input-sm"
+                           ng-model="vaccination.strength"></td>
+
+                <td><input type="text" name="vaccination.dose" class="form-control input-sm"
+                           ng-model="vaccination.dose"></td>
+
+                <td>
+                    <span class="input-group datetime_picker">
+                        <input type="text"
+                               class="form-control input-sm"
+                               name="vaccination.startDate"
+                               datetime-picker="dd/MM/yyyy HH:mm"
+                               ng-model="vaccination.startDate"
+                               is-open="datepickerState.vaccinationStartOpened[$index]"
+                               ng-required="true"
+                               max-date="{{today}}"
+                               datepicker-options="dateOptions"
+                               timepicker-options="timeOptions"/>
+
+                        <span class="input-group-btn">
+                            <button type="button" class="btn btn-sm"
+                                    ng-click="openVaccinationStart($event, $index)">
+                                <i class="glyphicon glyphicon-calendar"></i></button>
+                        </span>
+                    </span>
+                </td>
+                <td>
+                    <span class="input-group datetime_picker">
+                        <input type="text"
+                               class="form-control input-sm"
+                               name="vaccination.endDate"
+                               datetime-picker="dd/MM/yyyy HH:mm"
+                               ng-model="vaccination.endDate"
+                               is-open="datepickerState.vaccinationEndOpened[$index]"
+                               ng-required="true"
+                               max-date="{{today}}"
+                               datepicker-options="dateOptions"
+                               timepicker-options="timeOptions"/>
+
+                        <span class="input-group-btn">
+                            <button type="button" class="btn btn-sm"
+                                    ng-click="openVaccinationEnd($event, $index)">
+                                <i class="glyphicon glyphicon-calendar"></i></button>
+                        </span>
+                    </span>
+                </td>
+                <td><input type="button" class="btn btn-sm btn-danger" value="-"
+                           ng-click="removeVaccination($index)"></td>
+            </tr>
+            </ng-repeat>
+            <tr>
+                <td colspan="8"><input type="button" class="btn btn-sm btn-success"
+                                       value="Add vaccination"
+                                       ng-click="addVaccination()"></td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</tab>
+
+<tab>
+    <tab-heading ng-class="{true: 'text-danger'}[patientData.$submitted && diagnosis.$invalid]">
+        Diagnosis
+    </tab-heading>
+    </br>
+
+    <div ng-form="diagnosis">
+        <table class="table">
+            <thead>
+            <th style="width: 50%">Diagnosis</th>
+            <th class="datetime_picker">Start Date</th>
+            <th class="datetime_picker">End Date</th>
+            <th></th>
+            </thead>
+            <tbody>
+
+            <tr ng-repeat="diagnosis in patient.diagnoses">
+                <td>
+                    <div angucomplete-alt
+                         placeholder="Start typing diagnoses name..."
+                         pause="400"
+                         selected-object="diagnosis.classifier"
+                         remote-url="{{baseBackendUrl}}classifiers/diagnoses?query="
+                         title-field="name"
+                         minlength="2"
+                         input-class="form-control input-sm"
+                         match-class="highlight"
+                         field-required="true"
+                         override-suggestions="false"
+                         initial-value="{{diagnosis.classifier.name}}">
+                    </div>
+                </td>
+
+                <td>
+                    <span class="input-group datetime_picker">
+                        <input type="text"
+                               class="form-control input-sm"
+                               name="diagnosis.startDate"
+                               datetime-picker="dd/MM/yyyy HH:mm"
+                               ng-model="diagnosis.startDate"
+                               is-open="datepickerState.diagnosisStartOpened[$index]"
+                               ng-required="true"
+                               max-date="{{today}}"
+                               datepicker-options="dateOptions"
+                               timepicker-options="timeOptions"/>
+
+                        <span class="input-group-btn">
+                            <button type="button" class="btn btn-sm"
+                                    ng-click="openDiagnosisStart($event, $index)">
+                                <i class="glyphicon glyphicon-calendar"></i></button>
+                        </span>
+                    </span>
+                </td>
+                <td>
+                    <span class="input-group datetime_picker">
+                        <input type="text"
+                               class="form-control input-sm"
+                               name="diagnosis.endDate"
+                               datetime-picker="dd/MM/yyyy HH:mm"
+                               ng-model="diagnosis.endDate"
+                               is-open="datepickerState.diagnosisEndOpened[$index]"
+                               ng-required="true"
+                               max-date="{{today}}"
+                               datepicker-options="dateOptions"
+                               timepicker-options="timeOptions"/>
+
+                        <span class="input-group-btn">
+                            <button type="button" class="btn btn-sm"
+                                    ng-click="openDiagnosisEnd($event, $index)">
+                                <i class="glyphicon glyphicon-calendar"></i></button>
+                        </span>
+                    </span>
+                </td>
+                <td><input type="button" class="btn btn-sm btn-danger" value="-"
+                           ng-click="removeDiagnosis($index)"></td>
+            </tr>
+            </ng-repeat>
+            <tr>
+                <td colspan="4"><input type="button" class="btn btn-sm btn-success"
+                                       value="Add diagnosis"
+                                       ng-click="addDiagnosis()"></td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</tab>
+
+<tab>
+    <tab-heading ng-class="{true: 'text-danger'}[patientData.$submitted && drugsToAvoid.$invalid]">
+        Drugs to Avoid
+    </tab-heading>
+    </br>
+
+    <div ng-form="drugsToAvoid">
+        <table class="table">
+            <thead>
+            <th>Drug</th>
+            <th></th>
+            </thead>
+            <tbody>
+
+            <tr ng-repeat="drugToAvoid in patient.drugsToAvoid">
+                <td>
+                    <div angucomplete-alt
+                         placeholder="Start typing medication name..."
+                         pause="400"
+                         selected-object="drugToAvoid.classifier"
+                         remote-url="{{baseBackendUrl}}classifiers/medications?query="
+                         title-field="name"
+                         minlength="2"
+                         input-class="form-control input-sm"
+                         match-class="highlight"
+                         field-required="true"
+                         override-suggestions="false"
+                         initial-value="{{drugToAvoid.classifier.name}}">
+                    </div>
+                </td>
+
+                <td><input type="button" class="btn btn-sm btn-danger" value="-"
+                           ng-click="removeDrugToAvoid($index)"></td>
+            </tr>
+            </ng-repeat>
+            <tr>
+                <td colspan="3"><input type="button" class="btn btn-sm btn-success"
+                                       value="Add drug to avoid"
+                                       ng-click="addDrugToAvoid()"></td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</tab>
+</tabset>
+
+<div class="col-sm-12 text-right">
+    <input type="submit" class="btn btn-default" ng-click="save(patientData)" value="Save"/>
+</div>
+
+</br>
+</br>
+</form>
+</div>

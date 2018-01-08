@@ -1,0 +1,214 @@
+<accordion-group heading="Bones, joints and muscles">
+    <div ng-form="bonesJointsMuscles">
+        <h4>Bones, joints and muscles</h4>
+
+        <div class="form-group col-sm-8">
+            <input type="checkbox"
+                   id="healthStatement.bonesJointsMuscles.noComplains"
+                   name="healthStatement.bonesJointsMuscles.noComplains"
+                   class="form-control-static"
+                   ng-model="healthStatement.bonesJointsMuscles.noComplains"
+                   ng-change="healthStatement.bonesJointsMuscles.jointStiffness = false;
+                              healthStatement.bonesJointsMuscles.jointStiffnessDetails = '';
+                              healthStatement.bonesJointsMuscles.paralysisOfLimb = false;
+                              healthStatement.bonesJointsMuscles.paralysisOfLimbDetails = '';
+                              healthStatement.bonesJointsMuscles.missingLimb = false;
+                              healthStatement.bonesJointsMuscles.missingLimbDetails = '';
+                              healthStatement.bonesJointsMuscles.tremblingHands = false;
+                              healthStatement.bonesJointsMuscles.tremblingHandsDetails = '';
+                              healthStatement.bonesJointsMuscles.jointPain = false;
+                              healthStatement.bonesJointsMuscles.jointPainDetails = '';
+                              healthStatement.bonesJointsMuscles.neckPain = false;
+                              healthStatement.bonesJointsMuscles.neckPainDetails = '';
+                              healthStatement.bonesJointsMuscles.shoulderPain = false;
+                              healthStatement.bonesJointsMuscles.shoulderPainDetails = '';
+                              healthStatement.bonesJointsMuscles.lowerBackPain = false;
+                              healthStatement.bonesJointsMuscles.lowerBackPainDetails = '';
+                              healthStatement.bonesJointsMuscles.otherDisease = false;
+                              healthStatement.bonesJointsMuscles.otherDiseaseDetails = '';">
+            &nbsp;
+            <label class="control-label-left"
+                   for="healthStatement.bonesJointsMuscles.noComplains">No complains</label>
+        </div>
+
+        <div class="form-group col-sm-8">
+            <input type="checkbox"
+                   id="healthStatement.bonesJointsMuscles.jointStiffness"
+                   name="healthStatement.bonesJointsMuscles.jointStiffness"
+                   class="form-control-static"
+                   ng-model="healthStatement.bonesJointsMuscles.jointStiffness"
+                   ng-change="healthStatement.bonesJointsMuscles.jointStiffnessDetails =
+                        healthStatement.bonesJointsMuscles.jointStiffness ? healthStatement.bonesJointsMuscles.jointStiffnessDetails : '';
+                        healthStatement.bonesJointsMuscles.noComplains = false;">
+            &nbsp;
+            <label class="control-label-left"
+                   for="healthStatement.bonesJointsMuscles.jointStiffness">Joint stiffness</label>
+            <input type="text"
+                   id="healthStatement.bonesJointsMuscles.jointStiffnessDetails"
+                   name="healthStatement.bonesJointsMuscles.jointStiffnessDetails"
+                   class="form-control input-sm"
+                   ng-model="healthStatement.bonesJointsMuscles.jointStiffnessDetails"
+                   ng-show="healthStatement.bonesJointsMuscles.jointStiffness">
+        </div>
+
+        <div class="form-group col-sm-8">
+            <input type="checkbox"
+                   id="healthStatement.bonesJointsMuscles.paralysisOfLimb"
+                   name="healthStatement.bonesJointsMuscles.paralysisOfLimb"
+                   class="form-control-static"
+                   ng-model="healthStatement.bonesJointsMuscles.paralysisOfLimb"
+                   ng-change="healthStatement.bonesJointsMuscles.paralysisOfLimbDetails =
+                        healthStatement.bonesJointsMuscles.paralysisOfLimb ? healthStatement.bonesJointsMuscles.paralysisOfLimbDetails : '';
+                        healthStatement.bonesJointsMuscles.noComplains = false;">
+            &nbsp;
+            <label class="control-label-left"
+                   for="healthStatement.bonesJointsMuscles.paralysisOfLimb">Partial or complete paralysis of limb (please specify)</label>
+            <input type="text"
+                   id="healthStatement.bonesJointsMuscles.paralysisOfLimbDetails"
+                   name="healthStatement.bonesJointsMuscles.paralysisOfLimbDetails"
+                   class="form-control input-sm"
+                   ng-model="healthStatement.bonesJointsMuscles.paralysisOfLimbDetails"
+                   ng-show="healthStatement.bonesJointsMuscles.paralysisOfLimb">
+        </div>
+
+        <div class="form-group col-sm-8">
+            <input type="checkbox"
+                   id="healthStatement.bonesJointsMuscles.missingLimb"
+                   name="healthStatement.bonesJointsMuscles.missingLimb"
+                   class="form-control-static"
+                   ng-model="healthStatement.bonesJointsMuscles.missingLimb"
+                   ng-change="healthStatement.bonesJointsMuscles.missingLimbDetails =
+                        healthStatement.bonesJointsMuscles.missingLimb ? healthStatement.bonesJointsMuscles.missingLimbDetails : '';
+                        healthStatement.bonesJointsMuscles.noComplains = false;">
+            &nbsp;
+            <label class="control-label-left"
+                   for="healthStatement.bonesJointsMuscles.missingLimb">Missing of a complete or part of a limb (please specify)</label>
+            <input type="text"
+                   id="healthStatement.bonesJointsMuscles.missingLimbDetails"
+                   name="healthStatement.bonesJointsMuscles.missingLimbDetails"
+                   class="form-control input-sm"
+                   ng-model="healthStatement.bonesJointsMuscles.missingLimbDetails"
+                   ng-show="healthStatement.bonesJointsMuscles.missingLimb">
+        </div>
+
+        <div class="form-group col-sm-8">
+            <input type="checkbox"
+                   id="healthStatement.bonesJointsMuscles.tremblingHands"
+                   name="healthStatement.bonesJointsMuscles.tremblingHands"
+                   class="form-control-static"
+                   ng-model="healthStatement.bonesJointsMuscles.tremblingHands"
+                   ng-change="healthStatement.bonesJointsMuscles.tremblingHandsDetails =
+                        healthStatement.bonesJointsMuscles.tremblingHands ? healthStatement.bonesJointsMuscles.tremblingHandsDetails : '';
+                        healthStatement.bonesJointsMuscles.noComplains = false;">
+            &nbsp;
+            <label class="control-label-left"
+                   for="healthStatement.bonesJointsMuscles.tremblingHands">Trembling hands</label>
+            <input type="text"
+                   id="healthStatement.bonesJointsMuscles.tremblingHandsDetails"
+                   name="healthStatement.bonesJointsMuscles.tremblingHandsDetails"
+                   class="form-control input-sm"
+                   ng-model="healthStatement.bonesJointsMuscles.tremblingHandsDetails"
+                   ng-show="healthStatement.bonesJointsMuscles.tremblingHands">
+        </div>
+
+        <div class="form-group col-sm-8">
+            <input type="checkbox"
+                   id="healthStatement.bonesJointsMuscles.jointPain"
+                   name="healthStatement.bonesJointsMuscles.jointPain"
+                   class="form-control-static"
+                   ng-model="healthStatement.bonesJointsMuscles.jointPain"
+                   ng-change="healthStatement.bonesJointsMuscles.jointPainDetails =
+                        healthStatement.bonesJointsMuscles.jointPain ? healthStatement.bonesJointsMuscles.jointPainDetails : '';
+                        healthStatement.bonesJointsMuscles.noComplains = false;">
+            &nbsp;
+            <label class="control-label-left"
+                   for="healthStatement.bonesJointsMuscles.jointPain">Joint pain</label>
+            <input type="text"
+                   id="healthStatement.bonesJointsMuscles.jointPainDetails"
+                   name="healthStatement.bonesJointsMuscles.jointPainDetails"
+                   class="form-control input-sm"
+                   ng-model="healthStatement.bonesJointsMuscles.jointPainDetails"
+                   ng-show="healthStatement.bonesJointsMuscles.jointPain">
+        </div>
+
+        <div class="form-group col-sm-8">
+            <input type="checkbox"
+                   id="healthStatement.bonesJointsMuscles.neckPain"
+                   name="healthStatement.bonesJointsMuscles.neckPain"
+                   class="form-control-static"
+                   ng-model="healthStatement.bonesJointsMuscles.neckPain"
+                   ng-change="healthStatement.bonesJointsMuscles.neckPainDetails =
+                        healthStatement.bonesJointsMuscles.neckPain ? healthStatement.bonesJointsMuscles.neckPainDetails : '';
+                        healthStatement.bonesJointsMuscles.noComplains = false;">
+            &nbsp;
+            <label class="control-label-left"
+                   for="healthStatement.bonesJointsMuscles.neckPain">Neck pain</label>
+            <input type="text"
+                   id="healthStatement.bonesJointsMuscles.neckPainDetails"
+                   name="healthStatement.bonesJointsMuscles.neckPainDetails"
+                   class="form-control input-sm"
+                   ng-model="healthStatement.bonesJointsMuscles.neckPainDetails"
+                   ng-show="healthStatement.bonesJointsMuscles.neckPain">
+        </div>
+
+        <div class="form-group col-sm-8">
+            <input type="checkbox"
+                   id="healthStatement.bonesJointsMuscles.shoulderPain"
+                   name="healthStatement.bonesJointsMuscles.shoulderPain"
+                   class="form-control-static"
+                   ng-model="healthStatement.bonesJointsMuscles.shoulderPain"
+                   ng-change="healthStatement.bonesJointsMuscles.shoulderPainDetails =
+                        healthStatement.bonesJointsMuscles.shoulderPain ? healthStatement.bonesJointsMuscles.shoulderPainDetails : '';
+                        healthStatement.bonesJointsMuscles.noComplains = false;">
+            &nbsp;
+            <label class="control-label-left"
+                   for="healthStatement.bonesJointsMuscles.shoulderPain">Shoulder pain</label>
+            <input type="text"
+                   id="healthStatement.bonesJointsMuscles.shoulderPainDetails"
+                   name="healthStatement.bonesJointsMuscles.shoulderPainDetails"
+                   class="form-control input-sm"
+                   ng-model="healthStatement.bonesJointsMuscles.shoulderPainDetails"
+                   ng-show="healthStatement.bonesJointsMuscles.shoulderPain">
+        </div>
+
+        <div class="form-group col-sm-8">
+            <input type="checkbox"
+                   id="healthStatement.bonesJointsMuscles.lowerBackPain"
+                   name="healthStatement.bonesJointsMuscles.lowerBackPain"
+                   class="form-control-static"
+                   ng-model="healthStatement.bonesJointsMuscles.lowerBackPain"
+                   ng-change="healthStatement.bonesJointsMuscles.lowerBackPainDetails =
+                        healthStatement.bonesJointsMuscles.lowerBackPain ? healthStatement.bonesJointsMuscles.lowerBackPainDetails : '';
+                        healthStatement.bonesJointsMuscles.noComplains = false;">
+            &nbsp;
+            <label class="control-label-left"
+                   for="healthStatement.bonesJointsMuscles.lowerBackPain">Lower back pain</label>
+            <input type="text"
+                   id="healthStatement.bonesJointsMuscles.lowerBackPainDetails"
+                   name="healthStatement.bonesJointsMuscles.lowerBackPainDetails"
+                   class="form-control input-sm"
+                   ng-model="healthStatement.bonesJointsMuscles.lowerBackPainDetails"
+                   ng-show="healthStatement.bonesJointsMuscles.lowerBackPain">
+        </div>
+
+        <div class="form-group col-sm-8">
+            <input type="checkbox"
+                   id="healthStatement.bonesJointsMuscles.otherDisease"
+                   name="healthStatement.bonesJointsMuscles.otherDisease"
+                   class="form-control-static"
+                   ng-model="healthStatement.bonesJointsMuscles.otherDisease"
+                   ng-change="healthStatement.bonesJointsMuscles.otherDiseaseDetails =
+                        healthStatement.bonesJointsMuscles.otherDisease ? healthStatement.bonesJointsMuscles.otherDiseaseDetails : '';
+                        healthStatement.bonesJointsMuscles.noComplains = false;">
+            &nbsp;
+            <label class="control-label-left"
+                   for="healthStatement.bonesJointsMuscles.otherDisease">Other disease / condition / symptom (please specify)</label>
+            <input type="text"
+                   id="healthStatement.bonesJointsMuscles.otherDiseaseDetails"
+                   name="healthStatement.bonesJointsMuscles.otherDiseaseDetails"
+                   class="form-control input-sm"
+                   ng-model="healthStatement.bonesJointsMuscles.otherDiseaseDetails"
+                   ng-show="healthStatement.bonesJointsMuscles.otherDisease">
+        </div>
+    </div>
+</accordion-group>

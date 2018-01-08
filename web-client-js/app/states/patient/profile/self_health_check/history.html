@@ -1,0 +1,284 @@
+<ol class="breadcrumb">
+    <li><a ui-sref="personalPortal.patient.dashboard">Dashboard</a></li>
+    <li><a ui-sref="personalPortal.patient.profile.selfHealthCheck">Self health check</a></li>
+    <li class="active">History</li>
+</ol>
+<div class="col-md-8">
+    <h3>Self health check history</h3>
+    <br/>
+    <form novalidate role="form" class="form-horizontal" name="historyForm">
+        <div class="form-group">
+            <label class="col-sm-1 control-label">From</label>
+
+            <div class="col-sm-3">
+                        <span class="input-group">
+                            <input type="text"
+                                   class="form-control input-sm"
+                                   name="history.startDate"
+                                   datetime-picker="dd/MM/yyyy"
+                                   ng-model="history.startDate"
+                                   is-open="datepickerState.startDateOpened"
+                                   enable-time="false"
+                                   max-date="{{today}}"
+                                   datepicker-options="dateOptions"
+                                   timepicker-options="timeOptions"/>
+
+                            <span class="input-group-btn">
+                                <button type="button" class="btn btn-sm" ng-click="openStartDate($event)"><i
+                                        class="glyphicon glyphicon-calendar"></i></button>
+                            </span>
+                        </span>
+            </div>
+
+            <label class="col-sm-1 control-label">to</label>
+
+            <div class="col-sm-3">
+                        <span class="input-group">
+                            <input type="text"
+                                   class="form-control input-sm"
+                                   name="history.endDate"
+                                   datetime-picker="dd/MM/yyyy"
+                                   ng-model="history.endDate"
+                                   is-open="datepickerState.endDateOpened"
+                                   enable-time="false"
+                                   max-date="{{today}}"
+                                   datepicker-options="dateOptions"
+                                   timepicker-options="timeOptions"/>
+
+                            <span class="input-group-btn">
+                                <button type="button" class="btn btn-sm" ng-click="openEndDate($event)"><i
+                                        class="glyphicon glyphicon-calendar"></i></button>
+                            </span>
+                        </span>
+            </div>
+
+            <div class="col-sm-2">
+                <input type="submit" class="btn btn-default" ng-click="show()" value="show"/>
+            </div>
+        </div>
+    </form>
+
+    <div ng-show="selfHealthChecks.length > 0">
+        <tabset>
+            <tab>
+                <tab-heading>
+                    List
+                </tab-heading>
+                </br>
+                <div class="self-health-check-outer">
+                    <div class="col-sm-9">
+                        <table st-table="selfHealthChecksDisplay" st-safe-src="selfHealthChecks"
+                               class="table table-striped table-small">
+                            <thead>
+                            <tr>
+                                <th st-sort="date">Date</th>
+                            </tr>
+                            <!--<tr>-->
+                            <!--<th>-->
+                            <!--<input st-search="'date'" placeholder="Search by date" class="input-sm form-control" type="search"/>-->
+                            <!--</th>-->
+                            <!--</tr>-->
+                            </thead>
+                            <tbody>
+                            <tr ng-repeat="selfHealthCheck in selfHealthChecksDisplay">
+                                <td><a ui-sref="personalPortal.patient.profile.selfHealthCheck.check({id:selfHealthCheck.id})">Filled in on {{selfHealthCheck.date
+                                    | date: "MM/dd/yyyy 'at' HH:mm:ss"}}</a></td>
+                            </tr>
+                            </tbody>
+                            <tfoot>
+                            <tr>
+                                <td colspan="4" class="text-center">
+                                    <div st-pagination="" st-items-by-page="itemsByPage" st-displayed-pages="10"></div>
+                                </td>
+                            </tr>
+                            </tfoot>
+                        </table>
+                    </div>
+                </div>
+            </tab>
+            <tab>
+                <tab-heading>
+                    Visual
+                </tab-heading>
+                </br>
+                <div class="self-health-check-outer">
+                    <div class="self-health-check-inner">
+                        <table class="self-health-check-table" cellspacing="0">
+                            <tr>
+                                <td class="header">&nbsp;</td>
+                                <td class="rotate no-border" ng-repeat="selfHealthCheck in selfHealthChecks">
+                                    <div><span>{{selfHealthCheck.date | date : "dd/MM/yyyy HH:mm:ss"}}</span></div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="header">peavalu</td>
+                                    <td ng-repeat="selfHealthCheck in selfHealthChecks">
+                                    <i class="fa fa-check" ng-show="selfHealthCheck.headache"></i>
+                                    <span ng-hide="selfHealthCheck.headache">&nbsp;</span>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="header">valu luudes-liigestes</td>
+                                <td ng-repeat="selfHealthCheck in selfHealthChecks">
+                                    <i class="fa fa-check" ng-show="selfHealthCheck.painInBones"></i>
+                                    <span ng-hide="selfHealthCheck.painInBones">&nbsp;</span>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="header">valu hingamisteedes</td>
+                                <td ng-repeat="selfHealthCheck in selfHealthChecks">
+                                    <i class="fa fa-check" ng-show="selfHealthCheck.painInRespiratoryTract"></i>
+                                    <span ng-hide="selfHealthCheck.painInRespiratoryTract">&nbsp;</span>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="header">valu ülakõhus</td>
+                                <td ng-repeat="selfHealthCheck in selfHealthChecks">
+                                    <i class="fa fa-check" ng-show="selfHealthCheck.stomachacheTop"></i>
+                                    <span ng-hide="selfHealthCheck.stomachacheTop">&nbsp;</span>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="header">valu kõhu keskosas</td>
+                                <td ng-repeat="selfHealthCheck in selfHealthChecks">
+                                    <i class="fa fa-check" ng-show="selfHealthCheck.stomachacheMiddle"></i>
+                                    <span ng-hide="selfHealthCheck.stomachacheMiddle">&nbsp;</span>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="header">valu alakõhus</td>
+                                <td ng-repeat="selfHealthCheck in selfHealthChecks">
+                                    <i class="fa fa-check" ng-show="selfHealthCheck.stomachacheBottom"></i>
+                                    <span ng-hide="selfHealthCheck.stomachacheBottom">&nbsp;</span>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="header">nohu</td>
+                                <td ng-repeat="selfHealthCheck in selfHealthChecks">
+                                    <i class="fa fa-check" ng-show="selfHealthCheck.rheum"></i>
+                                    <span ng-hide="selfHealthCheck.rheum">&nbsp;</span>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="header">köha</td>
+                                <td ng-repeat="selfHealthCheck in selfHealthChecks">
+                                    <i class="fa fa-check" ng-show="selfHealthCheck.cough"></i>
+                                    <span ng-hide="selfHealthCheck.cough">&nbsp;</span>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="header">kurgus</td>
+                                <td ng-repeat="selfHealthCheck in selfHealthChecks">
+                                    <i class="fa fa-check" ng-show="selfHealthCheck.painInThroat"></i>
+                                    <span ng-hide="selfHealthCheck.painInThroat">&nbsp;</span>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="header">kopsudes</td>
+                                <td ng-repeat="selfHealthCheck in selfHealthChecks">
+                                    <i class="fa fa-check" ng-show="selfHealthCheck.painInLungs"></i>
+                                    <span ng-hide="selfHealthCheck.painInLungs">&nbsp;</span>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="header">nohu ja kurguvaevused</td>
+                                <td ng-repeat="selfHealthCheck in selfHealthChecks">
+                                    <i class="fa fa-check" ng-show="selfHealthCheck.rheumAndThroat"></i>
+                                    <span ng-hide="selfHealthCheck.rheumAndThroat">&nbsp;</span>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="header">pisted südamepiirkonnas</td>
+                                <td ng-repeat="selfHealthCheck in selfHealthChecks">
+                                    <i class="fa fa-check" ng-show="selfHealthCheck.stitchesInHeartZone"></i>
+                                    <span ng-hide="selfHealthCheck.stitchesInHeartZone">&nbsp;</span>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="header">pisted mujal kehas</td>
+                                <td ng-repeat="selfHealthCheck in selfHealthChecks">
+                                    <i class="fa fa-check" ng-show="selfHealthCheck.stitchesInOtherBodyParts"></i>
+                                    <span ng-hide="selfHealthCheck.stitchesInOtherBodyParts">&nbsp;</span>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="header">südame rütmihäired</td>
+                                <td ng-repeat="selfHealthCheck in selfHealthChecks">
+                                    <i class="fa fa-check" ng-show="selfHealthCheck.cardiacRhythmDisorders"></i>
+                                    <span ng-hide="selfHealthCheck.cardiacRhythmDisorders">&nbsp;</span>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="header">palavik, külmavärinad</td>
+                                <td ng-repeat="selfHealthCheck in selfHealthChecks">
+                                    <i class="fa fa-check" ng-show="selfHealthCheck.fever"></i>
+                                    <span ng-hide="selfHealthCheck.fever">&nbsp;</span>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="header">iiveldustunne, oksendamine</td>
+                                <td ng-repeat="selfHealthCheck in selfHealthChecks">
+                                    <i class="fa fa-check" ng-show="selfHealthCheck.vomiting"></i>
+                                    <span ng-hide="selfHealthCheck.vomiting">&nbsp;</span>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="header">kõhulahtisus</td>
+                                <td ng-repeat="selfHealthCheck in selfHealthChecks">
+                                    <i class="fa fa-check" ng-show="selfHealthCheck.diarrhea"></i>
+                                    <span ng-hide="selfHealthCheck.diarrhea">&nbsp;</span>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="header">trauma</td>
+                                <td ng-repeat="selfHealthCheck in selfHealthChecks">
+                                    <i class="fa fa-check" ng-show="selfHealthCheck.injury"></i>
+                                    <span ng-hide="selfHealthCheck.injury">&nbsp;</span>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="header">nähtav põletik</td>
+                                <td ng-repeat="selfHealthCheck in selfHealthChecks">
+                                    <i class="fa fa-check" ng-show="selfHealthCheck.inflammationVisible"></i>
+                                    <span ng-hide="selfHealthCheck.inflammationVisible">&nbsp;</span>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="header">nähtamata põletik</td>
+                                <td ng-repeat="selfHealthCheck in selfHealthChecks">
+                                    <i class="fa fa-check" ng-show="selfHealthCheck.inflammationNotVisible"></i>
+                                    <span ng-hide="selfHealthCheck.inflammationNotVisible">&nbsp;</span>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="header">urineerimishäired</td>
+                                <td ng-repeat="selfHealthCheck in selfHealthChecks">
+                                    <i class="fa fa-check" ng-show="selfHealthCheck.urination"></i>
+                                    <span ng-hide="selfHealthCheck.urination">&nbsp;</span>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="header">ängistus </td>
+                                <td ng-repeat="selfHealthCheck in selfHealthChecks">
+                                    <i class="fa fa-check" ng-show="selfHealthCheck.anxiety"></i>
+                                    <span ng-hide="selfHealthCheck.anxiety">&nbsp;</span>
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+            </tab>
+        </tabset>
+    </div>
+    <div ng-show="selfHealthChecks.length == 0">
+        <p>
+            No data found
+        </p>
+    </div>
+    <br/>
+    <br/>
+    <br/>
+    <div>
+        <a ui-sref="personalPortal.patient.profile.selfHealthCheck.check" class="btn btn-primary">Fill self health check questionnaire</a>
+    </div>
+</div>

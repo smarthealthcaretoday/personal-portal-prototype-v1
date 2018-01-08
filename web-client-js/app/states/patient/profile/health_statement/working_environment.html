@@ -1,0 +1,47 @@
+<accordion-group heading="Working environment">
+    <div ng-form="workingEnvironment">
+        <h4>Working environment</h4>
+
+        <div class="form-group col-sm-8">
+            <div style="white-space:nowrap">
+                <input type="checkbox"
+                       id="healthStatement.workingEnvironment.restrictions"
+                       name="healthStatement.workingEnvironment.restrictions"
+                       class="form-control-static"
+                       ng-model="healthStatement.workingEnvironment.restrictions"
+                       ng-change="healthStatement.workingEnvironment.restrictionsDetails =
+                            healthStatement.workingEnvironment.restrictions ? healthStatement.workingEnvironment.restrictionsDetails : '';">
+                &nbsp;
+                <label class="control-label-left" for="healthStatement.workingEnvironment.restrictions">Have you had any work restrictions recommended by a physician </label>
+            </div>
+            <label class="control-label-left" for="healthStatement.workingEnvironment.restrictions"> or licenced health care professional? If so, please specify.</label>
+            <input type="text"
+                   id="healthStatement.workingEnvironment.restrictionsDetails"
+                   name="healthStatement.workingEnvironment.restrictionsDetails"
+                   class="form-control input-sm"
+                   ng-model="healthStatement.workingEnvironment.restrictionsDetails"
+                   ng-show="healthStatement.workingEnvironment.restrictions">
+        </div>
+
+        <div class="form-group col-sm-8">
+            <div style="white-space:nowrap">
+                <input type="checkbox"
+                       id="healthStatement.workingEnvironment.healthProblems"
+                       name="healthStatement.workingEnvironment.healthProblems"
+                       class="form-control-static"
+                       ng-model="healthStatement.workingEnvironment.healthProblems"
+                       ng-change="healthStatement.workingEnvironment.healthProblemsDetails =
+                            healthStatement.workingEnvironment.healthProblems ? healthStatement.workingEnvironment.healthProblemsDetails : '';">
+                &nbsp;
+                <label class="control-label-left" for="healthStatement.workingEnvironment.healthProblems">Do you currently have or have had any health problems that are</label>
+                </div>
+            <label class="control-label-left" for="healthStatement.workingEnvironment.healthProblems"> related to your work or working environment?</label>
+            <input type="text"
+                   id="healthStatement.workingEnvironment.healthProblemsDetails"
+                   name="healthStatement.workingEnvironment.healthProblemsDetails"
+                   class="form-control input-sm"
+                   ng-model="healthStatement.workingEnvironment.healthProblemsDetails"
+                   ng-show="healthStatement.workingEnvironment.healthProblems">
+        </div>
+    </div>
+</accordion-group>

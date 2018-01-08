@@ -1,0 +1,148 @@
+<accordion-group heading="Nervous system">
+    <div ng-form="nervousSystem">
+        <h4>Nervous system</h4>
+
+        <div class="form-group col-sm-8">
+            <input type="checkbox"
+                   id="healthStatement.nervousSystem.noComplains"
+                   name="healthStatement.nervousSystem.noComplains"
+                   class="form-control-static"
+                   ng-model="healthStatement.nervousSystem.noComplains"
+                   ng-change="healthStatement.nervousSystem.faintingSpells = false;
+                              healthStatement.nervousSystem.faintingSpellsDetails = '';
+                              healthStatement.nervousSystem.convulsions = false;
+                              healthStatement.nervousSystem.convulsionsDetails = '';
+                              healthStatement.nervousSystem.balanceDisorders = false;
+                              healthStatement.nervousSystem.balanceDisordersDetails = '';
+                              healthStatement.nervousSystem.cerebralInfarction = false;
+                              healthStatement.nervousSystem.cerebralInfarctionDetails = '';
+                              healthStatement.nervousSystem.seasickness = false;
+                              healthStatement.nervousSystem.seasicknessDetails = '';
+                              healthStatement.nervousSystem.otherDisease = false;
+                              healthStatement.nervousSystem.otherDiseaseDetails = '';">
+            &nbsp;
+            <label class="control-label-left"
+                   for="healthStatement.nervousSystem.noComplains">No complains</label>
+        </div>
+
+        <div class="form-group col-sm-8">
+            <input type="checkbox"
+                   id="healthStatement.nervousSystem.faintingSpells"
+                   name="healthStatement.nervousSystem.faintingSpells"
+                   class="form-control-static"
+                   ng-model="healthStatement.nervousSystem.faintingSpells"
+                   ng-change="healthStatement.nervousSystem.faintingSpellsDetails =
+                        healthStatement.nervousSystem.faintingSpells ? healthStatement.nervousSystem.faintingSpellsDetails : '';
+                        healthStatement.nervousSystem.noComplains = false;">
+            &nbsp;
+            <label class="control-label-left"
+                   for="healthStatement.nervousSystem.faintingSpells">Fainting spells (syncope)</label>
+            <input type="text"
+                   id="healthStatement.nervousSystem.faintingSpellsDetails"
+                   name="healthStatement.nervousSystem.faintingSpellsDetails"
+                   class="form-control input-sm"
+                   ng-model="healthStatement.nervousSystem.faintingSpellsDetails"
+                   ng-show="healthStatement.nervousSystem.faintingSpells">
+        </div>
+
+        <div class="form-group col-sm-8">
+            <input type="checkbox"
+                   id="healthStatement.nervousSystem.convulsions"
+                   name="healthStatement.nervousSystem.convulsions"
+                   class="form-control-static"
+                   ng-model="healthStatement.nervousSystem.convulsions"
+                   ng-change="healthStatement.nervousSystem.convulsionsDetails =
+                        healthStatement.nervousSystem.convulsions ? healthStatement.nervousSystem.convulsionsDetails : '';
+                        healthStatement.nervousSystem.noComplains = false;">
+            &nbsp;
+            <label class="control-label-left"
+                   for="healthStatement.nervousSystem.convulsions">Convulsions (epilepsy)</label>
+            <input type="text"
+                   id="healthStatement.nervousSystem.convulsionsDetails"
+                   name="healthStatement.nervousSystem.convulsionsDetails"
+                   class="form-control input-sm"
+                   ng-model="healthStatement.nervousSystem.convulsionsDetails"
+                   ng-show="healthStatement.nervousSystem.convulsions">
+        </div>
+
+        <div class="form-group col-sm-8">
+            <input type="checkbox"
+                   id="healthStatement.nervousSystem.balanceDisorders"
+                   name="healthStatement.nervousSystem.balanceDisorders"
+                   class="form-control-static"
+                   ng-model="healthStatement.nervousSystem.balanceDisorders"
+                   ng-change="healthStatement.nervousSystem.balanceDisordersDetails =
+                        healthStatement.nervousSystem.balanceDisorders ? healthStatement.nervousSystem.balanceDisordersDetails : '';
+                        healthStatement.nervousSystem.noComplains = false;">
+            &nbsp;
+            <label class="control-label-left"
+                   for="healthStatement.nervousSystem.balanceDisorders">Balance disorders (incl. Meniere's disease)</label>
+            <input type="text"
+                   id="healthStatement.nervousSystem.balanceDisordersDetails"
+                   name="healthStatement.nervousSystem.balanceDisordersDetails"
+                   class="form-control input-sm"
+                   ng-model="healthStatement.nervousSystem.balanceDisordersDetails"
+                   ng-show="healthStatement.nervousSystem.balanceDisorders">
+        </div>
+
+        <div class="form-group col-sm-8">
+            <input type="checkbox"
+                   id="healthStatement.nervousSystem.cerebralInfarction"
+                   name="healthStatement.nervousSystem.cerebralInfarction"
+                   class="form-control-static"
+                   ng-model="healthStatement.nervousSystem.cerebralInfarction"
+                   ng-change="healthStatement.nervousSystem.cerebralInfarctionDetails =
+                        healthStatement.nervousSystem.cerebralInfarction ? healthStatement.nervousSystem.cerebralInfarctionDetails : '';
+                        healthStatement.nervousSystem.noComplains = false;">
+            &nbsp;
+            <label class="control-label-left"
+                   for="healthStatement.nervousSystem.cerebralInfarction">Cerebral infarction or stroke</label>
+            <input type="text"
+                   id="healthStatement.nervousSystem.cerebralInfarctionDetails"
+                   name="healthStatement.nervousSystem.cerebralInfarctionDetails"
+                   class="form-control input-sm"
+                   ng-model="healthStatement.nervousSystem.cerebralInfarctionDetails"
+                   ng-show="healthStatement.nervousSystem.cerebralInfarction">
+        </div>
+
+        <div class="form-group col-sm-8">
+            <input type="checkbox"
+                   id="healthStatement.nervousSystem.seasickness"
+                   name="healthStatement.nervousSystem.seasickness"
+                   class="form-control-static"
+                   ng-model="healthStatement.nervousSystem.seasickness"
+                   ng-change="healthStatement.nervousSystem.seasicknessDetails =
+                        healthStatement.nervousSystem.seasickness ? healthStatement.nervousSystem.seasicknessDetails : '';
+                        healthStatement.nervousSystem.noComplains = false;">
+            &nbsp;
+            <label class="control-label-left"
+                   for="healthStatement.nervousSystem.seasickness">Seasickness</label>
+            <input type="text"
+                   id="healthStatement.nervousSystem.seasicknessDetails"
+                   name="healthStatement.nervousSystem.seasicknessDetails"
+                   class="form-control input-sm"
+                   ng-model="healthStatement.nervousSystem.seasicknessDetails"
+                   ng-show="healthStatement.nervousSystem.seasickness">
+        </div>
+
+        <div class="form-group col-sm-8">
+            <input type="checkbox"
+                   id="healthStatement.nervousSystem.otherDisease"
+                   name="healthStatement.nervousSystem.otherDisease"
+                   class="form-control-static"
+                   ng-model="healthStatement.nervousSystem.otherDisease"
+                   ng-change="healthStatement.nervousSystem.otherDiseaseDetails =
+                        healthStatement.nervousSystem.otherDisease ? healthStatement.nervousSystem.otherDiseaseDetails : '';
+                        healthStatement.nervousSystem.noComplains = false;">
+            &nbsp;
+            <label class="control-label-left"
+                   for="healthStatement.nervousSystem.otherDisease">Other disease / condition / symptom (please specify)</label>
+            <input type="text"
+                   id="healthStatement.nervousSystem.otherDiseaseDetails"
+                   name="healthStatement.nervousSystem.otherDiseaseDetails"
+                   class="form-control input-sm"
+                   ng-model="healthStatement.nervousSystem.otherDiseaseDetails"
+                   ng-show="healthStatement.nervousSystem.otherDisease">
+        </div>
+    </div>
+</accordion-group>

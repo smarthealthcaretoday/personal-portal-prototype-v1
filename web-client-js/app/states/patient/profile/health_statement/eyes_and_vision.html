@@ -1,0 +1,126 @@
+<accordion-group heading="Eyes and vision">
+    <div ng-form="eyesAndVision">
+        <h4>Eyes and vision</h4>
+
+        <div class="form-group col-sm-9">
+            <input type="checkbox"
+                   id="healthStatement.eyesAndVision.noComplains"
+                   name="healthStatement.eyesAndVision.noComplains"
+                   class="form-control-static"
+                   ng-model="healthStatement.eyesAndVision.noComplains"
+                   ng-change="healthStatement.eyesAndVision.shortsightedness = false;
+                              healthStatement.eyesAndVision.shortsightednessDetails = '';
+                              healthStatement.eyesAndVision.visualFieldRestriction = false;
+                              healthStatement.eyesAndVision.visualFieldRestrictionDetails = '';
+                              healthStatement.eyesAndVision.doubleVision = false;
+                              healthStatement.eyesAndVision.doubleVisionDetails = '';
+                              healthStatement.eyesAndVision.colourVisionDisorders = false;
+                              healthStatement.eyesAndVision.colourVisionDisordersDetails = '';
+                              healthStatement.eyesAndVision.otherDisease = false;
+                              healthStatement.eyesAndVision.otherDiseaseDetails = '';">
+            &nbsp;
+            <label class="control-label-left"
+                   for="healthStatement.eyesAndVision.noComplains">No complains</label>
+        </div>
+
+        <div class="form-group col-sm-9">
+            <input type="checkbox"
+                   id="healthStatement.eyesAndVision.shortsightedness"
+                   name="healthStatement.eyesAndVision.shortsightedness"
+                   class="form-control-static"
+                   ng-model="healthStatement.eyesAndVision.shortsightedness"
+                   ng-change="healthStatement.eyesAndVision.shortsightednessDetails =
+                        healthStatement.eyesAndVision.shortsightedness ? healthStatement.eyesAndVision.shortsightednessDetails : '';
+                        healthStatement.eyesAndVision.noComplains = false;">
+            &nbsp;
+            <label class="control-label-left"
+                   for="healthStatement.eyesAndVision.shortsightedness">Short-sightedness</label>
+            <input type="text"
+                   id="healthStatement.eyesAndVision.shortsightednessDetails"
+                   name="healthStatement.eyesAndVision.shortsightednessDetails"
+                   class="form-control input-sm"
+                   ng-model="healthStatement.eyesAndVision.shortsightednessDetails"
+                   ng-show="healthStatement.eyesAndVision.shortsightedness">
+        </div>
+
+        <div class="form-group col-sm-9">
+            <input type="checkbox"
+                   id="healthStatement.eyesAndVision.visualFieldRestriction"
+                   name="healthStatement.eyesAndVision.visualFieldRestriction"
+                   class="form-control-static"
+                   ng-model="healthStatement.eyesAndVision.visualFieldRestriction"
+                   ng-change="healthStatement.eyesAndVision.visualFieldRestrictionDetails =
+                        healthStatement.eyesAndVision.visualFieldRestriction ? healthStatement.eyesAndVision.visualFieldRestrictionDetails : '';
+                        healthStatement.eyesAndVision.noComplains = false;">
+            &nbsp;
+            <label class="control-label-left"
+                   for="healthStatement.eyesAndVision.visualFieldRestriction">Visual field restriction when looking up and down or to the sides?</label>
+            <input type="text"
+                   id="healthStatement.eyesAndVision.visualFieldRestrictionDetails"
+                   name="healthStatement.eyesAndVision.visualFieldRestrictionDetails"
+                   class="form-control input-sm"
+                   ng-model="healthStatement.eyesAndVision.visualFieldRestrictionDetails"
+                   ng-show="healthStatement.eyesAndVision.visualFieldRestriction">
+        </div>
+
+        <div class="form-group col-sm-9">
+            <input type="checkbox"
+                   id="healthStatement.eyesAndVision.doubleVision"
+                   name="healthStatement.eyesAndVision.doubleVision"
+                   class="form-control-static"
+                   ng-model="healthStatement.eyesAndVision.doubleVision"
+                   ng-change="healthStatement.eyesAndVision.doubleVisionDetails =
+                        healthStatement.eyesAndVision.doubleVision ? healthStatement.eyesAndVision.doubleVisionDetails : '';
+                        healthStatement.eyesAndVision.noComplains = false;">
+            &nbsp;
+            <label class="control-label-left"
+                   for="healthStatement.eyesAndVision.doubleVision">Double vision</label>
+            <input type="text"
+                   id="healthStatement.eyesAndVision.doubleVisionDetails"
+                   name="healthStatement.eyesAndVision.doubleVisionDetails"
+                   class="form-control input-sm"
+                   ng-model="healthStatement.eyesAndVision.doubleVisionDetails"
+                   ng-show="healthStatement.eyesAndVision.doubleVision">
+        </div>
+
+        <div class="form-group col-sm-9">
+            <input type="checkbox"
+                   id="healthStatement.eyesAndVision.colourVisionDisorders"
+                   name="healthStatement.eyesAndVision.colourVisionDisorders"
+                   class="form-control-static"
+                   ng-model="healthStatement.eyesAndVision.colourVisionDisorders"
+                   ng-change="healthStatement.eyesAndVision.colourVisionDisordersDetails =
+                        healthStatement.eyesAndVision.colourVisionDisorders ? healthStatement.eyesAndVision.colourVisionDisordersDetails : '';
+                        healthStatement.eyesAndVision.noComplains = false;">
+            &nbsp;
+            <label class="control-label-left"
+                   for="healthStatement.eyesAndVision.colourVisionDisorders">Colour vision disorders</label>
+            <input type="text"
+                   id="healthStatement.eyesAndVision.colourVisionDisordersDetails"
+                   name="healthStatement.eyesAndVision.colourVisionDisordersDetails"
+                   class="form-control input-sm"
+                   ng-model="healthStatement.eyesAndVision.colourVisionDisordersDetails"
+                   ng-show="healthStatement.eyesAndVision.colourVisionDisorders">
+        </div>
+
+        <div class="form-group col-sm-9">
+            <input type="checkbox"
+                   id="healthStatement.eyesAndVision.otherDisease"
+                   name="healthStatement.eyesAndVision.otherDisease"
+                   class="form-control-static"
+                   ng-model="healthStatement.eyesAndVision.otherDisease"
+                   ng-change="healthStatement.eyesAndVision.otherDiseaseDetails =
+                        healthStatement.eyesAndVision.otherDisease ? healthStatement.eyesAndVision.otherDiseaseDetails : '';
+                        healthStatement.eyesAndVision.noComplains = false;">
+            &nbsp;
+            <label class="control-label-left"
+                   for="healthStatement.eyesAndVision.otherDisease">Other disease / condition / symptom (please specify)</label>
+            <input type="text"
+                   id="healthStatement.eyesAndVision.otherDiseaseDetails"
+                   name="healthStatement.eyesAndVision.otherDiseaseDetails"
+                   class="form-control input-sm"
+                   ng-model="healthStatement.eyesAndVision.otherDiseaseDetails"
+                   ng-show="healthStatement.eyesAndVision.otherDisease">
+        </div>
+    </div>
+</accordion-group>

@@ -1,0 +1,126 @@
+<accordion-group heading="Digestive organs">
+    <div ng-form="digestiveOrgans">
+        <h4>Digestive organs</h4>
+
+        <div class="form-group col-sm-8">
+            <input type="checkbox"
+                   id="healthStatement.digestiveOrgans.noComplains"
+                   name="healthStatement.digestiveOrgans.noComplains"
+                   class="form-control-static"
+                   ng-model="healthStatement.digestiveOrgans.noComplains"
+                   ng-change="healthStatement.digestiveOrgans.liverDisease = false;
+                              healthStatement.digestiveOrgans.liverDiseaseDetails = '';
+                              healthStatement.digestiveOrgans.gallstones = false;
+                              healthStatement.digestiveOrgans.gallstonesDetails = '';
+                              healthStatement.digestiveOrgans.gastricDuodenalUlcers = false;
+                              healthStatement.digestiveOrgans.gastricDuodenalUlcersDetails = '';
+                              healthStatement.digestiveOrgans.ulcerativeColitis = false;
+                              healthStatement.digestiveOrgans.ulcerativeColitisDetails = '';
+                              healthStatement.digestiveOrgans.otherDisease = false;
+                              healthStatement.digestiveOrgans.otherDiseaseDetails = '';">
+            &nbsp;
+            <label class="control-label-left"
+                   for="healthStatement.digestiveOrgans.noComplains">No complains</label>
+        </div>
+
+        <div class="form-group col-sm-8">
+            <input type="checkbox"
+                   id="healthStatement.digestiveOrgans.liverDisease"
+                   name="healthStatement.digestiveOrgans.liverDisease"
+                   class="form-control-static"
+                   ng-model="healthStatement.digestiveOrgans.liverDisease"
+                   ng-change="healthStatement.digestiveOrgans.liverDiseaseDetails =
+                        healthStatement.digestiveOrgans.liverDisease ? healthStatement.digestiveOrgans.liverDiseaseDetails : '';
+                        healthStatement.digestiveOrgans.noComplains = false;">
+            &nbsp;
+            <label class="control-label-left"
+                   for="healthStatement.digestiveOrgans.liverDisease">Liver disease</label>
+            <input type="text"
+                   id="healthStatement.digestiveOrgans.liverDiseaseDetails"
+                   name="healthStatement.digestiveOrgans.liverDiseaseDetails"
+                   class="form-control input-sm"
+                   ng-model="healthStatement.digestiveOrgans.liverDiseaseDetails"
+                   ng-show="healthStatement.digestiveOrgans.liverDisease">
+        </div>
+
+        <div class="form-group col-sm-8">
+            <input type="checkbox"
+                   id="healthStatement.digestiveOrgans.gallstones"
+                   name="healthStatement.digestiveOrgans.gallstones"
+                   class="form-control-static"
+                   ng-model="healthStatement.digestiveOrgans.gallstones"
+                   ng-change="healthStatement.digestiveOrgans.gallstonesDetails =
+                        healthStatement.digestiveOrgans.gallstones ? healthStatement.digestiveOrgans.gallstonesDetails : '';
+                        healthStatement.digestiveOrgans.noComplains = false;">
+            &nbsp;
+            <label class="control-label-left"
+                   for="healthStatement.digestiveOrgans.gallstones">Gallstones</label>
+            <input type="text"
+                   id="healthStatement.digestiveOrgans.gallstonesDetails"
+                   name="healthStatement.digestiveOrgans.gallstonesDetails"
+                   class="form-control input-sm"
+                   ng-model="healthStatement.digestiveOrgans.gallstonesDetails"
+                   ng-show="healthStatement.digestiveOrgans.gallstones">
+        </div>
+
+        <div class="form-group col-sm-8">
+            <input type="checkbox"
+                   id="healthStatement.digestiveOrgans.gastricDuodenalUlcers"
+                   name="healthStatement.digestiveOrgans.gastricDuodenalUlcers"
+                   class="form-control-static"
+                   ng-model="healthStatement.digestiveOrgans.gastricDuodenalUlcers"
+                   ng-change="healthStatement.digestiveOrgans.gastricDuodenalUlcersDetails =
+                        healthStatement.digestiveOrgans.gastricDuodenalUlcers ? healthStatement.digestiveOrgans.gastricDuodenalUlcersDetails : '';
+                        healthStatement.digestiveOrgans.noComplains = false;">
+            &nbsp;
+            <label class="control-label-left"
+                   for="healthStatement.digestiveOrgans.gastricDuodenalUlcers">Gastric and duodenal ulcers</label>
+            <input type="text"
+                   id="healthStatement.digestiveOrgans.gastricDuodenalUlcersDetails"
+                   name="healthStatement.digestiveOrgans.gastricDuodenalUlcersDetails"
+                   class="form-control input-sm"
+                   ng-model="healthStatement.digestiveOrgans.gastricDuodenalUlcersDetails"
+                   ng-show="healthStatement.digestiveOrgans.gastricDuodenalUlcers">
+        </div>
+
+        <div class="form-group col-sm-8">
+            <input type="checkbox"
+                   id="healthStatement.digestiveOrgans.ulcerativeColitis"
+                   name="healthStatement.digestiveOrgans.ulcerativeColitis"
+                   class="form-control-static"
+                   ng-model="healthStatement.digestiveOrgans.ulcerativeColitis"
+                   ng-change="healthStatement.digestiveOrgans.ulcerativeColitisDetails =
+                        healthStatement.digestiveOrgans.ulcerativeColitis ? healthStatement.digestiveOrgans.ulcerativeColitisDetails : '';
+                        healthStatement.digestiveOrgans.noComplains = false;">
+            &nbsp;
+            <label class="control-label-left"
+                   for="healthStatement.digestiveOrgans.ulcerativeColitis">Ulcerative colitis or Crohn's disease</label>
+            <input type="text"
+                   id="healthStatement.digestiveOrgans.ulcerativeColitisDetails"
+                   name="healthStatement.digestiveOrgans.ulcerativeColitisDetails"
+                   class="form-control input-sm"
+                   ng-model="healthStatement.digestiveOrgans.ulcerativeColitisDetails"
+                   ng-show="healthStatement.digestiveOrgans.ulcerativeColitis">
+        </div>
+
+        <div class="form-group col-sm-8">
+            <input type="checkbox"
+                   id="healthStatement.digestiveOrgans.otherDisease"
+                   name="healthStatement.digestiveOrgans.otherDisease"
+                   class="form-control-static"
+                   ng-model="healthStatement.digestiveOrgans.otherDisease"
+                   ng-change="healthStatement.digestiveOrgans.otherDiseaseDetails =
+                        healthStatement.digestiveOrgans.otherDisease ? healthStatement.digestiveOrgans.otherDiseaseDetails : '';
+                        healthStatement.digestiveOrgans.noComplains = false;">
+            &nbsp;
+            <label class="control-label-left"
+                   for="healthStatement.digestiveOrgans.otherDisease">Other disease / condition / symptom (please specify)</label>
+            <input type="text"
+                   id="healthStatement.digestiveOrgans.otherDiseaseDetails"
+                   name="healthStatement.digestiveOrgans.otherDiseaseDetails"
+                   class="form-control input-sm"
+                   ng-model="healthStatement.digestiveOrgans.otherDiseaseDetails"
+                   ng-show="healthStatement.digestiveOrgans.otherDisease">
+        </div>
+    </div>
+</accordion-group>

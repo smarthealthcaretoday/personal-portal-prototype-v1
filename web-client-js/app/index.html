@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>
+<html lang="en" ng-app="ppv1" class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>
+<html lang="en" ng-app="ppv1" class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>
+<html lang="en" ng-app="ppv1" class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html lang="en" ng-app="personalPortal" class="no-js"> <!--<![endif]-->
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>ElaGem</title>
+    <meta name="description" content="ElaGem application">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="bower_components/html5-boilerplate/css/normalize.css">
+    <link rel="stylesheet" href="bower_components/html5-boilerplate/css/main.css">
+    <link rel="stylesheet" href="bower_components/angucomplete-alt/angucomplete-alt.css">
+    <link rel="stylesheet" href="bower_components/fullcalendar/fullcalendar.css"/>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/bootstrap.css">
+    <link rel="stylesheet" href="css/font-awesome.min.css">
+    <link rel="stylesheet" href="css/alerts.css">
+    <script src="bower_components/html5-boilerplate/js/vendor/modernizr-2.6.2.min.js"></script>
+    <link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro:200,300,400,600,700,900' rel='stylesheet'
+          type='text/css'>
+    <script src="bower_components/jquery/dist/jquery.min.js"></script>
+</head>
+<body>
+<!--[if lt IE 7]>
+<p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade
+    your browser</a> to improve your experience.</p>
+<![endif]-->
+
+<div ui-view="menu"></div>
+
+<div ui-view></div>
+
+<div ui-view="footer"></div>
+
+<!-- In production use:
+<script src="//ajax.googleapis.com/ajax/libs/angularjs/x.x.x/angular.min.js"></script>
+-->
+<script src="https://apis.google.com/js/client.js?onload=checkAuth"></script>
+<script src="bower_components/angular/angular.min.js"></script>
+<script src="bower_components/angular-resource/angular-resource.min.js"></script>
+<script src="bower_components/angular-bootstrap/ui-bootstrap-tpls.min.js"></script>
+<script src="bower_components/angucomplete-alt/dist/angucomplete-alt.min.js"></script>
+<script src="bower_components/angular-ui-router/release/angular-ui-router.min.js"></script>
+<script src="bower_components/a0-angular-storage/dist/angular-storage.min.js"></script>
+<script src="lib/angular-jwt-patched.js"></script>
+<script src="bower_components/angular-utf8-base64/angular-utf8-base64.min.js"></script>
+<script src="bower_components/angular-ui-utils/ui-utils.min.js"></script>
+<script src="bower_components/angular-smart-table/dist/smart-table.min.js"></script>
+<script src="bower_components/jquery-ui/ui/jquery-ui.js"></script>
+<script src="bower_components/angular-ui-calendar/src/calendar.js"></script>
+<script src="bower_components/fullcalendar/fullcalendar.min.js"></script>
+<script src="bower_components/fullcalendar/gcal.js"></script>
+<script src="bower_components/n3-line-chart/build/line-chart.min.js"></script>
+<script src="bower_components/d3/d3.min.js"></script>
+<script src="bower_components/bootstrap-ui-datetime-picker/dist/datetime-picker.min.js"></script>
+
+<script src="app.js"></script>
+<script src="services.js"></script>
+<script src="lib/angular-googleapi.js"></script>
+<script src="directive/chart_with_date_picker/chart_with_date_picker.js"></script>
+<script src="states/home/home.js"></script>
+<script src="states/about/about.js"></script>
+<script src="states/services/services.js"></script>
+<script src="states/contact/contact.js"></script>
+<script src="states/patient/patient.js"></script>
+<script src="states/patient/support/support.js"></script>
+<script src="states/patient/dashboard/dashboard.js"></script>
+<script src="states/patient/blank/blank.js"></script>
+<script src="states/patient/profile/profile.js"></script>
+<script src="states/patient/profile/general/general.js"></script>
+<script src="states/patient/profile/medical_data/medical_data.js"></script>
+<script src="states/patient/profile/health_statement/health_statement.js"></script>
+<script src="states/patient/profile/self_health_check/self_health_check.js"></script>
+<script src="states/patient/profile/self_health_check/history.js"></script>
+<script src="states/patient/profile/self_health_check/check.js"></script>
+<script src="states/patient/profile/chart/chart.js"></script>
+<script src="states/patient/profile/notes/notes.js"></script>
+<script src="states/patient/profile/ihealth/ihealth.js"></script>
+<script src="states/patient/activities/activities.js"></script>
+<script src="states/patient/activities/modal/add_event.js"></script>
+<script src="states/patient/landing/landing.js"></script>
+<script src="states/patient/decision_support/decision_support.js"></script>
+<script src="states/admin/admin.js"></script>
+<script src="states/admin/logs/patient_actions.js"></script>
+<script src="modal/login/login.js"></script>
+<script src="modal/signup/signup.js"></script>
+<script src="modal/change_password/change_password.js"></script>
+<script src="modal/forgot_password/forgot_password.js"></script>
+
+</body>
+</html>

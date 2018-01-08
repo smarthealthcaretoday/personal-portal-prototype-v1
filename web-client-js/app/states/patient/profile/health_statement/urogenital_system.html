@@ -1,0 +1,82 @@
+<accordion-group heading="Urogenital system">
+    <div ng-form="urogenitalSystem">
+        <h4>Urogenital system</h4>
+
+        <div class="form-group col-sm-8">
+            <input type="checkbox"
+                   id="healthStatement.urogenitalSystem.noComplains"
+                   name="healthStatement.urogenitalSystem.noComplains"
+                   class="form-control-static"
+                   ng-model="healthStatement.urogenitalSystem.noComplains"
+                   ng-change="healthStatement.urogenitalSystem.kidneyStones = false;
+                              healthStatement.urogenitalSystem.kidneyStonesDetails = '';
+                              healthStatement.urogenitalSystem.renalInsufficiency = false;
+                              healthStatement.urogenitalSystem.renalInsufficiencyDetails = '';
+                              healthStatement.urogenitalSystem.otherDisease = false;
+                              healthStatement.urogenitalSystem.otherDiseaseDetails = '';">
+            &nbsp;
+            <label class="control-label-left"
+                   for="healthStatement.urogenitalSystem.noComplains">No complains</label>
+        </div>
+
+        <div class="form-group col-sm-8">
+            <input type="checkbox"
+                   id="healthStatement.urogenitalSystem.kidneyStones"
+                   name="healthStatement.urogenitalSystem.kidneyStones"
+                   class="form-control-static"
+                   ng-model="healthStatement.urogenitalSystem.kidneyStones"
+                   ng-change="healthStatement.urogenitalSystem.kidneyStonesDetails =
+                        healthStatement.urogenitalSystem.kidneyStones ? healthStatement.urogenitalSystem.kidneyStonesDetails : '';
+                        healthStatement.urogenitalSystem.noComplains = false;">
+            &nbsp;
+            <label class="control-label-left"
+                   for="healthStatement.urogenitalSystem.kidneyStones">Kidney stones</label>
+            <input type="text"
+                   id="healthStatement.urogenitalSystem.kidneyStonesDetails"
+                   name="healthStatement.urogenitalSystem.kidneyStonesDetails"
+                   class="form-control input-sm"
+                   ng-model="healthStatement.urogenitalSystem.kidneyStonesDetails"
+                   ng-show="healthStatement.urogenitalSystem.kidneyStones">
+        </div>
+
+        <div class="form-group col-sm-8">
+            <input type="checkbox"
+                   id="healthStatement.urogenitalSystem.renalInsufficiency"
+                   name="healthStatement.urogenitalSystem.renalInsufficiency"
+                   class="form-control-static"
+                   ng-model="healthStatement.urogenitalSystem.renalInsufficiency"
+                   ng-change="healthStatement.urogenitalSystem.renalInsufficiencyDetails =
+                        healthStatement.urogenitalSystem.renalInsufficiency ? healthStatement.urogenitalSystem.renalInsufficiencyDetails : '';
+                        healthStatement.urogenitalSystem.noComplains = false;">
+            &nbsp;
+            <label class="control-label-left"
+                   for="healthStatement.urogenitalSystem.renalInsufficiency">Renal insufficiency</label>
+            <input type="text"
+                   id="healthStatement.urogenitalSystem.renalInsufficiencyDetails"
+                   name="healthStatement.urogenitalSystem.renalInsufficiencyDetails"
+                   class="form-control input-sm"
+                   ng-model="healthStatement.urogenitalSystem.renalInsufficiencyDetails"
+                   ng-show="healthStatement.urogenitalSystem.renalInsufficiency">
+        </div>
+
+        <div class="form-group col-sm-8">
+            <input type="checkbox"
+                   id="healthStatement.urogenitalSystem.otherDisease"
+                   name="healthStatement.urogenitalSystem.otherDisease"
+                   class="form-control-static"
+                   ng-model="healthStatement.urogenitalSystem.otherDisease"
+                   ng-change="healthStatement.urogenitalSystem.otherDiseaseDetails =
+                        healthStatement.urogenitalSystem.otherDisease ? healthStatement.urogenitalSystem.otherDiseaseDetails : '';
+                        healthStatement.urogenitalSystem.noComplains = false;">
+            &nbsp;
+            <label class="control-label-left"
+                   for="healthStatement.urogenitalSystem.otherDisease">Other disease / condition / symptom (please specify)</label>
+            <input type="text"
+                   id="healthStatement.urogenitalSystem.otherDiseaseDetails"
+                   name="healthStatement.urogenitalSystem.otherDiseaseDetails"
+                   class="form-control input-sm"
+                   ng-model="healthStatement.urogenitalSystem.otherDiseaseDetails"
+                   ng-show="healthStatement.urogenitalSystem.otherDisease">
+        </div>
+    </div>
+</accordion-group>

@@ -1,0 +1,53 @@
+<div class="about">
+    <div class="container">
+        <section class="title-section">
+            <h1 class="title-header">Welcome</h1>
+        </section>
+    </div>
+</div>
+
+
+<div class="main">
+    <div class="container">
+        <div class="row text-center">
+            <div ng-hide="!reminders || reminders.length" ng-cloak>
+                <div class="color-box">
+                    <div class="shadow">
+                        <div class="info-tab tip-icon" title="Note"></div>
+                        <div class="tip-box">
+                            <p>
+                                You don't have any pending notifications
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div ng-repeat="reminder in reminders">
+                <div class="color-box">
+                    <div class="shadow">
+                        <div class="info-tab warning-icon" title="Warning"></div>
+                        <div class="warning-box">
+                            <p>
+                                <strong>
+                                    Warning:
+                                </strong>
+                                {{reminder.forPatient}}
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="content_white">
+            </div>
+        </div>
+        <div class="row text-center">
+            <a class="btn btn-lg btn-default" ui-sref="personalPortal.patient.dashboard">Proceed to Dashboard</a>
+        </div>
+    </div>
+</div>
+
+<div class="content_white">
+</div>

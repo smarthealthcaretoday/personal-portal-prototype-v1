@@ -1,0 +1,39 @@
+<nav role="navigation">
+    <div class="header">
+        <div class="container">
+            <div class="logo">
+                <h3 class="m_3"><a ui-sref="personalPortal.home"><i class="fa fa-shield"></i> ElaGem</a></h3>
+            </div>
+            <div class="menu">
+                <ul class="nav navbar-nav" id="nav">
+                    <li ng-hide="getCurrentUser()" ui-sref-active="active"><a ui-sref="personalPortal.patient.dashboard">Login</a></li>
+                    <li ng-show="getCurrentUser()" ui-sref-active="active"><a ui-sref="personalPortal.patient.dashboard">My Dashboard</a></li>
+                    <li ui-sref-active="active"><a ui-sref="personalPortal.about">About</a></li>
+                    <li ui-sref-active="active"><a ui-sref="personalPortal.services">Services</a></li>
+                    <li ui-sref-active="active"><a ui-sref="personalPortal.contact">Contact</a></li>
+                    <div class="clear"></div>
+                </ul>
+                <div class="text-right" ng-show="getCurrentUser()" ng-cloak>
+                    <span class="m_2">
+                        You are logged in as &nbsp;
+                    </span>
+
+                        <span class="dropdown" dropdown>
+                            <a href class="dropdown-toggle" dropdown-toggle><b>{{getCurrentUser().name}}</b><span
+                                    class="caret"></span></a>
+                            <ul class="dropdown-menu custom" role="menu">
+                                <li><a href="#" ng-click='changePassword()'>Change password</a></li>
+                                <li><a href="#" ng-click='logout()'>Logout</a></li>
+                                <li class="divider"></li>
+                                <li ng-show="isCurrentUserAdmin()"><a ui-sref="personalPortal.admin.patientActions">Patient
+                                    actions</a></li>
+                            </ul>
+                        </span>
+
+                </div>
+                <script src="bower_components/responsive-nav/responsive-nav.min.js"></script>
+            </div>
+            <div class="clearfix"></div>
+        </div>
+    </div>
+</nav>

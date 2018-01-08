@@ -1,0 +1,67 @@
+<ol class="breadcrumb">
+    <li><a ui-sref="personalPortal.patient.dashboard">Dashboard</a></li>
+    <li class="active">Personal health statement</li>
+</ol>
+
+<div class="col-md-8">
+<h3>Personal health statement</h3>
+
+<p>Personal health statement is a written summary of an individual’s medical condition based on a
+    voluntarily completed questionnaire. The
+    contents of a personal health statement is made available to a patient’s physician providing a brief
+    summary of a patient’s medical condition
+    as well as sharing supplementary information for adequate decision-making on medical care or other
+    issues. By convention a personal health
+    statement is completed online and submitted to the patient portal, whereas only in the case of
+    extraordinary circumstances a paper form is
+    used. Personal health statement is a mandatory prerequisite for acquiring an official health
+    certificate. </p>
+
+<p>
+    Personal health statement is to be confirmed by the patient wiht a (digital) signature and will
+    remain valid for a period of thirty (30) days.
+    Personal health statement submitted on paper is valid for only once and is not reusable.
+    Likewise, the personal health statement submitted on paper (unilke the electronically submitted
+    health statement) is not later accessible vai the
+    patient portal.</p>
+
+<br/>
+<br/>
+
+<form novalidate role="form" class="form-horizontal" name="patientHealthStatement">
+<div class="alert alert-success" role="alert" ng-show="!patientHealthStatement.$dirty && dataSaved">
+    Data saved
+    </br>
+</div>
+    <accordion close-others="true">
+        <div ui-view="lifestyle"></div>
+        <div ui-view="medicalDevices"></div>
+        <div ui-view="cardiovascularCondition"></div>
+        <div ui-view="workingEnvironment"></div>
+        <div ui-view="allergies"></div>
+        <div ui-view="mentalHealth"></div>
+        <div ui-view="nervousSystem"></div>
+        <div ui-view="eyesAndVision"></div>
+        <div ui-view="earNoseThroat"></div>
+        <div ui-view="respiratorySystem"></div>
+        <div ui-view="metabolicDisorders"></div>
+        <div ui-view="bonesJointsMuscles"></div>
+        <div ui-view="infectiousDiseases"></div>
+        <div ui-view="otherChronicDiseases"></div>
+        <div ui-view="treatmentUpToNow"></div>
+        <div ui-view="traumas"></div>
+        <div ui-view="skinDisorders"></div>
+        <div ui-view="digestiveOrgans"></div>
+        <div ui-view="urogenitalSystem"></div>
+        <div ui-view="bloodProblems"></div>
+    </accordion>
+
+<div class="col-sm-12 text-right">
+    <input type="submit" class="btn btn-default" ng-click="save(patientHealthStatement)" value="Save"/>
+</div>
+
+</br>
+</br>
+
+</form>
+</div>

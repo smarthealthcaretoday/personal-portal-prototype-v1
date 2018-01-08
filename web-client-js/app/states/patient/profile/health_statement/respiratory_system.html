@@ -1,0 +1,82 @@
+<accordion-group heading="Respiratory system">
+    <div ng-form="respiratorySystem">
+        <h4>Respiratory system</h4>
+
+        <div class="form-group col-sm-9">
+            <input type="checkbox"
+                   id="healthStatement.respiratorySystem.noComplains"
+                   name="healthStatement.respiratorySystem.noComplains"
+                   class="form-control-static"
+                   ng-model="healthStatement.respiratorySystem.noComplains"
+                   ng-change="healthStatement.respiratorySystem.asthma = false;
+                              healthStatement.respiratorySystem.asthmaDetails = '';
+                              healthStatement.respiratorySystem.copd = false;
+                              healthStatement.respiratorySystem.copdDetails = '';
+                              healthStatement.respiratorySystem.otherDisease = false;
+                              healthStatement.respiratorySystem.otherDiseaseDetails = '';">
+            &nbsp;
+            <label class="control-label-left"
+                   for="healthStatement.respiratorySystem.noComplains">No complains</label>
+        </div>
+
+        <div class="form-group col-sm-9">
+            <input type="checkbox"
+                   id="healthStatement.respiratorySystem.asthma"
+                   name="healthStatement.respiratorySystem.asthma"
+                   class="form-control-static"
+                   ng-model="healthStatement.respiratorySystem.asthma"
+                   ng-change="healthStatement.respiratorySystem.asthmaDetails =
+                        healthStatement.respiratorySystem.asthma ? healthStatement.respiratorySystem.asthmaDetails : '';
+                        healthStatement.respiratorySystem.noComplains = false;">
+            &nbsp;
+            <label class="control-label-left"
+                   for="healthStatement.respiratorySystem.asthma">Asthma</label>
+            <input type="text"
+                   id="healthStatement.respiratorySystem.asthmaDetails"
+                   name="healthStatement.respiratorySystem.asthmaDetails"
+                   class="form-control input-sm"
+                   ng-model="healthStatement.respiratorySystem.asthmaDetails"
+                   ng-show="healthStatement.respiratorySystem.asthma">
+        </div>
+
+        <div class="form-group col-sm-9">
+            <input type="checkbox"
+                   id="healthStatement.respiratorySystem.copd"
+                   name="healthStatement.respiratorySystem.copd"
+                   class="form-control-static"
+                   ng-model="healthStatement.respiratorySystem.copd"
+                   ng-change="healthStatement.respiratorySystem.copdDetails =
+                        healthStatement.respiratorySystem.copd ? healthStatement.respiratorySystem.copdDetails : '';
+                        healthStatement.respiratorySystem.noComplains = false;">
+            &nbsp;
+            <label class="control-label-left"
+                   for="healthStatement.respiratorySystem.copd">Chronic obsturctive pulmonary disease (COPD)</label>
+            <input type="text"
+                   id="healthStatement.respiratorySystem.copdDetails"
+                   name="healthStatement.respiratorySystem.copdDetails"
+                   class="form-control input-sm"
+                   ng-model="healthStatement.respiratorySystem.copdDetails"
+                   ng-show="healthStatement.respiratorySystem.copd">
+        </div>
+
+        <div class="form-group col-sm-9">
+            <input type="checkbox"
+                   id="healthStatement.respiratorySystem.otherDisease"
+                   name="healthStatement.respiratorySystem.otherDisease"
+                   class="form-control-static"
+                   ng-model="healthStatement.respiratorySystem.otherDisease"
+                   ng-change="healthStatement.respiratorySystem.otherDiseaseDetails =
+                        healthStatement.respiratorySystem.otherDisease ? healthStatement.respiratorySystem.otherDiseaseDetails : '';
+                        healthStatement.respiratorySystem.noComplains = false;">
+            &nbsp;
+            <label class="control-label-left"
+                   for="healthStatement.respiratorySystem.otherDisease">Other disease / condition / symptom (please specify)</label>
+            <input type="text"
+                   id="healthStatement.respiratorySystem.otherDiseaseDetails"
+                   name="healthStatement.respiratorySystem.otherDiseaseDetails"
+                   class="form-control input-sm"
+                   ng-model="healthStatement.respiratorySystem.otherDiseaseDetails"
+                   ng-show="healthStatement.respiratorySystem.otherDisease">
+        </div>
+    </div>
+</accordion-group>

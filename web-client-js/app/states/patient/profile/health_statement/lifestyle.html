@@ -1,0 +1,140 @@
+<accordion-group heading="Lifestyle" is-open="true">
+    <div ng-form="lifeStyle">
+        <h4>Lifestyle</h4>
+
+        <div class="form-group">
+            <label class="col-sm-9 control-label-left" for="healthStatement.lifeStyle.alcohol">Do you drink alcohol?</label>
+
+            <div class="col-sm-1">
+                <input type="checkbox"
+                       id="healthStatement.lifeStyle.alcohol"
+                       name="healthStatement.lifeStyle.alcohol"
+                       ng-model="healthStatement.lifeStyle.alcohol"
+                       ng-change="healthStatement.lifeStyle.alcoholUnits =
+                            healthStatement.lifeStyle.alcohol ? healthStatement.lifeStyle.alcoholUnits : '';">
+            </div>
+        </div>
+
+        <div class="form-group" ng-show="healthStatement.lifeStyle.alcohol">
+            <label class="col-sm-9 control-label-left"
+                   for="healthStatement.lifeStyle.alcoholUnits">How many units of alcohol in a week? <br>
+                <i>1 unit = 40 ml of spirits (40% alcohol by volume) or 120 ml of wine (12% alcohol) or 250 ml of beer
+                    (5,2% alcohol)</i>
+            </label>
+
+            <div class="col-sm-2">
+                <input type="text"
+                       class="form-control input-sm"
+                       id="healthStatement.lifeStyle.alcoholUnits"
+                       name="healthStatement.lifeStyle.alcoholUnits"
+                       ng-model="healthStatement.lifeStyle.alcoholUnits">
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="col-sm-9 control-label-left" for="healthStatement.lifeStyle.smoking">Do you smoke?</label>
+
+            <div class="col-sm-1">
+                <input type="checkbox"
+                       id="healthStatement.lifeStyle.smoking"
+                       name="healthStatement.lifeStyle.smoking"
+                       class="form-control-static"
+                       ng-model="healthStatement.lifeStyle.smoking"
+                       ng-change="healthStatement.lifeStyle.cigarettesPerDay =
+                            healthStatement.lifeStyle.smoking ? healthStatement.lifeStyle.cigarettesPerDay : '';
+                            healthStatement.lifeStyle.smokingYears =
+                            healthStatement.lifeStyle.smoking ? healthStatement.lifeStyle.smokingYears : '';">
+            </div>
+        </div>
+
+        <div class="form-group" ng-show="healthStatement.lifeStyle.smoking">
+            <label class="col-sm-9 control-label-left"
+                   for="healthStatement.lifeStyle.cigarettesPerDay">How many cigarettes a day?</label>
+
+            <div class="col-sm-2">
+                <input type="text"
+                       id="healthStatement.lifeStyle.cigarettesPerDay"
+                       name="healthStatement.lifeStyle.cigarettesPerDay"
+                       class="form-control input-sm"
+                       ng-model="healthStatement.lifeStyle.cigarettesPerDay">
+            </div>
+        </div>
+
+        <div class="form-group" ng-show="healthStatement.lifeStyle.smoking">
+            <label class="col-sm-9 control-label-left" for="healthStatement.lifeStyle.smokingYears">How
+                many years have you been smoking?</label>
+
+            <div class="col-sm-2">
+                <input type="text"
+                       id="healthStatement.lifeStyle.smokingYears"
+                       name="healthStatement.lifeStyle.smokingYears"
+                       class="form-control input-sm"
+                       ng-model="healthStatement.lifeStyle.smokingYears">
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="col-sm-9 control-label-left" for="healthStatement.lifeStyle.whenQuitSmoking">If
+                you have quit smoking, when did you quit?</label>
+
+            <div class="col-sm-2">
+                <input type="text" id="healthStatement.lifeStyle.whenQuitSmoking"
+                       name="healthStatement.lifeStyle.whenQuitSmoking" class="form-control input-sm"
+                       ng-model="healthStatement.lifeStyle.whenQuitSmoking">
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="col-sm-9 control-label-left" for="healthStatement.lifeStyle.drugs">Do you use drugs /
+                psychotropic substances?</label>
+
+            <div class="col-sm-1">
+                <input type="checkbox"
+                       id="healthStatement.lifeStyle.drugs"
+                       name="healthStatement.lifeStyle.drugs"
+                       class="form-control-static"
+                       ng-model="healthStatement.lifeStyle.drugs"
+                       ng-change="healthStatement.lifeStyle.drugsHowOften =
+                            healthStatement.lifeStyle.drugs ? healthStatement.lifeStyle.drugsHowOften : '';">
+            </div>
+        </div>
+
+        <div class="form-group" ng-show="healthStatement.lifeStyle.drugs">
+            <label class="col-sm-7 control-label-left" for="healthStatement.lifeStyle.drugsHowOften">Please, specify how
+                often</label>
+
+            <div class="col-sm-4">
+                <input type="text"
+                       id="healthStatement.lifeStyle.drugsHowOften"
+                       name="healthStatement.lifeStyle.drugsHowOften"
+                       class="form-control input-sm"
+                       ng-model="healthStatement.lifeStyle.drugsHowOften">
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="col-sm-9 control-label-left"
+                   for="healthStatement.lifeStyle.medicationsThatAffectCoordination">Are you taking any
+                medication that in your opinion could affect your coordination or concentration ability?</label>
+
+            <div class="col-sm-1">
+                <input type="checkbox"
+                       id="healthStatement.lifeStyle.medicationsThatAffectCoordination"
+                       name="healthStatement.lifeStyle.medicationsThatAffectCoordination"
+                       class="form-control-static"
+                       ng-model="healthStatement.lifeStyle.medicationsThatAffectCoordination">
+            </div>
+        </div>
+
+        <div class="form-group col-sm-9">
+            <label class="control-label-left" for="healthStatement.lifeStyle.sleepHabits">Please describe your
+                sleep habits</label>
+
+                <input type="text"
+                       id="healthStatement.lifeStyle.sleepHabits"
+                       name="healthStatement.lifeStyle.sleepHabits"
+                       class="form-control input-sm"
+                       ng-model="healthStatement.lifeStyle.sleepHabits">
+        </div>
+    </div>
+</accordion-group>

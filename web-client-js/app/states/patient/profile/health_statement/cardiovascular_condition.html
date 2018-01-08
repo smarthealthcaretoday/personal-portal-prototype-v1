@@ -1,0 +1,192 @@
+<accordion-group heading="Cardiovascular condition">
+    <div ng-form="cardiovascularCondition">
+        <h4>Cardiovascular condition</h4>
+
+        <div class="form-group col-sm-8">
+            <input type="checkbox"
+                   id="healthStatement.cardiovascularCondition.noComplains"
+                   name="healthStatement.cardiovascularCondition.noComplains"
+                   class="form-control-static"
+                   ng-model="healthStatement.cardiovascularCondition.noComplains"
+                   ng-change="healthStatement.cardiovascularCondition.chestPain = false;
+                              healthStatement.cardiovascularCondition.chestPainDetails = '';
+                              healthStatement.cardiovascularCondition.highBloodPressure = false;
+                              healthStatement.cardiovascularCondition.highBloodPressureDetails = '';
+                              healthStatement.cardiovascularCondition.heartAttack = false;
+                              healthStatement.cardiovascularCondition.heartAttackDetails = '';
+                              healthStatement.cardiovascularCondition.arrythmia = false;
+                              healthStatement.cardiovascularCondition.arrythmiaDetails = '';
+                              healthStatement.cardiovascularCondition.angioplasty = false;
+                              healthStatement.cardiovascularCondition.pacemakerDetails = '';
+                              healthStatement.cardiovascularCondition.pacemaker = false;
+                              healthStatement.cardiovascularCondition.pacemakerDetails = '';
+                              healthStatement.cardiovascularCondition.heartSurgery = false;
+                              healthStatement.cardiovascularCondition.heartSurgeryDetails = '';
+                              healthStatement.cardiovascularCondition.otherDisease = false;
+                              healthStatement.cardiovascularCondition.otherDiseaseDetails = '';">
+            &nbsp;
+            <label class="control-label-left"
+                   for="healthStatement.cardiovascularCondition.noComplains">No complains</label>
+        </div>
+
+        <div class="form-group col-sm-8">
+            <input type="checkbox"
+                   id="healthStatement.cardiovascularCondition.chestPain"
+                   name="healthStatement.cardiovascularCondition.chestPain"
+                   class="form-control-static"
+                   ng-model="healthStatement.cardiovascularCondition.chestPain"
+                   ng-change="healthStatement.cardiovascularCondition.chestPainDetails =
+                        healthStatement.cardiovascularCondition.chestPain ? healthStatement.cardiovascularCondition.chestPainDetails : '';
+                        healthStatement.cardiovascularCondition.noComplains = false;">
+            &nbsp;
+            <label class="control-label-left"
+                   for="healthStatement.cardiovascularCondition.chestPain">Chest pain related to physical activity</label>
+            <input type="text"
+                   id="healthStatement.cardiovascularCondition.chestPainDetails"
+                   name="healthStatement.cardiovascularCondition.chestPainDetails"
+                   class="form-control input-sm"
+                   ng-model="healthStatement.cardiovascularCondition.chestPainDetails"
+                   ng-show="healthStatement.cardiovascularCondition.chestPain">
+        </div>
+
+        <div class="form-group col-sm-8">
+            <input type="checkbox"
+                   id="healthStatement.cardiovascularCondition.highBloodPressure"
+                   name="healthStatement.cardiovascularCondition.highBloodPressure"
+                   class="form-control-static"
+                   ng-model="healthStatement.cardiovascularCondition.highBloodPressure"
+                   ng-change="healthStatement.cardiovascularCondition.highBloodPressureDetails =
+                        healthStatement.cardiovascularCondition.highBloodPressure ? healthStatement.cardiovascularCondition.highBloodPressureDetails : '';
+                        healthStatement.cardiovascularCondition.noComplains = false;">
+            &nbsp;
+            <label class="control-label-left"
+                   for="healthStatement.cardiovascularCondition.chestPain">High blood pressure</label>
+            <input type="text"
+                   id="healthStatement.cardiovascularCondition.highBloodPressureDetails"
+                   name="healthStatement.cardiovascularCondition.highBloodPressureDetails"
+                   class="form-control input-sm"
+                   ng-model="healthStatement.cardiovascularCondition.highBloodPressureDetails"
+                   ng-show="healthStatement.cardiovascularCondition.highBloodPressure">
+        </div>
+
+        <div class="form-group col-sm-8">
+            <input type="checkbox"
+                   id="healthStatement.cardiovascularCondition.heartAttack"
+                   name="healthStatement.cardiovascularCondition.heartAttack"
+                   class="form-control-static"
+                   ng-model="healthStatement.cardiovascularCondition.heartAttack"
+                   ng-change="healthStatement.cardiovascularCondition.heartAttackDetails =
+                        healthStatement.cardiovascularCondition.heartAttack ? healthStatement.cardiovascularCondition.heartAttackDetails : '';
+                        healthStatement.cardiovascularCondition.noComplains = false;">
+            &nbsp;
+            <label class="control-label-left"
+                   for="healthStatement.cardiovascularCondition.heartAttack">I have had a heart attack</label>
+            <input type="text"
+                   id="healthStatement.cardiovascularCondition.heartAttackDetails"
+                   name="healthStatement.cardiovascularCondition.heartAttackDetails"
+                   class="form-control input-sm"
+                   ng-model="healthStatement.cardiovascularCondition.heartAttackDetails"
+                   ng-show="healthStatement.cardiovascularCondition.heartAttack">
+        </div>
+
+        <div class="form-group col-sm-8">
+            <input type="checkbox"
+                   id="healthStatement.cardiovascularCondition.arrythmia"
+                   name="healthStatement.cardiovascularCondition.arrythmia"
+                   class="form-control-static"
+                   ng-model="healthStatement.cardiovascularCondition.arrythmia"
+                   ng-change="healthStatement.cardiovascularCondition.arrythmiaDetails =
+                        healthStatement.cardiovascularCondition.arrythmia ? healthStatement.cardiovascularCondition.arrythmiaDetails : '';
+                        healthStatement.cardiovascularCondition.noComplains = false;">
+            &nbsp;
+            <label class="control-label-left"
+                   for="healthStatement.cardiovascularCondition.arrythmia">Irregular heartbeat (arrythmia)</label>
+            <input type="text"
+                   id="healthStatement.cardiovascularCondition.arrythmiaDetails"
+                   name="healthStatement.cardiovascularCondition.arrythmiaDetails"
+                   class="form-control input-sm"
+                   ng-model="healthStatement.cardiovascularCondition.arrythmiaDetails"
+                   ng-show="healthStatement.cardiovascularCondition.arrythmia">
+        </div>
+
+        <div class="form-group col-sm-8">
+            <input type="checkbox"
+                   id="healthStatement.cardiovascularCondition.angioplasty"
+                   name="healthStatement.cardiovascularCondition.angioplasty"
+                   class="form-control-static"
+                   ng-model="healthStatement.cardiovascularCondition.angioplasty"
+                   ng-change="healthStatement.cardiovascularCondition.angioplastyDetails =
+                        healthStatement.cardiovascularCondition.angioplasty ? healthStatement.cardiovascularCondition.angioplastyDetails : '';
+                        healthStatement.cardiovascularCondition.noComplains = false;">
+            &nbsp;
+            <label class="control-label-left"
+                   for="healthStatement.cardiovascularCondition.angioplasty">I have had coronary angioplasty (coronary stent procedure)</label>
+            <input type="text"
+                   id="healthStatement.cardiovascularCondition.angioplastyDetails"
+                   name="healthStatement.cardiovascularCondition.angioplastyDetails"
+                   class="form-control input-sm"
+                   ng-model="healthStatement.cardiovascularCondition.angioplastyDetails"
+                   ng-show="healthStatement.cardiovascularCondition.angioplasty">
+        </div>
+
+        <div class="form-group col-sm-8">
+            <input type="checkbox"
+                   id="healthStatement.cardiovascularCondition.pacemaker"
+                   name="healthStatement.cardiovascularCondition.pacemaker"
+                   class="form-control-static"
+                   ng-model="healthStatement.cardiovascularCondition.pacemaker"
+                   ng-change="healthStatement.cardiovascularCondition.pacemakerDetails =
+                        healthStatement.cardiovascularCondition.pacemaker ? healthStatement.cardiovascularCondition.pacemakerDetails : '';
+                        healthStatement.cardiovascularCondition.noComplains = false;">
+            &nbsp;
+            <label class="control-label-left"
+                   for="healthStatement.cardiovascularCondition.pacemaker">I have a pacemaker</label>
+            <input type="text"
+                   id="healthStatement.cardiovascularCondition.pacemakerDetails"
+                   name="healthStatement.cardiovascularCondition.pacemakerDetails"
+                   class="form-control input-sm"
+                   ng-model="healthStatement.cardiovascularCondition.pacemakerDetails"
+                   ng-show="healthStatement.cardiovascularCondition.pacemaker">
+        </div>
+
+        <div class="form-group col-sm-8">
+            <input type="checkbox"
+                   id="healthStatement.cardiovascularCondition.heartSurgery"
+                   name="healthStatement.cardiovascularCondition.heartSurgery"
+                   class="form-control-static"
+                   ng-model="healthStatement.cardiovascularCondition.heartSurgery"
+                   ng-change="healthStatement.cardiovascularCondition.heartSurgeryDetails =
+                        healthStatement.cardiovascularCondition.heartSurgery ? healthStatement.cardiovascularCondition.heartSurgeryDetails : '';
+                        healthStatement.cardiovascularCondition.noComplains = false;">
+            &nbsp;
+            <label class="control-label-left"
+                   for="healthStatement.cardiovascularCondition.heartSurgery">I have had a heart surgery</label>
+            <input type="text"
+                   id="healthStatement.cardiovascularCondition.heartSurgeryDetails"
+                   name="healthStatement.cardiovascularCondition.heartSurgeryDetails"
+                   class="form-control input-sm"
+                   ng-model="healthStatement.cardiovascularCondition.heartSurgeryDetails"
+                   ng-show="healthStatement.cardiovascularCondition.heartSurgery">
+        </div>
+
+        <div class="form-group col-sm-8">
+            <input type="checkbox"
+                   id="healthStatement.cardiovascularCondition.otherDisease"
+                   name="healthStatement.cardiovascularCondition.otherDisease"
+                   class="form-control-static"
+                   ng-model="healthStatement.cardiovascularCondition.otherDisease"
+                   ng-change="healthStatement.cardiovascularCondition.otherDiseaseDetails =
+                        healthStatement.cardiovascularCondition.otherDisease ? healthStatement.cardiovascularCondition.otherDiseaseDetails : '';
+                        healthStatement.cardiovascularCondition.noComplains = false;">
+            &nbsp;
+            <label class="control-label-left"
+                   for="healthStatement.cardiovascularCondition.otherDisease">Other disease / condition / symptom (please specify)</label>
+            <input type="text"
+                   id="healthStatement.cardiovascularCondition.otherDiseaseDetails"
+                   name="healthStatement.cardiovascularCondition.otherDiseaseDetails"
+                   class="form-control input-sm"
+                   ng-model="healthStatement.cardiovascularCondition.otherDiseaseDetails"
+                   ng-show="healthStatement.cardiovascularCondition.otherDisease">
+        </div>
+    </div>
+</accordion-group>

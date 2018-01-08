@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:p="http://www.springframework.org/schema/p"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:util="http://www.springframework.org/schema/util"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+                           http://www.springframework.org/schema/beans/spring-beans-4.0.xsd
+                           http://www.springframework.org/schema/context
+                           http://www.springframework.org/schema/context/spring-context.xsd
+                           http://www.springframework.org/schema/util
+                           http://www.springframework.org/schema/util/spring-util.xsd">
+
+    <import resource="classpath:/spring/marshaller/jaxb2-marshaller-context.xml"/>
+
+    <util:properties id="ebmeds" location="classpath:conf/ebmeds.properties"/>
+
+    <context:component-scan base-package="today.smarthealthcare.ppv1.ebmeds"/>
+
+    <bean id="ebmedsRestTemplate" class="org.springframework.web.client.RestTemplate"
+          p:messageConverters-ref="messageConvertersList">
+        <constructor-arg>
+            <bean class="org.springframework.http.client.HttpComponentsClientHttpRequestFactory"/>
+        </constructor-arg>
+    </bean>
+
+    <!--HTTP message converters-->
+    <bean id="marshallingHttpMessageConverter" class="org.springframework.http.converter.xml.MarshallingHttpMessageConverter">
+        <property name="marshaller" ref="marshaller"/>
+        <property name="unmarshaller" ref="marshaller"/>
+    </bean>
+
+    <bean id="formHttpMessageConverter" class="org.springframework.http.converter.FormHttpMessageConverter"></bean>
+
+    <!--Add additional part converter for Form converter-->
+    <bean class="org.springframework.beans.factory.config.MethodInvokingBean">
+        <property name="targetObject" ref="formHttpMessageConverter"/>
+        <property name="targetMethod" value="addPartConverter"/>
+        <property name="arguments">
+            <ref bean="marshallingHttpMessageConverter"></ref>
+        </property>
+    </bean>
+
+    <util:list id="messageConvertersList">
+        <ref bean="formHttpMessageConverter"></ref>
+        <ref bean="marshallingHttpMessageConverter"></ref>
+        <bean class="org.springframework.http.converter.StringHttpMessageConverter"></bean>
+    </util:list>
+
+
+</beans>

@@ -1,0 +1,23 @@
+<accordion-group heading="Skin disorders">
+    <div ng-form="skinDisorders">
+        <h4>Skin disorders (please specify, when and what)</h4>
+
+        <div class="form-group col-sm-8">
+            <input type="checkbox"
+                   id="healthStatement.skinDisorders.skinDisorders"
+                   name="healthStatement.skinDisorders.skinDisorders"
+                   class="form-control-static"
+                   ng-model="healthStatement.skinDisorders.skinDisorders"
+                   ng-change="healthStatement.skinDisorders.skinDisordersDetails =
+                        healthStatement.skinDisorders.skinDisorders ? healthStatement.skinDisorders.skinDisordersDetails : '';">
+            &nbsp;
+            <label class="control-label-left" for="healthStatement.skinDisorders.skinDisorders">Skin disorders  (please specify, when and what)</label>
+            <input type="text"
+                   id="healthStatement.skinDisorders.skinDisordersDetails"
+                   name="healthStatement.skinDisorders.skinDisordersDetails"
+                   class="form-control input-sm"
+                   ng-model="healthStatement.skinDisorders.skinDisordersDetails"
+                   ng-show="healthStatement.skinDisorders.skinDisorders">
+        </div>
+    </div>
+</accordion-group>

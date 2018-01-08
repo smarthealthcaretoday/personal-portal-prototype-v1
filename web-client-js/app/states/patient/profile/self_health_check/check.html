@@ -1,0 +1,321 @@
+<ol class="breadcrumb">
+    <li><a ui-sref="personalPortal.patient.dashboard">Dashboard</a></li>
+    <li><a ui-sref="personalPortal.patient.profile.selfHealthCheck">Self health check</a></li>
+    <li class="active">Check</li>
+</ol>
+
+<div class="col-md-8">
+    <h2>Self health check</h2>
+
+    <p>
+
+    <div ng-show="new" class="text-primary">
+        Kui te tunnete, et teie terviseseisund ei ole hea, siis kas teil on (märkige linnukesega vastavas lahtris):
+    </div>
+    <div ng-hide="new" class="text-primary">
+        Filled in on {{selfHealthCheck.date | date: "dd/MM/yyyy 'at' HH:mm:ss"}}
+    </div>
+    </p>
+
+    <form novalidate role="form" class="form-horizontal" name="selfHealthCheckForm">
+        <div class="col-md-1">
+        </div>
+
+
+        <div class="col-md-11">
+            <div class="alert alert-success" role="alert" ng-show="!selfHealthCheckForm.$dirty && dataSaved">
+                Data saved
+                </br>
+            </div>
+
+            <div class="form-group form-group-compact">
+                <div class="col-sm-2">
+                    <b>valud:</b>
+                </div>
+            </div>
+
+            <div class="form-group form-group-compact">
+                <div class="col-sm-1">
+                </div>
+
+                <label class="col-sm-5 control-label-left-left" for="selfHealthCheck.headache">peavalu</label>
+
+                <div class="col-sm-1">
+                    <input type="checkbox" class="form-control-static" id="selfHealthCheck.headache"
+                           name="selfHealthCheck.headache" ng-model="selfHealthCheck.headache" ng-disabled="!new">
+                </div>
+            </div>
+
+            <div class="form-group form-group-compact">
+                <div class="col-sm-1">
+                </div>
+
+                <label class="col-sm-5 control-label-left-left" for="selfHealthCheck.painInBones">luudes-liigestes</label>
+
+                <div class="col-sm-1">
+                    <input type="checkbox" class="form-control-static" id="selfHealthCheck.painInBones"
+                           name="selfHealthCheck.painInBones" ng-model="selfHealthCheck.painInBones" ng-disabled="!new">
+                </div>
+            </div>
+
+            <div class="form-group form-group-compact">
+                <div class="col-sm-1">
+                </div>
+
+                <label class="col-sm-5 control-label-left-left"
+                       for="selfHealthCheck.painInRespiratoryTract">hingamisteedes</label>
+
+                <div class="col-sm-1">
+                    <input type="checkbox" class="form-control-static" id="selfHealthCheck.painInRespiratoryTract"
+                           name="selfHealthCheck.painInRespiratoryTract" ng-model="selfHealthCheck.painInRespiratoryTract" ng-disabled="!new">
+                </div>
+            </div>
+
+            <div class="form-group form-group-compact">
+                <div class="col-sm-1">
+                </div>
+                <div class="col-sm-2">
+                    <b>kõhus</b>
+                </div>
+            </div>
+
+            <div class="form-group form-group-compact">
+                <div class="col-sm-2">
+                </div>
+
+                <label class="col-sm-4 control-label-left-left"
+                       for="selfHealthCheck.stomachacheTop">ülakõhus</label>
+
+                <div class="col-sm-1">
+                    <input type="checkbox" class="form-control-static" id="selfHealthCheck.stomachacheTop"
+                           name="selfHealthCheck.stomachacheTop" ng-model="selfHealthCheck.stomachacheTop" ng-disabled="!new">
+                </div>
+            </div>
+
+            <div class="form-group form-group-compact">
+                <div class="col-sm-2">
+                </div>
+
+                <label class="col-sm-4 control-label-left-left"
+                       for="selfHealthCheck.stomachacheMiddle">kõhu keskosas</label>
+
+                <div class="col-sm-1">
+                    <input type="checkbox" class="form-control-static" id="selfHealthCheck.stomachacheMiddle"
+                           name="selfHealthCheck.stomachacheMiddle" ng-model="selfHealthCheck.stomachacheMiddle" ng-disabled="!new">
+                </div>
+            </div>
+
+            <div class="form-group form-group-compact">
+                <div class="col-sm-2">
+                </div>
+
+                <label class="col-sm-4 control-label-left-left"
+                       for="selfHealthCheck.stomachacheBottom">alakõhus</label>
+
+                <div class="col-sm-1">
+                    <input type="checkbox" class="form-control-static" id="selfHealthCheck.stomachacheBottom"
+                           name="selfHealthCheck.stomachacheBottom" ng-model="selfHealthCheck.stomachacheBottom" ng-disabled="!new">
+                </div>
+            </div>
+
+            <div class="form-group form-group-compact">
+                <div class="col-sm-2">
+                    <b>külmetustunnused:</b>
+                </div>
+            </div>
+
+            <div class="form-group form-group-compact">
+                <div class="col-sm-1">
+                </div>
+
+                <label class="col-sm-5 control-label-left-left" for="selfHealthCheck.rheum">nohu</label>
+
+                <div class="col-sm-1">
+                    <input type="checkbox" class="form-control-static" id="selfHealthCheck.rheum"
+                           name="selfHealthCheck.rheum" ng-model="selfHealthCheck.rheum" ng-disabled="!new">
+                </div>
+            </div>
+
+            <div class="form-group form-group-compact">
+                <div class="col-sm-1">
+                </div>
+
+                <label class="col-sm-5 control-label-left-left" for="selfHealthCheck.cough">köha</label>
+
+                <div class="col-sm-1">
+                    <input type="checkbox" class="form-control-static" id="selfHealthCheck.cough"
+                           name="selfHealthCheck.cough" ng-model="selfHealthCheck.cough" ng-disabled="!new">
+                </div>
+            </div>
+
+            <div class="form-group form-group-compact">
+                <div class="col-sm-1">
+                </div>
+
+                <label class="col-sm-5 control-label-left-left" for="selfHealthCheck.painInThroat">kurgus</label>
+
+                <div class="col-sm-1">
+                    <input type="checkbox" class="form-control-static" id="selfHealthCheck.painInThroat"
+                           name="selfHealthCheck.painInThroat" ng-model="selfHealthCheck.painInThroat" ng-disabled="!new">
+                </div>
+            </div>
+
+            <div class="form-group form-group-compact">
+                <div class="col-sm-1">
+                </div>
+
+                <label class="col-sm-5 control-label-left-left" for="selfHealthCheck.painInLungs">kopsudes</label>
+
+                <div class="col-sm-1">
+                    <input type="checkbox" class="form-control-static" id="selfHealthCheck.painInLungs"
+                           name="selfHealthCheck.painInLungs" ng-model="selfHealthCheck.painInLungs" ng-disabled="!new">
+                </div>
+            </div>
+
+            <div class="form-group form-group-compact">
+                <div class="col-sm-1">
+                </div>
+
+                <label class="col-sm-5 control-label-left-left" for="selfHealthCheck.rheumAndThroat">nohu ja kurguvaevused koos</label>
+
+                <div class="col-sm-1">
+                    <input type="checkbox" class="form-control-static" id="selfHealthCheck.rheumAndThroat"
+                           name="selfHealthCheck.rheumAndThroat" ng-model="selfHealthCheck.rheumAndThroat" ng-disabled="!new">
+                </div>
+            </div>
+
+            <div class="form-group form-group-compact">
+                <div class="col-sm-5">
+                    <b>teil on pisted:</b>
+                </div>
+            </div>
+
+            <div class="form-group form-group-compact">
+                <div class="col-sm-1">
+                </div>
+
+                <label class="col-sm-5 control-label-left-left" for="selfHealthCheck.stitchesInHeartZone">südamepiirkonnas</label>
+
+                <div class="col-sm-1">
+                    <input type="checkbox" class="form-control-static" id="selfHealthCheck.stitchesInHeartZone"
+                           name="selfHealthCheck.stitchesInHeartZone" ng-model="selfHealthCheck.stitchesInHeartZone" ng-disabled="!new">
+                </div>
+            </div>
+
+            <div class="form-group form-group-compact">
+                <div class="col-sm-1">
+                </div>
+
+                <label class="col-sm-5 control-label-left-left" for="selfHealthCheck.stitchesInOtherBodyParts">mujal kehas</label>
+
+                <div class="col-sm-1">
+                    <input type="checkbox" class="form-control-static" id="selfHealthCheck.stitchesInOtherBodyParts"
+                           name="selfHealthCheck.stitchesInOtherBodyParts" ng-model="selfHealthCheck.stitchesInOtherBodyParts" ng-disabled="!new">
+                </div>
+            </div>
+
+            <div class="form-group form-group-compact">
+                <label class="col-sm-6 control-label-left-left" for="selfHealthCheck.cardiacRhythmDisorders">südame rütmihäired</label>
+
+                <div class="col-sm-1">
+                    <input type="checkbox" class="form-control-static" id="selfHealthCheck.cardiacRhythmDisorders"
+                           name="selfHealthCheck.cardiacRhythmDisorders" ng-model="selfHealthCheck.cardiacRhythmDisorders" ng-disabled="!new">
+                </div>
+            </div>
+
+            <div class="form-group form-group-compact">
+                <label class="col-sm-6 control-label-left-left" for="selfHealthCheck.fever">palavik, külmavärinad</label>
+
+                <div class="col-sm-1">
+                    <input type="checkbox" class="form-control-static" id="selfHealthCheck.fever"
+                           name="selfHealthCheck.fever" ng-model="selfHealthCheck.fever" ng-disabled="!new">
+                </div>
+            </div>
+
+            <div class="form-group form-group-compact">
+                <label class="col-sm-6 control-label-left-left" for="selfHealthCheck.vomiting">iiveldustunne, oksendamine</label>
+
+                <div class="col-sm-1">
+                    <input type="checkbox" class="form-control-static" id="selfHealthCheck.vomiting"
+                           name="selfHealthCheck.vomiting" ng-model="selfHealthCheck.vomiting" ng-disabled="!new">
+                </div>
+            </div>
+
+            <div class="form-group form-group-compact">
+                <label class="col-sm-6 control-label-left-left" for="selfHealthCheck.diarrhea">kõhulahtisus</label>
+
+                <div class="col-sm-1">
+                    <input type="checkbox" class="form-control-static" id="selfHealthCheck.diarrhea"
+                           name="selfHealthCheck.diarrhea" ng-model="selfHealthCheck.diarrhea" ng-disabled="!new">
+                </div>
+            </div>
+
+            <div class="form-group form-group-compact">
+                <label class="col-sm-6 control-label-left-left" for="selfHealthCheck.injury">trauma</label>
+
+                <div class="col-sm-1">
+                    <input type="checkbox" class="form-control-static" id="selfHealthCheck.injury"
+                           name="selfHealthCheck.injury" ng-model="selfHealthCheck.injury" ng-disabled="!new">
+                </div>
+            </div>
+
+            <div class="form-group form-group-compact">
+                <div class="col-sm-6">
+                    <b>põletik (turse, punetus, valu):</b>
+                </div>
+            </div>
+
+            <div class="form-group form-group-compact">
+                <div class="col-sm-1">
+                </div>
+
+                <label class="col-sm-5 control-label-left-left" for="selfHealthCheck.inflammationVisible">kehapinnal nähtav</label>
+
+                <div class="col-sm-1">
+                    <input type="checkbox" class="form-control-static" id="selfHealthCheck.inflammationVisible"
+                           name="selfHealthCheck.inflammationVisible" ng-model="selfHealthCheck.inflammationVisible" ng-disabled="!new">
+                </div>
+            </div>
+
+            <div class="form-group form-group-compact">
+                <div class="col-sm-1">
+                </div>
+
+                <label class="col-sm-5 control-label-left-left" for="selfHealthCheck.inflammationNotVisible">kehapinnal ei ole nähtav</label>
+
+                <div class="col-sm-1">
+                    <input type="checkbox" class="form-control-static" id="selfHealthCheck.inflammationNotVisible"
+                           name="selfHealthCheck.inflammationNotVisible" ng-model="selfHealthCheck.inflammationNotVisible" ng-disabled="!new">
+                </div>
+            </div>
+
+            <div class="form-group form-group-compact">
+                <label class="col-sm-6 control-label-left-left" for="selfHealthCheck.urination">urineerimishäired</label>
+
+                <div class="col-sm-1">
+                    <input type="checkbox" class="form-control-static" id="selfHealthCheck.urination"
+                           name="selfHealthCheck.urination" ng-model="selfHealthCheck.urination" ng-disabled="!new">
+                </div>
+            </div>
+
+            <div class="form-group form-group-compact">
+                <label class="col-sm-6 control-label-left-left" for="selfHealthCheck.anxiety">ängistus või üldine rahutustunne</label>
+
+                <div class="col-sm-1">
+                    <input type="checkbox" class="form-control-static" id="selfHealthCheck.anxiety"
+                           name="selfHealthCheck.anxiety" ng-model="selfHealthCheck.anxiety" ng-disabled="!new">
+                </div>
+            </div>
+
+            <br/>
+            <br/>
+
+            <div ng-show="new" class="col-sm-7 text-right">
+                <input type="submit" class="btn btn-default" ng-click="save(selfHealthCheckForm)" value="Save"/>
+            </div>
+            <div ng-hide="new" class="col-sm-7 text-right">
+                <input type="submit" class="btn btn-default" ng-click="back()" value="Back"/>
+            </div>
+        </div>
+    </form>
+</div>

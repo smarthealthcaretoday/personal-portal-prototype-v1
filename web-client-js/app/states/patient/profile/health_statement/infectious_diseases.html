@@ -1,0 +1,126 @@
+<accordion-group heading="Infectious diseases">
+    <div ng-form="infectiousDiseases">
+        <h4>Infectious diseases</h4>
+
+        <div class="form-group col-sm-8">
+            <input type="checkbox"
+                   id="healthStatement.infectiousDiseases.noComplains"
+                   name="healthStatement.infectiousDiseases.noComplains"
+                   class="form-control-static"
+                   ng-model="healthStatement.infectiousDiseases.noComplains"
+                   ng-change="healthStatement.infectiousDiseases.tuberculosis = false;
+                              healthStatement.infectiousDiseases.tuberculosisDetails = '';
+                              healthStatement.infectiousDiseases.viirushepatiit = false;
+                              healthStatement.infectiousDiseases.viirushepatiitDetails = '';
+                              healthStatement.infectiousDiseases.hivCarrier = false;
+                              healthStatement.infectiousDiseases.hivCarrierDetails = '';
+                              healthStatement.infectiousDiseases.aids = false;
+                              healthStatement.infectiousDiseases.aidsDetails = '';
+                              healthStatement.infectiousDiseases.otherDisease = false;
+                              healthStatement.infectiousDiseases.otherDiseaseDetails = '';">
+            &nbsp;
+            <label class="control-label-left"
+                   for="healthStatement.infectiousDiseases.noComplains">No complains</label>
+        </div>
+
+        <div class="form-group col-sm-8">
+            <input type="checkbox"
+                   id="healthStatement.infectiousDiseases.tuberculosis"
+                   name="healthStatement.infectiousDiseases.tuberculosis"
+                   class="form-control-static"
+                   ng-model="healthStatement.infectiousDiseases.tuberculosis"
+                   ng-change="healthStatement.infectiousDiseases.tuberculosisDetails =
+                        healthStatement.infectiousDiseases.tuberculosis ? healthStatement.infectiousDiseases.tuberculosisDetails : '';
+                        healthStatement.infectiousDiseases.noComplains = false;">
+            &nbsp;
+            <label class="control-label-left"
+                   for="healthStatement.infectiousDiseases.tuberculosis">Tuberculosis</label>
+            <input type="text"
+                   id="healthStatement.infectiousDiseases.tuberculosisDetails"
+                   name="healthStatement.infectiousDiseases.tuberculosisDetails"
+                   class="form-control input-sm"
+                   ng-model="healthStatement.infectiousDiseases.tuberculosisDetails"
+                   ng-show="healthStatement.infectiousDiseases.tuberculosis">
+        </div>
+
+        <div class="form-group col-sm-8">
+            <input type="checkbox"
+                   id="healthStatement.infectiousDiseases.viirushepatiit"
+                   name="healthStatement.infectiousDiseases.viirushepatiit"
+                   class="form-control-static"
+                   ng-model="healthStatement.infectiousDiseases.viirushepatiit"
+                   ng-change="healthStatement.infectiousDiseases.viirushepatiitDetails =
+                        healthStatement.infectiousDiseases.viirushepatiit ? healthStatement.infectiousDiseases.viirushepatiitDetails : '';
+                        healthStatement.infectiousDiseases.noComplains = false;">
+            &nbsp;
+            <label class="control-label-left"
+                   for="healthStatement.infectiousDiseases.viirushepatiit">Viirushepatiit</label>
+            <input type="text"
+                   id="healthStatement.infectiousDiseases.viirushepatiitDetails"
+                   name="healthStatement.infectiousDiseases.viirushepatiitDetails"
+                   class="form-control input-sm"
+                   ng-model="healthStatement.infectiousDiseases.viirushepatiitDetails"
+                   ng-show="healthStatement.infectiousDiseases.viirushepatiit">
+        </div>
+
+        <div class="form-group col-sm-8">
+            <input type="checkbox"
+                   id="healthStatement.infectiousDiseases.hivCarrier"
+                   name="healthStatement.infectiousDiseases.hivCarrier"
+                   class="form-control-static"
+                   ng-model="healthStatement.infectiousDiseases.hivCarrier"
+                   ng-change="healthStatement.infectiousDiseases.hivCarrierDetails =
+                        healthStatement.infectiousDiseases.hivCarrier ? healthStatement.infectiousDiseases.hivCarrierDetails : '';
+                        healthStatement.infectiousDiseases.noComplains = false;">
+            &nbsp;
+            <label class="control-label-left"
+                   for="healthStatement.infectiousDiseases.hivCarrier">HIV carrier</label>
+            <input type="text"
+                   id="healthStatement.infectiousDiseases.hivCarrierDetails"
+                   name="healthStatement.infectiousDiseases.hivCarrierDetails"
+                   class="form-control input-sm"
+                   ng-model="healthStatement.infectiousDiseases.hivCarrierDetails"
+                   ng-show="healthStatement.infectiousDiseases.hivCarrier">
+        </div>
+
+        <div class="form-group col-sm-8">
+            <input type="checkbox"
+                   id="healthStatement.infectiousDiseases.aids"
+                   name="healthStatement.infectiousDiseases.aids"
+                   class="form-control-static"
+                   ng-model="healthStatement.infectiousDiseases.aids"
+                   ng-change="healthStatement.infectiousDiseases.aidsDetails =
+                        healthStatement.infectiousDiseases.aids ? healthStatement.infectiousDiseases.aidsDetails : '';
+                        healthStatement.infectiousDiseases.noComplains = false;">
+            &nbsp;
+            <label class="control-label-left"
+                   for="healthStatement.infectiousDiseases.aids">AIDS</label>
+            <input type="text"
+                   id="healthStatement.infectiousDiseases.aidsDetails"
+                   name="healthStatement.infectiousDiseases.aidsDetails"
+                   class="form-control input-sm"
+                   ng-model="healthStatement.infectiousDiseases.aidsDetails"
+                   ng-show="healthStatement.infectiousDiseases.aids">
+        </div>
+
+        <div class="form-group col-sm-8">
+            <input type="checkbox"
+                   id="healthStatement.infectiousDiseases.otherDisease"
+                   name="healthStatement.infectiousDiseases.otherDisease"
+                   class="form-control-static"
+                   ng-model="healthStatement.infectiousDiseases.otherDisease"
+                   ng-change="healthStatement.infectiousDiseases.otherDiseaseDetails =
+                        healthStatement.infectiousDiseases.otherDisease ? healthStatement.infectiousDiseases.otherDiseaseDetails : '';
+                        healthStatement.infectiousDiseases.noComplains = false;">
+            &nbsp;
+            <label class="control-label-left"
+                   for="healthStatement.infectiousDiseases.otherDisease">Other disease / condition / symptom (please specify)</label>
+            <input type="text"
+                   id="healthStatement.infectiousDiseases.otherDiseaseDetails"
+                   name="healthStatement.infectiousDiseases.otherDiseaseDetails"
+                   class="form-control input-sm"
+                   ng-model="healthStatement.infectiousDiseases.otherDiseaseDetails"
+                   ng-show="healthStatement.infectiousDiseases.otherDisease">
+        </div>
+    </div>
+</accordion-group>

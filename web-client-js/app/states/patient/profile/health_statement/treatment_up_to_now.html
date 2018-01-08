@@ -1,0 +1,87 @@
+<accordion-group heading="Treatment up to now">
+    <div ng-form="treatmentUpToNow">
+        <h4>Treatment up to now</h4>
+
+        <div class="form-group col-sm-8">
+            <div style="white-space:nowrap">
+                <input type="checkbox"
+                       id="healthStatement.treatmentUpToNow.visitedDoctorAbroad"
+                       name="healthStatement.treatmentUpToNow.visitedDoctorAbroad"
+                       class="form-control-static"
+                       ng-model="healthStatement.treatmentUpToNow.visitedDoctorAbroad"
+                       ng-change="healthStatement.treatmentUpToNow.visitedDoctorAbroadDetails =
+                            healthStatement.treatmentUpToNow.visitedDoctorAbroad ? healthStatement.treatmentUpToNow.visitedDoctorAbroadDetails : '';">
+                &nbsp;
+                <label class="control-label-left"
+                       for="healthStatement.treatmentUpToNow.visitedDoctorAbroad">Have you been hospitalized or visited a doctor abroad?</label>
+            </div>
+            <label class="control-label-left" for="healthStatement.treatmentUpToNow.visitedDoctorAbroad"> Please specify why, when and where</label>
+            <input type="text"
+                   id="healthStatement.treatmentUpToNow.visitedDoctorAbroadDetails"
+                   name="healthStatement.treatmentUpToNow.visitedDoctorAbroadDetails"
+                   class="form-control input-sm"
+                   ng-model="healthStatement.treatmentUpToNow.visitedDoctorAbroadDetails"
+                   ng-show="healthStatement.treatmentUpToNow.visitedDoctorAbroad">
+        </div>
+
+        <div class="form-group col-sm-8">
+            <div style="white-space:nowrap">
+                <input type="checkbox"
+                       id="healthStatement.treatmentUpToNow.regularlMedication"
+                       name="healthStatement.treatmentUpToNow.regularlMedication"
+                       class="form-control-static"
+                       ng-model="healthStatement.treatmentUpToNow.regularlMedication"
+                       ng-change="healthStatement.treatmentUpToNow.regularlMedicationDetails =
+                            healthStatement.treatmentUpToNow.regularlMedication ? healthStatement.treatmentUpToNow.regularlMedicationDetails : '';">
+                &nbsp;
+                <label class="control-label-left"
+                       for="healthStatement.treatmentUpToNow.regularlMedication">Are you taking regularly any medication?</label>
+            </div>
+            <label class="control-label-left" for="healthStatement.treatmentUpToNow.regularlMedication">If so, please list</label>
+            <input type="text"
+                   id="healthStatement.treatmentUpToNow.regularlMedicationDetails"
+                   name="healthStatement.treatmentUpToNow.regularlMedicationDetails"
+                   class="form-control input-sm"
+                   ng-model="healthStatement.treatmentUpToNow.regularlMedicationDetails"
+                   ng-show="healthStatement.treatmentUpToNow.regularlMedication">
+        </div>
+
+        <div class="form-group col-sm-8">
+            <input type="checkbox"
+                   id="healthStatement.treatmentUpToNow.hospitalized"
+                   name="healthStatement.treatmentUpToNow.hospitalized"
+                   class="form-control-static"
+                   ng-model="healthStatement.treatmentUpToNow.hospitalized"
+                   ng-change="healthStatement.treatmentUpToNow.hospitalizedDetails =
+                        healthStatement.treatmentUpToNow.hospitalized ? healthStatement.treatmentUpToNow.hospitalizedDetails : '';">
+            &nbsp;
+            <label class="control-label-left"
+                   for="healthStatement.treatmentUpToNow.hospitalized">Have you been hospitalized?</label>
+            <input type="text"
+                   id="healthStatement.treatmentUpToNow.hospitalizedDetails"
+                   name="healthStatement.treatmentUpToNow.hospitalizedDetails"
+                   class="form-control input-sm"
+                   ng-model="healthStatement.treatmentUpToNow.hospitalizedDetails"
+                   ng-show="healthStatement.treatmentUpToNow.hospitalized">
+        </div>
+
+        <div class="form-group col-sm-8">
+            <input type="checkbox"
+                   id="healthStatement.treatmentUpToNow.surgery"
+                   name="healthStatement.treatmentUpToNow.surgery"
+                   class="form-control-static"
+                   ng-model="healthStatement.treatmentUpToNow.surgery"
+                   ng-change="healthStatement.treatmentUpToNow.surgeryDetails =
+                        healthStatement.treatmentUpToNow.surgery ? healthStatement.treatmentUpToNow.surgeryDetails : '';">
+            &nbsp;
+            <label class="control-label-left"
+                   for="healthStatement.treatmentUpToNow.surgery">Have you had surgery? Please specify why and when</label>
+            <input type="text"
+                   id="healthStatement.treatmentUpToNow.surgeryDetails"
+                   name="healthStatement.treatmentUpToNow.surgeryDetails"
+                   class="form-control input-sm"
+                   ng-model="healthStatement.treatmentUpToNow.surgeryDetails"
+                   ng-show="healthStatement.treatmentUpToNow.surgery">
+        </div>
+    </div>
+</accordion-group>

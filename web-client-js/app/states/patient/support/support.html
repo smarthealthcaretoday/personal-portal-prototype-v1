@@ -1,0 +1,54 @@
+<div class="page-section-header">
+    <div class="container">
+        <section class="title-section">
+            <h1 class="title-header">Customer support</h1>
+        </section>
+    </div>
+</div>
+
+<div class="container">
+    <div class="row">
+        <ol class="breadcrumb">
+            <li><a ui-sref="personalPortal.patient.dashboard">Dashboard</a></li>
+            <li class="active">Send customer support request</li>
+        </ol>
+
+        <div class="col-md-8">
+            <h3>New support request</h3>
+
+            <div class="alert alert-success" role="alert" ng-show="!customerSupportForm.$dirty && success">
+                Customer support request was send
+                </br>
+            </div>
+            <form novalidate role="form" name="customerSupportForm" id="customerSupportForm">
+                <div class="form-group col-sm-9"
+                     ng-class="{true: 'has-error'}[customerSupportForm.$submitted && customerSupportForm['subject'].$invalid]">
+                        <label for="subject">Subject</label>
+                    <span class="help-block"
+                          ng-show="customerSupportForm.$submitted && customerSupportForm['subject'].$error.required">Please enter request subject</span>
+                        <input type="text" class="form-control" ng-model="subject" id="subject" name="subject"
+                               placeholder="Subject" required/>
+                </div>
+
+                <div class="form-group col-sm-9"
+                     ng-class="{true: 'has-error'}[customerSupportForm.$submitted && customerSupportForm['message'].$invalid]">
+                        <label for="message">Message</label>
+                    <span class="help-block"
+                          ng-show="customerSupportForm.$submitted && customerSupportForm['message'].$error.required">Please enter your message</span>
+                    <textarea style="height: 200px" class="form-control" ng-model="message" id="message" name="message" placeholder="Message"
+                              required/>
+                </div>
+
+                <div class="form-group"><label>&nbsp;</label></div>
+
+                <div class="col-sm-9 text-right">
+                    <input type="submit" class="btn btn-default"
+                           ng-click="sendCustomerSupportRequest(customerSupportForm)" value="Send request"/>
+                </div>
+            </form>
+
+        </div>
+    </div>
+
+    <div class="content_white"></div>
+</div>

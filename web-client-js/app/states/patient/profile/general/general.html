@@ -1,0 +1,168 @@
+<ol class="breadcrumb">
+    <li><a ui-sref="personalPortal.patient.dashboard">Dashboard</a></li>
+    <li class="active">Profile</li>
+</ol>
+
+<div class="col-md-8">
+    <h3>General patient profile data</h3>
+
+    </br>
+
+    <form novalidate role="form" class="form-horizontal" name="patientData">
+        <div class="alert alert-danger" role="alert" ng-show="patientData.$submitted && patientData.$invalid">
+            Some of entered values are incorrect, please check
+            </br>
+        </div>
+
+        <div class="alert alert-success" role="alert" ng-show="!patientData.$dirty && dataSaved">
+            Data saved
+            </br>
+        </div>
+
+        <div class="form-group"
+             ng-class="{true: 'has-error'}[patientData.$submitted && patientData['patient.name'].$invalid]">
+            <label class="col-sm-3 control-label" for="patient.name">Name</label>
+
+            <div class="col-sm-5">
+                <input type="text" id="patient.name" name="patient.name" class="form-control input-sm"
+                       ng-model="patient.name" required>
+            </div>
+
+            <div class="col-sm-4">
+                        <span class="help-block"
+                              ng-show="patientData.$submitted && patientData['patient.name'].$error.required">Please enter your name</span>
+            </div>
+        </div>
+
+        <div class="form-group"
+             ng-class="{true: 'has-error'}[patientData.$submitted && patientData['patient.surname'].$invalid]">
+            <label class="col-sm-3 control-label" for="patient.surname">Surname</label>
+
+            <div class="col-sm-5">
+                <input type="text" id="patient.surname" name="patient.surname" class="form-control input-sm"
+                       ng-model="patient.surname" required>
+            </div>
+
+            <div class="col-sm-4">
+                        <span class="help-block"
+                              ng-show="patientData.$submitted && patientData['patient.surname'].$error.required">Please enter your surname</span>
+            </div>
+        </div>
+
+        <div class="form-group"
+             ng-class="{true: 'has-error'}[patientData.$submitted && patientData['patient.legalCode'].$invalid]">
+            <label class="col-sm-3 control-label" for="patient.legalCode">Legal code</label>
+
+            <div class="col-sm-5">
+                <input type="text" id="patient.legalCode" name="patient.legalCode"
+                       class="form-control input-sm"
+                       ng-model="patient.legalCode" required pattern="[0-9]{11}$">
+            </div>
+
+            <div class="col-sm-4">
+                        <span class="help-block"
+                              ng-show="patientData.$submitted && patientData['patient.legalCode'].$error.required">Please enter your legal code</span>
+                        <span class="help-block"
+                              ng-show="patientData.$submitted && patientData['patient.legalCode'].$error.pattern">Legal code should have 11 digits</span>
+            </div>
+        </div>
+
+        <div class="form-group form-inline"
+             ng-class="{true: 'has-error'}[patientData.$submitted && patientData['patient.gender'].$invalid]">
+            <label class="col-sm-3 control-label">Gender</label>
+
+            <div class="col-sm-5">
+                <label class="radio">
+                    <input value="MALE" ng-model="patient.gender" name="patient.gender" type="radio"
+                           required>male
+                </label>
+                &nbsp;
+                <label class="radio">
+                    <input value="FEMALE" ng-model="patient.gender" name="patient.gender"
+                           type="radio"
+                           required>female
+                </label>
+            </div>
+
+            <div class="col-sm-4">
+                        <span class="help-block"
+                              ng-show="patientData.$submitted && patientData['patient.gender'].$error.required">Please select</span>
+            </div>
+        </div>
+
+        <div class="form-group"
+             ng-class="{true: 'has-error'}[patientData.$submitted && patientData['patient.birthDate'].$invalid]">
+            <label class="col-sm-3 control-label">Birth Date</label>
+
+            <div class="col-md-4">
+                <span class="input-group">
+                    <input type="text"
+                           class="form-control input-sm"
+                           name="patient.birthDate"
+                           datetime-picker="dd/MM/yyyy"
+                           ng-model="patient.birthDate"
+                           is-open="datepickerState.birthDateOpened"
+                           ng-required="true"
+                           enable-time="false"
+                           max-date="{{today}}"
+                           datepicker-options="dateOptions"
+                           timepicker-options="timeOptions"/>
+
+                    <span class="input-group-btn">
+                        <button type="button" class="btn btn-sm" ng-click="openBirthDate($event)"><i class="glyphicon glyphicon-calendar"></i></button>
+                    </span>
+                </span>
+            </div>
+
+            <div class="col-sm-1"></div>
+
+            <div class="col-sm-4">
+                <span class="help-block" ng-show="patientData.$submitted && patientData['patient.birthDate'].$error.required">Please enter your birth date</span>
+            </div>
+        </div>
+
+        <div class="form-group"
+             ng-class="{true: 'has-error'}[patientData.$submitted && patientData['patient.email'].$invalid]">
+            <label class="col-sm-3 control-label" for="patient.email">Email</label>
+
+            <div class="col-sm-5">
+                <input type="email" id="patient.email" name="patient.email" class="form-control input-sm"
+                       ng-model="patient.email" required>
+            </div>
+
+            <div class="col-sm-4">
+                <span class="help-block"
+                    ng-show="patientData.$submitted && patientData['patient.email'].$error.required">Please enter your email</span>
+                <span class="help-block"
+                      ng-show="patientData.$submitted && patientData['patient.email'].$error.email">Please enter valid email</span>
+            </div>
+        </div>
+
+        <div class="form-group"
+             ng-class="{true: 'has-error'}[patientData.$submitted && general['patient.phone'].$invalid]">
+            <label class="col-sm-3 control-label" for="patient.phone">Phone</label>
+
+            <div class="col-sm-5">
+                <input type="text" id="patient.phone" name="patient.phone" class="form-control input-sm"
+                       ng-model="patient.phone">
+            </div>
+        </div>
+
+        <div class="form-group"
+             ng-class="{true: 'has-error'}[patientData.$submitted && general['patient.address'].$invalid]">
+            <label class="col-sm-3 control-label" for="patient.address">Address</label>
+
+            <div class="col-sm-5">
+                <input type="text" id="patient.address" name="patient.address" class="form-control input-sm"
+                       ng-model="patient.address">
+            </div>
+        </div>
+
+        <div class="col-sm-8 text-right">
+            <input type="submit" class="btn btn-default" ng-click="save(patientData)" value="Save"/>
+        </div>
+
+        </br>
+        </br>
+    </form>
+</div>

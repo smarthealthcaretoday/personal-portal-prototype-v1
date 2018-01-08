@@ -1,0 +1,39 @@
+<accordion-group heading="Other chronic diseases">
+    <div ng-form="otherChronicDiseases">
+        <h4>Other chronic diseases, conditions or symptoms not described
+            above</h4>
+
+        <div class="form-group col-sm-9">
+            <input type="checkbox"
+                   id="healthStatement.otherChronicDiseases.noComplains"
+                   name="healthStatement.otherChronicDiseases.noComplains"
+                   class="form-control-static"
+                   ng-model="healthStatement.otherChronicDiseases.noComplains"
+                   ng-change="healthStatement.otherChronicDiseases.disease = false;
+                              healthStatement.otherChronicDiseases.diseaseDetails = '';">
+            &nbsp;
+            <label class="control-label-left"
+                   for="healthStatement.otherChronicDiseases.noComplains">No complains</label>
+        </div>
+
+        <div class="form-group col-sm-9">
+            <input type="checkbox"
+                   id="healthStatement.otherChronicDiseases.disease"
+                   name="healthStatement.otherChronicDiseases.disease"
+                   class="form-control-static"
+                   ng-model="healthStatement.otherChronicDiseases.disease"
+                   ng-change="healthStatement.otherChronicDiseases.diseaseDetails =
+                        healthStatement.otherChronicDiseases.disease ? healthStatement.otherChronicDiseases.diseaseDetails : '';
+                        healthStatement.otherChronicDiseases.noComplains = false;">
+            &nbsp;
+            <label class="control-label-left"
+                   for="healthStatement.otherChronicDiseases.disease">Disease / condition / symptom (please specify, when and what)</label>
+            <input type="text"
+                   id="healthStatement.otherChronicDiseases.diseaseDetails"
+                   name="healthStatement.otherChronicDiseases.diseaseDetails"
+                   class="form-control input-sm"
+                   ng-model="healthStatement.otherChronicDiseases.diseaseDetails"
+                   ng-show="healthStatement.otherChronicDiseases.disease">
+        </div>
+    </div>
+</accordion-group>

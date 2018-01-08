@@ -1,0 +1,60 @@
+<accordion-group heading="Traumas">
+    <div ng-form="traumas">
+        <h4>Traumas</h4>
+
+        <div class="form-group col-sm-8">
+            <input type="checkbox"
+                   id="healthStatement.traumas.noComplains"
+                   name="healthStatement.traumas.noComplains"
+                   class="form-control-static"
+                   ng-model="healthStatement.traumas.noComplains"
+                   ng-change="healthStatement.traumas.boneFractures = false;
+                              healthStatement.traumas.boneFracturesDetails = '';
+                              healthStatement.traumas.otherInjuries = false;
+                              healthStatement.traumas.otherInjuriesDetails = '';">
+            &nbsp;
+            <label class="control-label-left"
+                   for="healthStatement.traumas.noComplains">None</label>
+        </div>
+
+        <div class="form-group col-sm-8">
+            <input type="checkbox"
+                   id="healthStatement.traumas.boneFractures"
+                   name="healthStatement.traumas.boneFractures"
+                   class="form-control-static"
+                   ng-model="healthStatement.traumas.boneFractures"
+                   ng-change="healthStatement.traumas.boneFracturesDetails =
+                        healthStatement.traumas.boneFractures ? healthStatement.traumas.boneFracturesDetails : '';
+                        healthStatement.traumas.noComplains = false;">
+            &nbsp;
+            <label class="control-label-left"
+                   for="healthStatement.traumas.boneFractures">Bone fractures (please specify, when and what)</label>
+            <input type="text"
+                   id="healthStatement.traumas.boneFracturesDetails"
+                   name="healthStatement.traumas.boneFracturesDetails"
+                   class="form-control input-sm"
+                   ng-model="healthStatement.traumas.boneFracturesDetails"
+                   ng-show="healthStatement.traumas.boneFractures">
+        </div>
+
+        <div class="form-group col-sm-8">
+            <input type="checkbox"
+                   id="healthStatement.traumas.otherInjuries"
+                   name="healthStatement.traumas.otherInjuries"
+                   class="form-control-static"
+                   ng-model="healthStatement.traumas.otherInjuries"
+                   ng-change="healthStatement.traumas.otherInjuriesDetails =
+                        healthStatement.traumas.otherInjuries ? healthStatement.traumas.otherInjuriesDetails : '';
+                        healthStatement.traumas.noComplains = false;">
+            &nbsp;
+            <label class="control-label-left"
+                   for="healthStatement.traumas.otherInjuries">Other significant injuries (please specify, when and what)</label>
+            <input type="text"
+                   id="healthStatement.traumas.otherInjuriesDetails"
+                   name="healthStatement.traumas.otherInjuriesDetails"
+                   class="form-control input-sm"
+                   ng-model="healthStatement.traumas.otherInjuriesDetails"
+                   ng-show="healthStatement.traumas.otherInjuries">
+        </div>
+    </div>
+</accordion-group>

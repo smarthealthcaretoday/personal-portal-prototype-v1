@@ -1,0 +1,2260 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<!--Created with Liquid XML Studio Designer Edition 9.1.11.3570 (http://www.liquid-technologies.com)-->
+<xs:schema elementFormDefault="qualified" version="1.2" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+    <xs:element name="DSSRequest">
+        <xs:annotation>
+            <xs:documentation>The container for the request information sent from the electronic health record (EHR) to the decision support system (DSS)</xs:documentation>
+        </xs:annotation>
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="Patient">
+                    <xs:annotation>
+                        <xs:documentation>The container for health care-related, patient-specific data</xs:documentation>
+                    </xs:annotation>
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:element name="Properties">
+                                <xs:annotation>
+                                    <xs:documentation>The container for health care-related, patient-specific data</xs:documentation>
+                                </xs:annotation>
+                                <xs:complexType>
+                                    <xs:sequence>
+                                        <xs:element name="PatientID" type="xs:string" minOccurs="0" maxOccurs="1">
+                                            <xs:annotation>
+                                                <xs:documentation>An "anonymous" ID for the patient (e.g. the internal id for the patient in the EHR). The key for the patient ID should be available on the client side only (it should not be possible to identify the patient server-side). Element added in version 1.2</xs:documentation>
+                                            </xs:annotation>
+                                        </xs:element>
+                                        <xs:element name="BirthTimeStamp">
+                                            <xs:annotation>
+                                                <xs:documentation>The container for the birthdate with a minimum precision of one year. For newborn infants, birthdates with a precision of hours/minutes may be relevant.</xs:documentation>
+                                            </xs:annotation>
+                                            <xs:complexType>
+                                                <xs:sequence>
+                                                    <xs:element name="Year" type="xs:int">
+                                                        <xs:annotation>
+                                                            <xs:documentation>The birth year expressed as four digits.</xs:documentation>
+                                                        </xs:annotation>
+                                                    </xs:element>
+                                                    <xs:element name="Month" minOccurs="0" maxOccurs="1">
+                                                        <xs:annotation>
+                                                            <xs:documentation>The birth month expressed as two digits.</xs:documentation>
+                                                        </xs:annotation>
+                                                        <xs:simpleType>
+                                                            <xs:restriction base="xs:int">
+                                                                <xs:maxInclusive value="12" />
+                                                                <xs:minInclusive value="00" />
+                                                            </xs:restriction>
+                                                        </xs:simpleType>
+                                                    </xs:element>
+                                                    <xs:element name="Day" minOccurs="0" maxOccurs="1">
+                                                        <xs:annotation>
+                                                            <xs:documentation>The birth day expressed as two digits.</xs:documentation>
+                                                        </xs:annotation>
+                                                        <xs:simpleType>
+                                                            <xs:restriction base="xs:int">
+                                                                <xs:maxInclusive value="31" />
+                                                                <xs:minInclusive value="00" />
+                                                            </xs:restriction>
+                                                        </xs:simpleType>
+                                                    </xs:element>
+                                                    <xs:element name="Hour" minOccurs="0" maxOccurs="1">
+                                                        <xs:annotation>
+                                                            <xs:documentation>The birth hour expressed as two digits. "24" is not allowed, use “00”.</xs:documentation>
+                                                        </xs:annotation>
+                                                        <xs:simpleType>
+                                                            <xs:restriction base="xs:int">
+                                                                <xs:totalDigits value="2" />
+                                                                <xs:maxInclusive value="23" />
+                                                                <xs:minInclusive value="00" />
+                                                            </xs:restriction>
+                                                        </xs:simpleType>
+                                                    </xs:element>
+                                                    <xs:element name="Minute" minOccurs="0" maxOccurs="1">
+                                                        <xs:annotation>
+                                                            <xs:documentation>The birth minute expressed as two digits.</xs:documentation>
+                                                        </xs:annotation>
+                                                        <xs:simpleType>
+                                                            <xs:restriction base="xs:int">
+                                                                <xs:totalDigits value="2" />
+                                                                <xs:maxInclusive value="59" />
+                                                                <xs:minInclusive value="00" />
+                                                            </xs:restriction>
+                                                        </xs:simpleType>
+                                                    </xs:element>
+                                                </xs:sequence>
+                                            </xs:complexType>
+                                        </xs:element>
+                                        <xs:element name="Gender">
+                                            <xs:annotation>
+                                                <xs:documentation>The gender of the patient according to the internal coding system</xs:documentation>
+                                            </xs:annotation>
+                                            <xs:simpleType>
+                                                <xs:restriction base="xs:string">
+                                                    <xs:enumeration value="M" />
+                                                    <xs:enumeration value="F" />
+                                                    <xs:enumeration value="U" />
+                                                    <xs:enumeration value="N" />
+                                                    <xs:enumeration value="1" />
+                                                    <xs:enumeration value="2" />
+                                                    <xs:enumeration value="9" />
+                                                    <xs:enumeration value="0" />
+                                                </xs:restriction>
+                                            </xs:simpleType>
+                                        </xs:element>
+                                        <xs:element name="Ethnicity" minOccurs="0">
+                                            <xs:annotation>
+                                                <xs:documentation>The container for ethnicity data. Element added in version 1.2.</xs:documentation>
+                                            </xs:annotation>
+                                            <xs:complexType>
+                                                <xs:sequence>
+                                                    <xs:group ref="CodeGroup">
+                                                        <xs:annotation>
+                                                            <xs:documentation>Use ethnicity coding systems. Group added in version 1.2.</xs:documentation>
+                                                        </xs:annotation>
+                                                    </xs:group>
+                                                    <xs:element name="EthnicityName" type="xs:string" minOccurs="0">
+                                                        <xs:annotation>
+                                                            <xs:documentation>A free text name used in the EHR for the ethnic group. Element added in version 1.2.</xs:documentation>
+                                                        </xs:annotation>
+                                                    </xs:element>
+                                                </xs:sequence>
+                                            </xs:complexType>
+                                        </xs:element>
+                                        <xs:element name="Professions" minOccurs="0">
+                                            <xs:annotation>
+                                                <xs:documentation>The container for repetitive sequences of the Profession element. Element added in version 1.2.</xs:documentation>
+                                            </xs:annotation>
+                                            <xs:complexType>
+                                                <xs:sequence>
+                                                    <xs:element name="Profession" maxOccurs="unbounded">
+                                                        <xs:annotation>
+                                                            <xs:documentation>The container for profession data. Element added in version 1.2.</xs:documentation>
+                                                        </xs:annotation>
+                                                        <xs:complexType>
+                                                            <xs:sequence>
+                                                                <xs:group ref="CodeGroup">
+                                                                    <xs:annotation>
+                                                                        <xs:documentation>Use profession coding systems. Group added in version 1.2.</xs:documentation>
+                                                                    </xs:annotation>
+                                                                </xs:group>
+                                                                <xs:group ref="TimeStampsGroup">
+                                                                    <xs:annotation>
+                                                                        <xs:documentation>Group added in version 1.2.</xs:documentation>
+                                                                    </xs:annotation>
+                                                                </xs:group>
+                                                                <xs:element name="ProfessionName" type="xs:string" minOccurs="0">
+                                                                    <xs:annotation>
+                                                                        <xs:documentation>A free text name used in the EHR for the profession. Element added in version 1.2.</xs:documentation>
+                                                                    </xs:annotation>
+                                                                </xs:element>
+                                                            </xs:sequence>
+                                                        </xs:complexType>
+                                                    </xs:element>
+                                                </xs:sequence>
+                                            </xs:complexType>
+                                        </xs:element>
+                                    </xs:sequence>
+                                </xs:complexType>
+                            </xs:element>
+                            <xs:element name="Risks" minOccurs="0" maxOccurs="1">
+                                <xs:annotation>
+                                    <xs:documentation>The container for risk data</xs:documentation>
+                                </xs:annotation>
+                                <xs:complexType>
+                                    <xs:sequence>
+                                        <xs:element name="DrugsToAvoid" minOccurs="0" maxOccurs="1">
+                                            <xs:annotation>
+                                                <xs:documentation>The container for repetitive sequences of the DrugToAvoid element</xs:documentation>
+                                            </xs:annotation>
+                                            <xs:complexType>
+                                                <xs:sequence>
+                                                    <xs:element name="DrugToAvoid" maxOccurs="unbounded">
+                                                        <xs:annotation>
+                                                            <xs:documentation>The container for data describing a drug that is not suitable for the patient (e.g. due to a previous adverse effect)</xs:documentation>
+                                                        </xs:annotation>
+                                                        <xs:complexType>
+                                                            <xs:sequence>
+                                                                <xs:group ref="CodeGroup">
+                                                                    <xs:annotation>
+                                                                        <xs:documentation>Coding system group: medication</xs:documentation>
+                                                                    </xs:annotation>
+                                                                </xs:group>
+                                                                <xs:element name="ReasonsForAvoiding" minOccurs="0">
+                                                                    <xs:annotation>
+                                                                        <xs:documentation>The container for repetitive sequences of the ReasonForAvoiding element. Element added in version 1.2</xs:documentation>
+                                                                    </xs:annotation>
+                                                                    <xs:complexType>
+                                                                        <xs:sequence>
+                                                                            <xs:element name="ReasonForAvoiding" minOccurs="0" maxOccurs="unbounded">
+                                                                                <xs:annotation>
+                                                                                    <xs:documentation>Data describing the reason to avoid the drug. Element added in version 1.2</xs:documentation>
+                                                                                </xs:annotation>
+                                                                                <xs:complexType>
+                                                                                    <xs:sequence>
+                                                                                        <xs:group ref="CodeGroup">
+                                                                                            <xs:annotation>
+                                                                                                <xs:documentation>Coding system group: diagnoses. Group added in version 1.2</xs:documentation>
+                                                                                            </xs:annotation>
+                                                                                        </xs:group>
+                                                                                        <xs:group ref="TimeStampsGroup">
+                                                                                            <xs:annotation>
+                                                                                                <xs:documentation>Group added in version 1.2</xs:documentation>
+                                                                                            </xs:annotation>
+                                                                                        </xs:group>
+                                                                                        <xs:element name="RiskLevel" minOccurs="0">
+                                                                                            <xs:annotation>
+                                                                                                <xs:documentation>The level of risk of the drug according to the selected coding system. Element added in version 1.2</xs:documentation>
+                                                                                            </xs:annotation>
+                                                                                            <xs:complexType>
+                                                                                                <xs:sequence>
+                                                                                                    <xs:group ref="CodeGroup">
+                                                                                                        <xs:annotation>
+                                                                                                            <xs:documentation>Group added in version 1.2.</xs:documentation>
+                                                                                                        </xs:annotation>
+                                                                                                    </xs:group>
+                                                                                                </xs:sequence>
+                                                                                            </xs:complexType>
+                                                                                        </xs:element>
+                                                                                    </xs:sequence>
+                                                                                </xs:complexType>
+                                                                            </xs:element>
+                                                                        </xs:sequence>
+                                                                    </xs:complexType>
+                                                                </xs:element>
+                                                                <xs:element name="DrugName" type="xs:string" minOccurs="0" maxOccurs="1">
+                                                                    <xs:annotation>
+                                                                        <xs:documentation>A free text name used in the EHR for the drug to avoid (tradename or generic name). Element name changed from DrugToAvoidName to DrugName in version 1.1</xs:documentation>
+                                                                    </xs:annotation>
+                                                                </xs:element>
+                                                            </xs:sequence>
+                                                        </xs:complexType>
+                                                    </xs:element>
+                                                </xs:sequence>
+                                            </xs:complexType>
+                                        </xs:element>
+                                        <xs:element name="Smoking" minOccurs="0" maxOccurs="1">
+                                            <xs:annotation>
+                                                <xs:documentation>The container for the element SmokingStatus</xs:documentation>
+                                            </xs:annotation>
+                                            <xs:complexType>
+                                                <xs:sequence>
+                                                    <xs:element name="SmokingStatus" minOccurs="0">
+                                                        <xs:annotation>
+                                                            <xs:documentation>The smoking status according to the internal coding system (for backwards compatibility)</xs:documentation>
+                                                        </xs:annotation>
+                                                        <xs:complexType mixed="true">
+                                                            <xs:sequence>
+                                                                <xs:group ref="CodeGroup">
+                                                                    <xs:annotation>
+                                                                        <xs:documentation>The smoking status according to an external coding system.</xs:documentation>
+                                                                    </xs:annotation>
+                                                                </xs:group>
+                                                            </xs:sequence>
+                                                        </xs:complexType>
+                                                    </xs:element>
+                                                    <xs:element name="DailyCigaretteConsumption" type="xs:int" minOccurs="0">
+                                                        <xs:annotation>
+                                                            <xs:documentation>Current daily cigarette consumption. Element added in version 1.2.</xs:documentation>
+                                                        </xs:annotation>
+                                                    </xs:element>
+                                                    <xs:element name="SmokingPackYears" type="xs:int" minOccurs="0">
+                                                        <xs:annotation>
+                                                            <xs:documentation>Smoking pack years. A pack year is defined as twenty cigarettes smoked everyday for one year. Element added in version 1.2.</xs:documentation>
+                                                        </xs:annotation>
+                                                    </xs:element>
+                                                </xs:sequence>
+                                            </xs:complexType>
+                                        </xs:element>
+                                        <xs:element name="AlcoholConsumption" minOccurs="0">
+                                            <xs:annotation>
+                                                <xs:documentation>The container for alcohol consumption data. Element added in version 1.2.</xs:documentation>
+                                            </xs:annotation>
+                                            <xs:complexType>
+                                                <xs:sequence>
+                                                    <xs:element name="WeeklyDrinkEquivalents" type="xs:int" minOccurs="0">
+                                                        <xs:annotation>
+                                                            <xs:documentation>Daily drink equivalents (on average). Element added in version 1.2.</xs:documentation>
+                                                        </xs:annotation>
+                                                    </xs:element>
+                                                </xs:sequence>
+                                            </xs:complexType>
+                                        </xs:element>
+                                        <xs:element name="Pregnancy" minOccurs="0" maxOccurs="1">
+                                            <xs:annotation>
+                                                <xs:documentation>The container for the element Pregnant</xs:documentation>
+                                            </xs:annotation>
+                                            <xs:complexType>
+                                                <xs:sequence>
+                                                    <xs:element name="Pregnant" type="xs:boolean" minOccurs="0" maxOccurs="1">
+                                                        <xs:annotation>
+                                                            <xs:documentation>Boolean value (0/1) for ongoing pregnancy.
+</xs:documentation>
+                                                        </xs:annotation>
+                                                    </xs:element>
+                                                    <xs:element name="ExpectedDeliveryDate" type="xs:date" minOccurs="0">
+                                                        <xs:annotation>
+                                                            <xs:documentation>Expected delivery time. Element added in version 1.2.</xs:documentation>
+                                                        </xs:annotation>
+                                                    </xs:element>
+                                                </xs:sequence>
+                                            </xs:complexType>
+                                        </xs:element>
+                                        <xs:element name="Lactation" minOccurs="0">
+                                            <xs:annotation>
+                                                <xs:documentation>The container for the element Lactating. Element added in version 1.2.</xs:documentation>
+                                            </xs:annotation>
+                                            <xs:complexType>
+                                                <xs:sequence>
+                                                    <xs:element name="Lactating" type="xs:boolean" minOccurs="0">
+                                                        <xs:annotation>
+                                                            <xs:documentation>Boolean value (0/1) for ongoing lactation. Element added in version 1.2</xs:documentation>
+                                                        </xs:annotation>
+                                                    </xs:element>
+                                                </xs:sequence>
+                                            </xs:complexType>
+                                        </xs:element>
+                                        <xs:element name="FamilialDiseases" minOccurs="0">
+                                            <xs:annotation>
+                                                <xs:documentation>The container for repetitive sequences of the FamilialDisease element. Element added in version 1.2.</xs:documentation>
+                                            </xs:annotation>
+                                            <xs:complexType>
+                                                <xs:sequence>
+                                                    <xs:element name="FamilialDisease" maxOccurs="unbounded">
+                                                        <xs:annotation>
+                                                            <xs:documentation>The container for data describing a familial disease. Element added in version 1.2.</xs:documentation>
+                                                        </xs:annotation>
+                                                        <xs:complexType>
+                                                            <xs:sequence>
+                                                                <xs:group ref="CodeGroup">
+                                                                    <xs:annotation>
+                                                                        <xs:documentation>Use diagnosis coding systems. Element added in version 1.2</xs:documentation>
+                                                                    </xs:annotation>
+                                                                </xs:group>
+                                                                <xs:element name="DegreeOfKinship" type="xs:int" minOccurs="0">
+                                                                    <xs:annotation>
+                                                                        <xs:documentation>Degree of kinship. Element added in version 1.2</xs:documentation>
+                                                                    </xs:annotation>
+                                                                </xs:element>
+                                                                <xs:element name="FamilialDiseaseName" type="xs:string" minOccurs="0">
+                                                                    <xs:annotation>
+                                                                        <xs:documentation>A free text name used in the EHR for the familial disease. Element added in version 1.2</xs:documentation>
+                                                                    </xs:annotation>
+                                                                </xs:element>
+                                                            </xs:sequence>
+                                                        </xs:complexType>
+                                                    </xs:element>
+                                                </xs:sequence>
+                                            </xs:complexType>
+                                        </xs:element>
+                                        <xs:element name="NonDrugHypersensitivities" minOccurs="0">
+                                            <xs:annotation>
+                                                <xs:documentation>The container for repetitive sequences of the NonDrugHypersensitivity element. Element added in version 1.2</xs:documentation>
+                                            </xs:annotation>
+                                            <xs:complexType>
+                                                <xs:sequence>
+                                                    <xs:element name="NonDrugHypersensitivity" maxOccurs="unbounded">
+                                                        <xs:annotation>
+                                                            <xs:documentation>The container for data describing the hypersensitivity reaction. Element added in version 1.2</xs:documentation>
+                                                        </xs:annotation>
+                                                        <xs:complexType>
+                                                            <xs:sequence>
+                                                                <xs:group ref="CodeGroup">
+                                                                    <xs:annotation>
+                                                                        <xs:documentation>Use allergen coding systems. Group added in version 1.2</xs:documentation>
+                                                                    </xs:annotation>
+                                                                </xs:group>
+                                                                <xs:element name="HypersensitivityReaction" minOccurs="0">
+                                                                    <xs:annotation>
+                                                                        <xs:documentation>The container for the hypersensitivity data. Element added in version 1.2</xs:documentation>
+                                                                    </xs:annotation>
+                                                                    <xs:complexType>
+                                                                        <xs:sequence>
+                                                                            <xs:group ref="CodeGroup">
+                                                                                <xs:annotation>
+                                                                                    <xs:documentation>Use diagnosis coding systems. Group added in version 1.2</xs:documentation>
+                                                                                </xs:annotation>
+                                                                            </xs:group>
+                                                                            <xs:group ref="TimeStampsGroup">
+                                                                                <xs:annotation>
+                                                                                    <xs:documentation>Group added in version 1.2</xs:documentation>
+                                                                                </xs:annotation>
+                                                                            </xs:group>
+                                                                            <xs:element name="RiskLevel" minOccurs="0">
+                                                                                <xs:annotation>
+                                                                                    <xs:documentation>The level of risk of the drug according to the selected coding system. Element added in version 1.2</xs:documentation>
+                                                                                </xs:annotation>
+                                                                                <xs:complexType>
+                                                                                    <xs:sequence>
+                                                                                        <xs:group ref="CodeGroup">
+                                                                                            <xs:annotation>
+                                                                                                <xs:documentation>Group added in version 1.2.</xs:documentation>
+                                                                                            </xs:annotation>
+                                                                                        </xs:group>
+                                                                                    </xs:sequence>
+                                                                                </xs:complexType>
+                                                                            </xs:element>
+                                                                            <xs:element name="HypersensitivityReactionName" type="xs:string" minOccurs="0">
+                                                                                <xs:annotation>
+                                                                                    <xs:documentation>A free text name used in the EHR for the hypersensitivity reaction. Element added in version 1.2</xs:documentation>
+                                                                                </xs:annotation>
+                                                                            </xs:element>
+                                                                        </xs:sequence>
+                                                                    </xs:complexType>
+                                                                </xs:element>
+                                                                <xs:element name="AllergenName" type="xs:string" minOccurs="0">
+                                                                    <xs:annotation>
+                                                                        <xs:documentation>A free text name used in the EHR for the allergen. Element added in version 1.2</xs:documentation>
+                                                                    </xs:annotation>
+                                                                </xs:element>
+                                                            </xs:sequence>
+                                                        </xs:complexType>
+                                                    </xs:element>
+                                                </xs:sequence>
+                                            </xs:complexType>
+                                        </xs:element>
+                                    </xs:sequence>
+                                </xs:complexType>
+                            </xs:element>
+                            <xs:element name="Problems" minOccurs="0" maxOccurs="1">
+                                <xs:annotation>
+                                    <xs:documentation>The container for health problem data</xs:documentation>
+                                </xs:annotation>
+                                <xs:complexType>
+                                    <xs:sequence>
+                                        <xs:element name="Diagnoses" minOccurs="0" maxOccurs="1">
+                                            <xs:annotation>
+                                                <xs:documentation>The container for repetitive sequences of the Diagnosis element</xs:documentation>
+                                            </xs:annotation>
+                                            <xs:complexType>
+                                                <xs:sequence>
+                                                    <xs:element name="Diagnosis" maxOccurs="unbounded">
+                                                        <xs:annotation>
+                                                            <xs:documentation>The container for diagnosis data (including symptom diagnoses)</xs:documentation>
+                                                        </xs:annotation>
+                                                        <xs:complexType>
+                                                            <xs:sequence>
+                                                                <xs:group ref="CodeGroup">
+                                                                    <xs:annotation>
+                                                                        <xs:documentation>Coding system group: diagnoses</xs:documentation>
+                                                                    </xs:annotation>
+                                                                </xs:group>
+                                                                <xs:group ref="TimeStampsGroup" />
+                                                                <xs:element name="DiagnosisStatus" type="xs:int" minOccurs="0" maxOccurs="1">
+                                                                    <xs:annotation>
+                                                                        <xs:documentation>Diagnosis status according to the internal coding system. Changed from string to integer in version 1.2.</xs:documentation>
+                                                                    </xs:annotation>
+                                                                </xs:element>
+                                                                <xs:element name="DiagnosisName" type="xs:string" minOccurs="0" maxOccurs="1">
+                                                                    <xs:annotation>
+                                                                        <xs:documentation>A free text name used in the EHR for the diagnosis</xs:documentation>
+                                                                    </xs:annotation>
+                                                                </xs:element>
+                                                            </xs:sequence>
+                                                        </xs:complexType>
+                                                    </xs:element>
+                                                </xs:sequence>
+                                            </xs:complexType>
+                                        </xs:element>
+                                    </xs:sequence>
+                                </xs:complexType>
+                            </xs:element>
+                            <xs:element name="Investigations" minOccurs="0" maxOccurs="1">
+                                <xs:annotation>
+                                    <xs:documentation>The container for investigations data</xs:documentation>
+                                </xs:annotation>
+                                <xs:complexType>
+                                    <xs:sequence>
+                                        <xs:element name="Measurements" minOccurs="0" maxOccurs="1">
+                                            <xs:annotation>
+                                                <xs:documentation>The container for repetitive sequences of the Measurement element.</xs:documentation>
+                                            </xs:annotation>
+                                            <xs:complexType>
+                                                <xs:sequence>
+                                                    <xs:element name="Measurement" maxOccurs="unbounded">
+                                                        <xs:annotation>
+                                                            <xs:documentation>The container for all kinds of quantitative or qualitative data laboratory tests and physical measurements</xs:documentation>
+                                                        </xs:annotation>
+                                                        <xs:complexType>
+                                                            <xs:sequence>
+                                                                <xs:group ref="CodeGroup">
+                                                                    <xs:annotation>
+                                                                        <xs:documentation>Coding system groups: measurements</xs:documentation>
+                                                                    </xs:annotation>
+                                                                </xs:group>
+                                                                <xs:group ref="TimeStampsGroup" />
+                                                                <xs:element name="Ordered" type="xs:boolean" minOccurs="0" maxOccurs="1">
+                                                                    <xs:annotation>
+                                                                        <xs:documentation>Boolean element (0/1) for measurements that have been ordered (= will be performed in the future)</xs:documentation>
+                                                                    </xs:annotation>
+                                                                </xs:element>
+                                                                <xs:element name="Result" minOccurs="0" maxOccurs="1">
+                                                                    <xs:annotation>
+                                                                        <xs:documentation>The container for the measurement result.</xs:documentation>
+                                                                    </xs:annotation>
+                                                                    <xs:complexType>
+                                                                        <xs:sequence>
+                                                                            <xs:element name="Value" type="xs:string" minOccurs="0" maxOccurs="1">
+                                                                                <xs:annotation>
+                                                                                    <xs:documentation>The measurement result value - e.g. "100", if the result is "100 mmol/l"</xs:documentation>
+                                                                                </xs:annotation>
+                                                                            </xs:element>
+                                                                            <xs:element name="Unit" type="xs:string" minOccurs="0" maxOccurs="1">
+                                                                                <xs:annotation>
+                                                                                    <xs:documentation>The unit of the measurement result - e.g.  "mmol/l", if the result is "100 mmol/l". Not applicable in qualitative results.</xs:documentation>
+                                                                                </xs:annotation>
+                                                                            </xs:element>
+                                                                            <xs:element name="UpperNormalLimit" type="xs:decimal" minOccurs="0">
+                                                                                <xs:annotation>
+                                                                                    <xs:documentation>Upper normal value (UNL) for the particular patient, as reported by the local laboratory. Element added in version 1.2</xs:documentation>
+                                                                                </xs:annotation>
+                                                                            </xs:element>
+                                                                            <xs:element name="LowerNormalLimit" type="xs:decimal" minOccurs="0">
+                                                                                <xs:annotation>
+                                                                                    <xs:documentation>Lower normal value (LNL) for the particular patient, as reported by the local laboratory. Element added in version 1.2</xs:documentation>
+                                                                                </xs:annotation>
+                                                                            </xs:element>
+                                                                        </xs:sequence>
+                                                                    </xs:complexType>
+                                                                </xs:element>
+                                                                <xs:element name="MeasurementName" type="xs:string" minOccurs="0" maxOccurs="1">
+                                                                    <xs:annotation>
+                                                                        <xs:documentation>A free text name used in the EHR for the measurement</xs:documentation>
+                                                                    </xs:annotation>
+                                                                </xs:element>
+                                                            </xs:sequence>
+                                                        </xs:complexType>
+                                                    </xs:element>
+                                                </xs:sequence>
+                                            </xs:complexType>
+                                        </xs:element>
+                                        <xs:element name="ImagingInvestigations" minOccurs="0" maxOccurs="1">
+                                            <xs:annotation>
+                                                <xs:documentation>The container for repetitive sequences of the ImagingInvestigation element. Element added in version 1.2</xs:documentation>
+                                            </xs:annotation>
+                                            <xs:complexType>
+                                                <xs:sequence>
+                                                    <xs:element name="ImagingInvestigation" maxOccurs="unbounded">
+                                                        <xs:annotation>
+                                                            <xs:documentation>Container for imaging investigation data. Element added in version 1.2</xs:documentation>
+                                                        </xs:annotation>
+                                                        <xs:complexType>
+                                                            <xs:sequence>
+                                                                <xs:group ref="CodeGroup">
+                                                                    <xs:annotation>
+                                                                        <xs:documentation>Coding system group: imaging investigations. Group added in version 1.2</xs:documentation>
+                                                                    </xs:annotation>
+                                                                </xs:group>
+                                                                <xs:group ref="TimeStampsGroup">
+                                                                    <xs:annotation>
+                                                                        <xs:documentation>Group added in version 1.2</xs:documentation>
+                                                                    </xs:annotation>
+                                                                </xs:group>
+                                                                <xs:element name="Ordered" type="xs:boolean" minOccurs="0">
+                                                                    <xs:annotation>
+                                                                        <xs:documentation>Boolean element for imaging investigations that have been ordered (= will be performed in the future). Element added in version 1.2</xs:documentation>
+                                                                    </xs:annotation>
+                                                                </xs:element>
+                                                                <xs:element name="ImagingInvestigationName" type="xs:string" minOccurs="0" maxOccurs="1">
+                                                                    <xs:annotation>
+                                                                        <xs:documentation>A free text name used in the EHR for the imaging investigation. Element added in version 1.2</xs:documentation>
+                                                                    </xs:annotation>
+                                                                </xs:element>
+                                                            </xs:sequence>
+                                                        </xs:complexType>
+                                                    </xs:element>
+                                                </xs:sequence>
+                                            </xs:complexType>
+                                        </xs:element>
+                                        <xs:element name="Questionnaires" minOccurs="0" maxOccurs="1">
+                                            <xs:annotation>
+                                                <xs:documentation>The container for repetitive sequences of the Questionnaire element. Element added in version 1.2</xs:documentation>
+                                            </xs:annotation>
+                                            <xs:complexType>
+                                                <xs:choice>
+                                                    <xs:element name="Questionnaire" maxOccurs="unbounded">
+                                                        <xs:annotation>
+                                                            <xs:documentation>Questionnaire data. Element added in version 1.2</xs:documentation>
+                                                        </xs:annotation>
+                                                        <xs:complexType>
+                                                            <xs:sequence>
+                                                                <xs:group ref="CodeGroup">
+                                                                    <xs:annotation>
+                                                                        <xs:documentation>Coding system groups: internal coding system for questionnaires. Group added in version 1.2</xs:documentation>
+                                                                    </xs:annotation>
+                                                                </xs:group>
+                                                                <xs:group ref="TimeStampsGroup">
+                                                                    <xs:annotation>
+                                                                        <xs:documentation>Use PointStamp for the date when data was entered to the questionaire. Group added in version 1.2</xs:documentation>
+                                                                    </xs:annotation>
+                                                                </xs:group>
+                                                                <xs:element name="Questions" minOccurs="0">
+                                                                    <xs:annotation>
+                                                                        <xs:documentation>Container for repetitive sequences of the element question. Element added in version 1.2</xs:documentation>
+                                                                    </xs:annotation>
+                                                                    <xs:complexType>
+                                                                        <xs:sequence>
+                                                                            <xs:element name="Question" maxOccurs="unbounded">
+                                                                                <xs:annotation>
+                                                                                    <xs:documentation>A single questionnaire question. Added in version 1.2</xs:documentation>
+                                                                                </xs:annotation>
+                                                                                <xs:complexType>
+                                                                                    <xs:sequence>
+                                                                                        <xs:annotation>
+                                                                                            <xs:documentation>Repetitive, since a question may have subquestions</xs:documentation>
+                                                                                        </xs:annotation>
+                                                                                        <xs:element name="QuestionID" type="xs:string">
+                                                                                            <xs:annotation>
+                                                                                                <xs:documentation>Unique ID for the question. Element added in version 1.2</xs:documentation>
+                                                                                            </xs:annotation>
+                                                                                        </xs:element>
+                                                                                        <xs:element name="AnswerString" type="xs:string">
+                                                                                            <xs:annotation>
+                                                                                                <xs:documentation>The answer to the question. Element added in version 1.2</xs:documentation>
+                                                                                            </xs:annotation>
+                                                                                        </xs:element>
+                                                                                    </xs:sequence>
+                                                                                </xs:complexType>
+                                                                            </xs:element>
+                                                                        </xs:sequence>
+                                                                    </xs:complexType>
+                                                                </xs:element>
+                                                                <xs:element name="TotalPoints" type="xs:int" minOccurs="0">
+                                                                    <xs:annotation>
+                                                                        <xs:documentation>Total points from the questionnaire. Element added in version 1.2</xs:documentation>
+                                                                    </xs:annotation>
+                                                                </xs:element>
+                                                                <xs:element name="QuestionnaireName" type="xs:string" minOccurs="0">
+                                                                    <xs:annotation>
+                                                                        <xs:documentation>A free text name used in the EHR for the questionnaire. Added in version 1.2</xs:documentation>
+                                                                    </xs:annotation>
+                                                                </xs:element>
+                                                            </xs:sequence>
+                                                        </xs:complexType>
+                                                    </xs:element>
+                                                </xs:choice>
+                                            </xs:complexType>
+                                        </xs:element>
+                                    </xs:sequence>
+                                </xs:complexType>
+                            </xs:element>
+                            <xs:element name="Interventions" minOccurs="0" maxOccurs="1">
+                                <xs:annotation>
+                                    <xs:documentation>The container for interventions, such as drug therapy and therapeutic procedures.</xs:documentation>
+                                </xs:annotation>
+                                <xs:complexType>
+                                    <xs:sequence>
+                                        <xs:element name="Medication" minOccurs="0" maxOccurs="1">
+                                            <xs:annotation>
+                                                <xs:documentation>The container for repetitive sequences of the Drug element.</xs:documentation>
+                                            </xs:annotation>
+                                            <xs:complexType>
+                                                <xs:sequence>
+                                                    <xs:element name="Drug" maxOccurs="unbounded">
+                                                        <xs:annotation>
+                                                            <xs:documentation>The container for data related to drug therapy.</xs:documentation>
+                                                        </xs:annotation>
+                                                        <xs:complexType>
+                                                            <xs:sequence>
+                                                                <xs:group maxOccurs="unbounded" ref="CodeGroup">
+                                                                    <xs:annotation>
+                                                                        <xs:documentation>Coding system groups: medication. Cardinality changed to "1..*" in version 1.11 to allow multiple coding of drugs (e.g. for adequate interaction checks including data for drug administration route)</xs:documentation>
+                                                                    </xs:annotation>
+                                                                </xs:group>
+                                                                <xs:group ref="TimeStampsGroup" />
+                                                                <xs:element name="Strength" type="xs:decimal" minOccurs="0" maxOccurs="1" nillable="true">
+                                                                    <xs:annotation>
+                                                                        <xs:documentation>The numeric strength of a substance, e.g. "10" for a 10 mg tablet</xs:documentation>
+                                                                    </xs:annotation>
+                                                                </xs:element>
+                                                                <xs:element name="StrengthUnit" type="xs:string" minOccurs="0" maxOccurs="1">
+                                                                    <xs:annotation>
+                                                                        <xs:documentation>The unit for the strength, e.g. "mg" for a 10 mg tablet</xs:documentation>
+                                                                    </xs:annotation>
+                                                                </xs:element>
+                                                                <xs:element name="AdministrationRoute" minOccurs="0">
+                                                                    <xs:annotation>
+                                                                        <xs:documentation>The administration route according to the selected coding system. Element added in version 1.2</xs:documentation>
+                                                                    </xs:annotation>
+                                                                    <xs:complexType>
+                                                                        <xs:sequence>
+                                                                            <xs:group ref="CodeGroup">
+                                                                                <xs:annotation>
+                                                                                    <xs:documentation>Group added in version 1.2</xs:documentation>
+                                                                                </xs:annotation>
+                                                                            </xs:group>
+                                                                        </xs:sequence>
+                                                                    </xs:complexType>
+                                                                </xs:element>
+                                                                <xs:element name="DailyDose" type="xs:decimal" minOccurs="0" maxOccurs="1" nillable="true">
+                                                                    <xs:annotation>
+                                                                        <xs:documentation>The numeric daily dose, as calculated from the dose strength and the number of daily doses (e.g. 10 (mg) x 2 = 20)</xs:documentation>
+                                                                    </xs:annotation>
+                                                                </xs:element>
+                                                                <xs:element name="Dosage" type="xs:string" minOccurs="0">
+                                                                    <xs:annotation>
+                                                                        <xs:documentation>Dosage according to the internal dosage syntax of EBMeDS (e.g. "1x1"). Element added in version 1.2</xs:documentation>
+                                                                    </xs:annotation>
+                                                                </xs:element>
+                                                                <xs:element name="DrugStatus" type="xs:int" minOccurs="0" maxOccurs="1">
+                                                                    <xs:annotation>
+                                                                        <xs:documentation>The drug status according (0 = on demand, 1 = continuous). Datatype changed from string to integer in version 1.2</xs:documentation>
+                                                                    </xs:annotation>
+                                                                </xs:element>
+                                                                <xs:element name="LastPrescription" minOccurs="0">
+                                                                    <xs:annotation>
+                                                                        <xs:documentation>Data describing the last prescription of the drug. Element added in version 1.2</xs:documentation>
+                                                                    </xs:annotation>
+                                                                    <xs:complexType>
+                                                                        <xs:sequence>
+                                                                            <xs:group ref="TimeStampsGroup">
+                                                                                <xs:annotation>
+                                                                                    <xs:documentation>Group added in version 1.2</xs:documentation>
+                                                                                </xs:annotation>
+                                                                            </xs:group>
+                                                                            <xs:element name="PackageAmount" type="xs:int">
+                                                                                <xs:annotation>
+                                                                                    <xs:documentation>The amount of tablets etc. in the prescribed package. Element added in version 1.2</xs:documentation>
+                                                                                </xs:annotation>
+                                                                            </xs:element>
+                                                                        </xs:sequence>
+                                                                    </xs:complexType>
+                                                                </xs:element>
+                                                                <xs:element name="DrugName" type="xs:string" minOccurs="0" maxOccurs="1">
+                                                                    <xs:annotation>
+                                                                        <xs:documentation>A free text name in the EHR corresponding to a drug code (e.g. trademark or generic name)</xs:documentation>
+                                                                    </xs:annotation>
+                                                                </xs:element>
+                                                            </xs:sequence>
+                                                        </xs:complexType>
+                                                    </xs:element>
+                                                </xs:sequence>
+                                            </xs:complexType>
+                                        </xs:element>
+                                        <xs:element name="Vaccinations" minOccurs="0" maxOccurs="1">
+                                            <xs:annotation>
+                                                <xs:documentation>The container for repetitive sequences of the Vaccination element. Element added in version 1.1.</xs:documentation>
+                                            </xs:annotation>
+                                            <xs:complexType>
+                                                <xs:sequence>
+                                                    <xs:element name="Vaccine" maxOccurs="unbounded">
+                                                        <xs:annotation>
+                                                            <xs:documentation>Container for vaccination-related data. Element added in version 1.1</xs:documentation>
+                                                        </xs:annotation>
+                                                        <xs:complexType>
+                                                            <xs:sequence>
+                                                                <xs:group ref="CodeGroup">
+                                                                    <xs:annotation>
+                                                                        <xs:documentation>Coding system group: vaccinations. Group added in version 1.1</xs:documentation>
+                                                                    </xs:annotation>
+                                                                </xs:group>
+                                                                <xs:group ref="TimeStampsGroup">
+                                                                    <xs:annotation>
+                                                                        <xs:documentation>Group added in version 1.1</xs:documentation>
+                                                                    </xs:annotation>
+                                                                </xs:group>
+                                                                <xs:element name="Strength" type="xs:decimal" minOccurs="0" maxOccurs="1">
+                                                                    <xs:annotation>
+                                                                        <xs:documentation>The numeric strength of a vaccine, e.g. "10" for 10 mg/ml. Element added in version 1.11.</xs:documentation>
+                                                                    </xs:annotation>
+                                                                </xs:element>
+                                                                <xs:element name="StrengthUnit" type="xs:string" minOccurs="0" maxOccurs="1">
+                                                                    <xs:annotation>
+                                                                        <xs:documentation>The unit for the strength, e.g. "ml" for 10 mg/ml. Element added in version 1.1.</xs:documentation>
+                                                                    </xs:annotation>
+                                                                </xs:element>
+                                                                <xs:element name="Dose" type="xs:decimal" minOccurs="0" maxOccurs="1">
+                                                                    <xs:annotation>
+                                                                        <xs:documentation>The amount of vaccine given. Element added in version 1.1.</xs:documentation>
+                                                                    </xs:annotation>
+                                                                </xs:element>
+                                                                <xs:element name="VaccinationStatus" type="xs:int" minOccurs="0">
+                                                                    <xs:annotation>
+                                                                        <xs:documentation>Vaccination status according to the internal coding system. Element added in version 1.1. Datatype changed from string to integer in version 1.2.</xs:documentation>
+                                                                    </xs:annotation>
+                                                                </xs:element>
+                                                                <xs:element name="VaccineName" type="xs:string" minOccurs="0" maxOccurs="1">
+                                                                    <xs:annotation>
+                                                                        <xs:documentation>A free text name used in the EHR for the vaccine (e.g. the trademark). Element added in version 1.1</xs:documentation>
+                                                                    </xs:annotation>
+                                                                </xs:element>
+                                                            </xs:sequence>
+                                                        </xs:complexType>
+                                                    </xs:element>
+                                                </xs:sequence>
+                                            </xs:complexType>
+                                        </xs:element>
+                                        <xs:element name="Procedures" minOccurs="0" maxOccurs="1">
+                                            <xs:annotation>
+                                                <xs:documentation>The container for repetitive sequences of the Procedure element.</xs:documentation>
+                                            </xs:annotation>
+                                            <xs:complexType>
+                                                <xs:sequence>
+                                                    <xs:element name="Procedure" maxOccurs="unbounded">
+                                                        <xs:annotation>
+                                                            <xs:documentation>The container for data related to diagnostic and therapeutic procedures.</xs:documentation>
+                                                        </xs:annotation>
+                                                        <xs:complexType>
+                                                            <xs:sequence>
+                                                                <xs:group ref="CodeGroup">
+                                                                    <xs:annotation>
+                                                                        <xs:documentation>Use procedures coding systems.</xs:documentation>
+                                                                    </xs:annotation>
+                                                                </xs:group>
+                                                                <xs:group ref="TimeStampsGroup" />
+                                                                <xs:element name="Ordered" type="xs:boolean" minOccurs="0">
+                                                                    <xs:annotation>
+                                                                        <xs:documentation>Boolean element (0/1) for procedures that have been ordered (= will be performed in the future).</xs:documentation>
+                                                                    </xs:annotation>
+                                                                </xs:element>
+                                                                <xs:element name="AnatomicalTarget" minOccurs="0">
+                                                                    <xs:annotation>
+                                                                        <xs:documentation>The container for anatomical target data. Element added in version 1.2</xs:documentation>
+                                                                    </xs:annotation>
+                                                                    <xs:complexType>
+                                                                        <xs:sequence>
+                                                                            <xs:group ref="CodeGroup">
+                                                                                <xs:annotation>
+                                                                                    <xs:documentation>Use anatomy coding systems. Group added in version 1.2</xs:documentation>
+                                                                                </xs:annotation>
+                                                                            </xs:group>
+                                                                            <xs:element name="AnatomicalTargetName" type="xs:string">
+                                                                                <xs:annotation>
+                                                                                    <xs:documentation>A free text name used in the EHR for the anatomical target. Element added in version 1.2</xs:documentation>
+                                                                                </xs:annotation>
+                                                                            </xs:element>
+                                                                        </xs:sequence>
+                                                                    </xs:complexType>
+                                                                </xs:element>
+                                                                <xs:element name="MaterialsAndImplants" minOccurs="0">
+                                                                    <xs:annotation>
+                                                                        <xs:documentation>The container for repetitive sequences of the Material and Implant elements. Element added in version 1.2</xs:documentation>
+                                                                    </xs:annotation>
+                                                                    <xs:complexType>
+                                                                        <xs:sequence>
+                                                                            <xs:element name="Material" minOccurs="0" maxOccurs="unbounded">
+                                                                                <xs:annotation>
+                                                                                    <xs:documentation>The container for material data. Element added in version 1.2</xs:documentation>
+                                                                                </xs:annotation>
+                                                                                <xs:complexType>
+                                                                                    <xs:sequence>
+                                                                                        <xs:group ref="CodeGroup">
+                                                                                            <xs:annotation>
+                                                                                                <xs:documentation>Use material coding systems. Group added in version 1.2</xs:documentation>
+                                                                                            </xs:annotation>
+                                                                                        </xs:group>
+                                                                                        <xs:element name="MaterialName" type="xs:string" minOccurs="0">
+                                                                                            <xs:annotation>
+                                                                                                <xs:documentation>A free text name used in the EHR for the material. Element added in version 1.2</xs:documentation>
+                                                                                            </xs:annotation>
+                                                                                        </xs:element>
+                                                                                    </xs:sequence>
+                                                                                </xs:complexType>
+                                                                            </xs:element>
+                                                                            <xs:element name="Implant" minOccurs="0" maxOccurs="unbounded">
+                                                                                <xs:annotation>
+                                                                                    <xs:documentation>The container for implant data. Element added in version 1.2</xs:documentation>
+                                                                                </xs:annotation>
+                                                                                <xs:complexType>
+                                                                                    <xs:sequence>
+                                                                                        <xs:group ref="CodeGroup">
+                                                                                            <xs:annotation>
+                                                                                                <xs:documentation>Use implant coding systems. Group added in version 1.2</xs:documentation>
+                                                                                            </xs:annotation>
+                                                                                        </xs:group>
+                                                                                        <xs:element name="ImplantName" type="xs:string" minOccurs="0">
+                                                                                            <xs:annotation>
+                                                                                                <xs:documentation>A free text name used in the EHR for the implant. Element added in version 1.2</xs:documentation>
+                                                                                            </xs:annotation>
+                                                                                        </xs:element>
+                                                                                    </xs:sequence>
+                                                                                </xs:complexType>
+                                                                            </xs:element>
+                                                                        </xs:sequence>
+                                                                    </xs:complexType>
+                                                                </xs:element>
+                                                                <xs:element name="ProcedureName" type="xs:string" minOccurs="0" maxOccurs="1">
+                                                                    <xs:annotation>
+                                                                        <xs:documentation>A free text name used in the EHR for the therapy</xs:documentation>
+                                                                    </xs:annotation>
+                                                                </xs:element>
+                                                            </xs:sequence>
+                                                        </xs:complexType>
+                                                    </xs:element>
+                                                </xs:sequence>
+                                            </xs:complexType>
+                                        </xs:element>
+                                        <xs:element name="Therapies" minOccurs="0" maxOccurs="1">
+                                            <xs:annotation>
+                                                <xs:documentation>The container for repetitive sequences of the Therapy element. Element added in version 1.2.</xs:documentation>
+                                            </xs:annotation>
+                                            <xs:complexType>
+                                                <xs:sequence>
+                                                    <xs:element name="Therapy" maxOccurs="unbounded">
+                                                        <xs:annotation>
+                                                            <xs:documentation>The container for data related to therapies. Element added in version 1.2.</xs:documentation>
+                                                        </xs:annotation>
+                                                        <xs:complexType>
+                                                            <xs:sequence>
+                                                                <xs:group ref="CodeGroup">
+                                                                    <xs:annotation>
+                                                                        <xs:documentation>Use procedures coding systems.</xs:documentation>
+                                                                    </xs:annotation>
+                                                                </xs:group>
+                                                                <xs:group ref="TimeStampsGroup" />
+                                                                <xs:element name="Ordered" type="xs:boolean" minOccurs="0">
+                                                                    <xs:annotation>
+                                                                        <xs:documentation>Boolean element (0/1) for procedures that have been ordered (= will be performed in the future).</xs:documentation>
+                                                                    </xs:annotation>
+                                                                </xs:element>
+                                                                <xs:element name="TherapyName" type="xs:string" minOccurs="0" maxOccurs="1">
+                                                                    <xs:annotation>
+                                                                        <xs:documentation>A free text name used in the EHR for the procedure</xs:documentation>
+                                                                    </xs:annotation>
+                                                                </xs:element>
+                                                            </xs:sequence>
+                                                        </xs:complexType>
+                                                    </xs:element>
+                                                </xs:sequence>
+                                            </xs:complexType>
+                                        </xs:element>
+                                        <xs:element name="SelfCareInterventions" minOccurs="0">
+                                            <xs:annotation>
+                                                <xs:documentation>The container for repetitive sequences of the element SelfCareIntervention. Element added in version 1.2</xs:documentation>
+                                            </xs:annotation>
+                                            <xs:complexType>
+                                                <xs:sequence>
+                                                    <xs:element name="SelfCareIntervention" maxOccurs="unbounded">
+                                                        <xs:annotation>
+                                                            <xs:documentation>The container for data related to self care interventions. Element added in version 1.2.</xs:documentation>
+                                                        </xs:annotation>
+                                                        <xs:complexType>
+                                                            <xs:sequence>
+                                                                <xs:group ref="CodeGroup">
+                                                                    <xs:annotation>
+                                                                        <xs:documentation>Coding system groups: self care interventions. Group added in version 1.2</xs:documentation>
+                                                                    </xs:annotation>
+                                                                </xs:group>
+                                                                <xs:group ref="TimeStampsGroup" />
+                                                                <xs:element name="SelfCareName" type="xs:string" minOccurs="0">
+                                                                    <xs:annotation>
+                                                                        <xs:documentation>A free text name used in the EHR for the self-care intervention. Element added in version 1.2</xs:documentation>
+                                                                    </xs:annotation>
+                                                                </xs:element>
+                                                            </xs:sequence>
+                                                        </xs:complexType>
+                                                    </xs:element>
+                                                </xs:sequence>
+                                            </xs:complexType>
+                                        </xs:element>
+                                    </xs:sequence>
+                                </xs:complexType>
+                            </xs:element>
+                            <xs:element name="HealthCareEncounters" minOccurs="0">
+                                <xs:annotation>
+                                    <xs:documentation>The container for repetitive sequences of the HealtCareEncounter element. Element added in version 1.2</xs:documentation>
+                                </xs:annotation>
+                                <xs:complexType>
+                                    <xs:sequence>
+                                        <xs:element name="HealthCareEncounter" maxOccurs="unbounded">
+                                            <xs:annotation>
+                                                <xs:documentation>The container for data related to health care encounters. Element added in version 1.2.</xs:documentation>
+                                            </xs:annotation>
+                                            <xs:complexType>
+                                                <xs:sequence>
+                                                    <xs:group ref="CodeGroup">
+                                                        <xs:annotation>
+                                                            <xs:documentation>Use health care encounter coding systems. Group added in version 1.2</xs:documentation>
+                                                        </xs:annotation>
+                                                    </xs:group>
+                                                    <xs:group ref="TimeStampsGroup">
+                                                        <xs:annotation>
+                                                            <xs:documentation>Group added in version 1.2</xs:documentation>
+                                                        </xs:annotation>
+                                                    </xs:group>
+                                                    <xs:element name="HealthCareUnitType" minOccurs="0">
+                                                        <xs:annotation>
+                                                            <xs:documentation>The container for health care unit type data. Element added in version 1.2</xs:documentation>
+                                                        </xs:annotation>
+                                                        <xs:complexType>
+                                                            <xs:sequence>
+                                                                <xs:group ref="CodeGroup">
+                                                                    <xs:annotation>
+                                                                        <xs:documentation>Use health care unit coding systems. Group added in version 1.2.</xs:documentation>
+                                                                    </xs:annotation>
+                                                                </xs:group>
+                                                                <xs:element name="HealthCareUnitTypeName" type="xs:string" minOccurs="0">
+                                                                    <xs:annotation>
+                                                                        <xs:documentation>A free text name used in the EHR for the health care unit type. Element added in version 1.2</xs:documentation>
+                                                                    </xs:annotation>
+                                                                </xs:element>
+                                                            </xs:sequence>
+                                                        </xs:complexType>
+                                                    </xs:element>
+                                                    <xs:element name="HealthCareProfessionalType" minOccurs="0">
+                                                        <xs:annotation>
+                                                            <xs:documentation>The container for health care professional type data. Element added in version 1.2</xs:documentation>
+                                                        </xs:annotation>
+                                                        <xs:complexType>
+                                                            <xs:sequence>
+                                                                <xs:group ref="CodeGroup">
+                                                                    <xs:annotation>
+                                                                        <xs:documentation>Use health care professionals coding systems. Group added in version 1.2.</xs:documentation>
+                                                                    </xs:annotation>
+                                                                </xs:group>
+                                                                <xs:element name="HealthCareProfessionalTypeName" type="xs:string" minOccurs="0">
+                                                                    <xs:annotation>
+                                                                        <xs:documentation>A free text name used in the EHR for the health care professional type. Element added in version 1.2.</xs:documentation>
+                                                                    </xs:annotation>
+                                                                </xs:element>
+                                                            </xs:sequence>
+                                                        </xs:complexType>
+                                                    </xs:element>
+                                                    <xs:element name="Ordered" type="xs:boolean" minOccurs="0">
+                                                        <xs:annotation>
+                                                            <xs:documentation>Boolean element (0/1) for services that have been ordered (= will be provided in the future). Added in version 1.2</xs:documentation>
+                                                        </xs:annotation>
+                                                    </xs:element>
+                                                    <xs:element name="ReasonForEncounter" minOccurs="0" maxOccurs="unbounded">
+                                                        <xs:annotation>
+                                                            <xs:documentation>Data related to the reason for the encounter. Element added in version 1.2</xs:documentation>
+                                                        </xs:annotation>
+                                                        <xs:complexType>
+                                                            <xs:sequence>
+                                                                <xs:group ref="CodeGroup">
+                                                                    <xs:annotation>
+                                                                        <xs:documentation>Coding system groups: diagnoses. Element added in version 1.2</xs:documentation>
+                                                                    </xs:annotation>
+                                                                </xs:group>
+                                                                <xs:element name="ReasonForEncounterName" type="xs:string" minOccurs="0">
+                                                                    <xs:annotation>
+                                                                        <xs:documentation>A free text name used in the EHR for the diagnosis. Added in version 1.2</xs:documentation>
+                                                                    </xs:annotation>
+                                                                </xs:element>
+                                                            </xs:sequence>
+                                                        </xs:complexType>
+                                                    </xs:element>
+                                                    <xs:element name="EncounterName" type="xs:string" minOccurs="0">
+                                                        <xs:annotation>
+                                                            <xs:documentation>A free text name used in the EHR for the encounter. Element added in version 1.2</xs:documentation>
+                                                        </xs:annotation>
+                                                    </xs:element>
+                                                </xs:sequence>
+                                            </xs:complexType>
+                                        </xs:element>
+                                    </xs:sequence>
+                                </xs:complexType>
+                            </xs:element>
+                            <xs:element name="Documents" minOccurs="0" maxOccurs="1">
+                                <xs:annotation>
+                                    <xs:documentation>The container for repetitive sequences of the Document element. Element added in version 1.2</xs:documentation>
+                                </xs:annotation>
+                                <xs:complexType>
+                                    <xs:sequence>
+                                        <xs:element name="Document" maxOccurs="unbounded">
+                                            <xs:annotation>
+                                                <xs:documentation>The container for data related to documents, such as certificates and referrals. Specific information about document coding for different document types is found in the document coding system description. Element added in version 1.2</xs:documentation>
+                                            </xs:annotation>
+                                            <xs:complexType>
+                                                <xs:sequence>
+                                                    <xs:element name="DocumentType" type="xs:string" minOccurs="0">
+                                                        <xs:annotation>
+                                                            <xs:documentation>A name (string) for the document type. Element added in version 1.2.</xs:documentation>
+                                                        </xs:annotation>
+                                                    </xs:element>
+                                                    <xs:group ref="CodeGroup">
+                                                        <xs:annotation>
+                                                            <xs:documentation>Use the document coding system. Group added in version 1.2</xs:documentation>
+                                                        </xs:annotation>
+                                                    </xs:group>
+                                                    <xs:group ref="TimeStampsGroup">
+                                                        <xs:annotation>
+                                                            <xs:documentation>Group added in version 1.2</xs:documentation>
+                                                        </xs:annotation>
+                                                    </xs:group>
+                                                    <xs:element name="DocumentReason" minOccurs="0">
+                                                        <xs:annotation>
+                                                            <xs:documentation>Data related to the reason for generating the document (usually a diagnosis). Element added in version 1.2</xs:documentation>
+                                                        </xs:annotation>
+                                                        <xs:complexType>
+                                                            <xs:sequence>
+                                                                <xs:group minOccurs="0" ref="CodeGroup">
+                                                                    <xs:annotation>
+                                                                        <xs:documentation>Coding system groups: diagnoses. Group added in version 1.2</xs:documentation>
+                                                                    </xs:annotation>
+                                                                </xs:group>
+                                                                <xs:element name="ReasonForDocumentName" type="xs:string" minOccurs="0" maxOccurs="unbounded">
+                                                                    <xs:annotation>
+                                                                        <xs:documentation>A free text name used in the EHR for the reason to generate the document. Added in version 1.2.</xs:documentation>
+                                                                    </xs:annotation>
+                                                                </xs:element>
+                                                            </xs:sequence>
+                                                        </xs:complexType>
+                                                    </xs:element>
+                                                    <xs:element name="DocumentAction" type="xs:int" minOccurs="0">
+                                                        <xs:annotation>
+                                                            <xs:documentation>Action of document (e.g. drug imbursement). Element added in version 1.2.</xs:documentation>
+                                                        </xs:annotation>
+                                                    </xs:element>
+                                                    <xs:element name="DocumentStatus" type="xs:int" minOccurs="0" maxOccurs="1">
+                                                        <xs:annotation>
+                                                            <xs:documentation>Document status according to the document type. Added in version 1.2</xs:documentation>
+                                                        </xs:annotation>
+                                                    </xs:element>
+                                                </xs:sequence>
+                                            </xs:complexType>
+                                        </xs:element>
+                                    </xs:sequence>
+                                </xs:complexType>
+                            </xs:element>
+                        </xs:sequence>
+                    </xs:complexType>
+                </xs:element>
+                <xs:element name="System">
+                    <xs:annotation>
+                        <xs:documentation>The container for data describing the profile of the end-user and the EHR system</xs:documentation>
+                    </xs:annotation>
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:element name="User">
+                                <xs:annotation>
+                                    <xs:documentation>The container for data describing the person using the client system (the end-user).</xs:documentation>
+                                </xs:annotation>
+                                <xs:complexType>
+                                    <xs:sequence>
+                                        <xs:element name="UserID" minOccurs="0" maxOccurs="1">
+                                            <xs:annotation>
+                                                <xs:documentation>The container for a unique ID of the user. To be used e.g. in server-side blocking lists. Element added in version 1.2.</xs:documentation>
+                                            </xs:annotation>
+                                            <xs:complexType>
+                                                <xs:sequence>
+                                                    <xs:group maxOccurs="unbounded" ref="CodeGroup">
+                                                        <xs:annotation>
+                                                            <xs:documentation>Coding system groups: end-user IDs. Element added in version 1.2</xs:documentation>
+                                                        </xs:annotation>
+                                                    </xs:group>
+                                                </xs:sequence>
+                                            </xs:complexType>
+                                        </xs:element>
+                                        <xs:element name="HealthCareRole" minOccurs="0" maxOccurs="1">
+                                            <xs:annotation>
+                                                <xs:documentation>Role of the user according to the internal coding system. "Pharmacist" added in version 1.2.</xs:documentation>
+                                            </xs:annotation>
+                                            <xs:simpleType>
+                                                <xs:restriction base="xs:string">
+                                                    <xs:enumeration value="Physician" />
+                                                    <xs:enumeration value="Nurse" />
+                                                    <xs:enumeration value="Pharmacist" />
+                                                    <xs:enumeration value="Citizen" />
+                                                </xs:restriction>
+                                            </xs:simpleType>
+                                        </xs:element>
+                                        <xs:element name="HealthCareOrganization" minOccurs="0" maxOccurs="1">
+                                            <xs:annotation>
+                                                <xs:documentation>The container for data about the health care organization(s) the end-user belongs to. Changed from string to container in version 1.2</xs:documentation>
+                                            </xs:annotation>
+                                            <xs:complexType>
+                                                <xs:sequence maxOccurs="unbounded">
+                                                    <xs:annotation>
+                                                        <xs:documentation>Added in version 1.2. Cardinality changed to 1.. in version 1.21</xs:documentation>
+                                                    </xs:annotation>
+                                                    <xs:group ref="CodeGroup">
+                                                        <xs:annotation>
+                                                            <xs:documentation>Coding system groups: health care organizations. Group added in version 1.2.</xs:documentation>
+                                                        </xs:annotation>
+                                                    </xs:group>
+                                                    <xs:element name="HealthCareOrganizationName" type="xs:string">
+                                                        <xs:annotation>
+                                                            <xs:documentation>A free text name used in the EHR for the service. Element added in version 1.2.</xs:documentation>
+                                                        </xs:annotation>
+                                                    </xs:element>
+                                                </xs:sequence>
+                                            </xs:complexType>
+                                        </xs:element>
+                                        <xs:element name="HealthCareSpecialty" minOccurs="0" maxOccurs="1">
+                                            <xs:annotation>
+                                                <xs:documentation>The container for data related to the health care specialty or specialties that the end-user belongs to.
+</xs:documentation>
+                                            </xs:annotation>
+                                            <xs:complexType>
+                                                <xs:sequence>
+                                                    <xs:group maxOccurs="unbounded" ref="CodeGroup">
+                                                        <xs:annotation>
+                                                            <xs:documentation>Coding system groups: health care specialties</xs:documentation>
+                                                        </xs:annotation>
+                                                    </xs:group>
+                                                    <xs:element name="HealthCareSpecialtyName" type="xs:string" minOccurs="0">
+                                                        <xs:annotation>
+                                                            <xs:documentation>A free text name used in the EHR for the specialty. Element added in version 1.2</xs:documentation>
+                                                        </xs:annotation>
+                                                    </xs:element>
+                                                </xs:sequence>
+                                            </xs:complexType>
+                                        </xs:element>
+                                        <xs:element name="Language">
+                                            <xs:annotation>
+                                                <xs:documentation>Container for the end-user language data</xs:documentation>
+                                            </xs:annotation>
+                                            <xs:complexType>
+                                                <xs:sequence>
+                                                    <xs:group ref="CodeGroup">
+                                                        <xs:annotation>
+                                                            <xs:documentation>Coding system groups: languages</xs:documentation>
+                                                        </xs:annotation>
+                                                    </xs:group>
+                                                </xs:sequence>
+                                            </xs:complexType>
+                                        </xs:element>
+                                        <xs:element name="Nation">
+                                            <xs:annotation>
+                                                <xs:documentation>Container for the end-user nation data</xs:documentation>
+                                            </xs:annotation>
+                                            <xs:complexType>
+                                                <xs:sequence>
+                                                    <xs:group ref="CodeGroup">
+                                                        <xs:annotation>
+                                                            <xs:documentation>Coding system groups: countries</xs:documentation>
+                                                        </xs:annotation>
+                                                    </xs:group>
+                                                </xs:sequence>
+                                            </xs:complexType>
+                                        </xs:element>
+                                    </xs:sequence>
+                                </xs:complexType>
+                            </xs:element>
+                            <xs:element name="Application">
+                                <xs:annotation>
+                                    <xs:documentation>The container for data describing the user application (e.g. an electronic health record or a personal health account).</xs:documentation>
+                                </xs:annotation>
+                                <xs:complexType>
+                                    <xs:sequence>
+                                        <xs:element name="ApplicationType" type="xs:string" minOccurs="0">
+                                            <xs:annotation>
+                                                <xs:documentation>Type of application. Element added in version 1.2.</xs:documentation>
+                                            </xs:annotation>
+                                        </xs:element>
+                                        <xs:element name="ApplicationName" type="xs:string" minOccurs="0" maxOccurs="1">
+                                            <xs:annotation>
+                                                <xs:documentation>A unique name for the application sending the request. Element added in version 1.2</xs:documentation>
+                                            </xs:annotation>
+                                        </xs:element>
+                                        <xs:element name="ApplicationVersion" type="xs:string" minOccurs="0" maxOccurs="1">
+                                            <xs:annotation>
+                                                <xs:documentation>The version of the application sending the request. Element added in version 1.2</xs:documentation>
+                                            </xs:annotation>
+                                        </xs:element>
+                                        <xs:element name="QueryID" type="xs:string" minOccurs="0" maxOccurs="1">
+                                            <xs:annotation>
+                                                <xs:documentation>A unique ID (with free syntax) generated by the client application</xs:documentation>
+                                            </xs:annotation>
+                                        </xs:element>
+                                        <xs:element name="DSSVersion" type="xs:string">
+                                            <xs:annotation>
+                                                <xs:documentation>The version of the EBMeDS interface specification (this version is referenced to as "EBMeDS Basic v1.2").</xs:documentation>
+                                            </xs:annotation>
+                                        </xs:element>
+                                        <xs:element name="ScriptSelection" minOccurs="0" maxOccurs="1">
+                                            <xs:annotation>
+                                                <xs:documentation>The container for exclusion and inclusion criteria for scripts.</xs:documentation>
+                                            </xs:annotation>
+                                            <xs:complexType>
+                                                <xs:sequence>
+                                                    <xs:element name="ScriptsToRun" minOccurs="0" maxOccurs="1">
+                                                        <xs:annotation>
+                                                            <xs:documentation>The container for IDs of script(s) that should explicitely be run (other scripts will not be not run).</xs:documentation>
+                                                        </xs:annotation>
+                                                        <xs:complexType>
+                                                            <xs:sequence>
+                                                                <xs:element name="Script" maxOccurs="unbounded">
+                                                                    <xs:annotation>
+                                                                        <xs:documentation>The container for script and message ID.</xs:documentation>
+                                                                    </xs:annotation>
+                                                                    <xs:complexType>
+                                                                        <xs:sequence>
+                                                                            <xs:element name="ScriptID" type="xs:string">
+                                                                                <xs:annotation>
+                                                                                    <xs:documentation>Script ID</xs:documentation>
+                                                                                </xs:annotation>
+                                                                            </xs:element>
+                                                                            <xs:element name="ReminderID" type="xs:string" minOccurs="0" maxOccurs="unbounded">
+                                                                                <xs:annotation>
+                                                                                    <xs:documentation>Reminder ID. Added in version 1.2. Cardinality added in version 1.21</xs:documentation>
+                                                                                </xs:annotation>
+                                                                            </xs:element>
+                                                                        </xs:sequence>
+                                                                    </xs:complexType>
+                                                                </xs:element>
+                                                            </xs:sequence>
+                                                        </xs:complexType>
+                                                    </xs:element>
+                                                    <xs:element name="ScriptsToBlock" minOccurs="0" maxOccurs="1">
+                                                        <xs:annotation>
+                                                            <xs:documentation>Script(s) in the basic script set that should be explicitly blocked from running. The EHR interface can use this element to offer possibilities for blocking certain scripts on the patient, user and/or organizational level.</xs:documentation>
+                                                        </xs:annotation>
+                                                        <xs:complexType>
+                                                            <xs:sequence>
+                                                                <xs:element name="Script" maxOccurs="unbounded">
+                                                                    <xs:annotation>
+                                                                        <xs:documentation>Script ID</xs:documentation>
+                                                                    </xs:annotation>
+                                                                    <xs:complexType>
+                                                                        <xs:sequence>
+                                                                            <xs:element name="ScriptID" type="xs:string">
+                                                                                <xs:annotation>
+                                                                                    <xs:documentation>Script ID</xs:documentation>
+                                                                                </xs:annotation>
+                                                                            </xs:element>
+                                                                            <xs:element name="ReminderID" type="xs:string" minOccurs="0" maxOccurs="unbounded">
+                                                                                <xs:annotation>
+                                                                                    <xs:documentation>Reminder ID. Added in version 1.2. Cardinality added in version 1.21</xs:documentation>
+                                                                                </xs:annotation>
+                                                                            </xs:element>
+                                                                        </xs:sequence>
+                                                                    </xs:complexType>
+                                                                </xs:element>
+                                                            </xs:sequence>
+                                                        </xs:complexType>
+                                                    </xs:element>
+                                                </xs:sequence>
+                                            </xs:complexType>
+                                        </xs:element>
+                                        <xs:element name="FeedbackType">
+                                            <xs:annotation>
+                                                <xs:documentation>A string (according to the internal coding system) representing the structure of the response message. Value "L" added in version 1.21</xs:documentation>
+                                            </xs:annotation>
+                                            <xs:simpleType>
+                                                <xs:restriction base="xs:string">
+                                                    <xs:enumeration value="0" />
+                                                    <xs:enumeration value="C" />
+                                                    <xs:enumeration value="1" />
+                                                    <xs:enumeration value="2" />
+                                                    <xs:enumeration value="S" />
+                                                    <xs:enumeration value="Q" />
+                                                    <xs:enumeration value="L" />
+                                                </xs:restriction>
+                                            </xs:simpleType>
+                                        </xs:element>
+                                        <xs:element name="CheckMoment" minOccurs="0" maxOccurs="1">
+                                            <xs:annotation>
+                                                <xs:documentation>To be used if the reference time stamp for the decision support execution is in the future (i.e. in virtual health checks)</xs:documentation>
+                                            </xs:annotation>
+                                            <xs:complexType>
+                                                <xs:sequence>
+                                                    <xs:element name="CheckDate" type="xs:date">
+                                                        <xs:annotation>
+                                                            <xs:documentation>The date for the check moment.</xs:documentation>
+                                                        </xs:annotation>
+                                                    </xs:element>
+                                                    <xs:element name="CheckTime" type="xs:time">
+                                                        <xs:annotation>
+                                                            <xs:documentation>The time for the check moment.</xs:documentation>
+                                                        </xs:annotation>
+                                                    </xs:element>
+                                                </xs:sequence>
+                                            </xs:complexType>
+                                        </xs:element>
+                                        <xs:element name="EventTypes" minOccurs="0" maxOccurs="1">
+                                            <xs:annotation>
+                                                <xs:documentation>The container for repetitive sequences of the element EventType.</xs:documentation>
+                                            </xs:annotation>
+                                            <xs:complexType>
+                                                <xs:sequence>
+                                                    <xs:element name="EventType" maxOccurs="unbounded">
+                                                        <xs:annotation>
+                                                            <xs:documentation>The client application event that has fired the request message ("trigger") according to the internal coding system</xs:documentation>
+                                                        </xs:annotation>
+                                                        <xs:simpleType>
+                                                            <xs:restriction base="xs:string">
+                                                                <xs:enumeration value="onOpenRecord" />
+                                                                <xs:enumeration value="onCloseRecord" />
+                                                                <xs:enumeration value="onNewDiagnosis" />
+                                                                <xs:enumeration value="onNewDrug" />
+                                                                <xs:enumeration value="onNewProcedure" />
+                                                                <xs:enumeration value="onNewConsultation" />
+                                                                <xs:enumeration value="onNewForm" />
+                                                                <xs:enumeration value="onVirtualHealthCheck" />
+                                                                <xs:enumeration value="onDemand" />
+                                                                <xs:enumeration value="onNewOrder" />
+                                                                <xs:enumeration value="onNewResult" />
+                                                                <xs:enumeration value="onActiveDiagnosis" />
+                                                            </xs:restriction>
+                                                        </xs:simpleType>
+                                                    </xs:element>
+                                                </xs:sequence>
+                                            </xs:complexType>
+                                        </xs:element>
+                                        <xs:element name="VirtualHealthCheckName" type="xs:string" minOccurs="0" maxOccurs="1">
+                                            <xs:annotation>
+                                                <xs:documentation>A name for a batch decision support run in a population (virtual health check). The response log will be named according to this name. Element added in version 1.2</xs:documentation>
+                                            </xs:annotation>
+                                        </xs:element>
+                                        <xs:element name="Exceptions" minOccurs="0">
+                                            <xs:annotation>
+                                                <xs:documentation>The container for repetitive sequences of the element Exception. Element added in version 1.2.</xs:documentation>
+                                            </xs:annotation>
+                                            <xs:complexType>
+                                                <xs:sequence>
+                                                    <xs:element name="Exception" type="xs:int" maxOccurs="unbounded">
+                                                        <xs:annotation>
+                                                            <xs:documentation>A code for an exception according to the internal coding system. Element added in version 1.2.</xs:documentation>
+                                                        </xs:annotation>
+                                                    </xs:element>
+                                                </xs:sequence>
+                                            </xs:complexType>
+                                        </xs:element>
+                                    </xs:sequence>
+                                </xs:complexType>
+                            </xs:element>
+                        </xs:sequence>
+                    </xs:complexType>
+                </xs:element>
+                <xs:element name="ExperimentalDataSets" minOccurs="0" maxOccurs="1">
+                    <xs:annotation>
+                        <xs:documentation>The container for repetitive sequences of the ExperimentalData element. Element added in version 1.1</xs:documentation>
+                    </xs:annotation>
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:element name="ExperimentalDataSet" maxOccurs="unbounded">
+                                <xs:annotation>
+                                    <xs:documentation>The container for experimental request data not yet included in the schema. Element added in version 1.1</xs:documentation>
+                                </xs:annotation>
+                                <xs:complexType>
+                                    <xs:sequence>
+                                        <xs:element name="DataSetName" type="xs:string">
+                                            <xs:annotation>
+                                                <xs:documentation>A descriptive name for the dataset. Element added in version 1.1</xs:documentation>
+                                            </xs:annotation>
+                                        </xs:element>
+                                        <xs:group ref="CodeGroup">
+                                            <xs:annotation>
+                                                <xs:documentation>Group added in version 1.1</xs:documentation>
+                                            </xs:annotation>
+                                        </xs:group>
+                                        <xs:group ref="TimeStampsGroup">
+                                            <xs:annotation>
+                                                <xs:documentation>Group added in version 1.1</xs:documentation>
+                                            </xs:annotation>
+                                        </xs:group>
+                                        <xs:element name="DataSetText" type="xs:string">
+                                            <xs:annotation>
+                                                <xs:documentation>The data as a text string. Element added in version 1.1</xs:documentation>
+                                            </xs:annotation>
+                                        </xs:element>
+                                        <xs:element name="DataEHRName" type="xs:string" minOccurs="0" maxOccurs="1">
+                                            <xs:annotation>
+                                                <xs:documentation>A free text name used in the EHR for the data set. Element added in version 1.1</xs:documentation>
+                                            </xs:annotation>
+                                        </xs:element>
+                                    </xs:sequence>
+                                </xs:complexType>
+                            </xs:element>
+                        </xs:sequence>
+                    </xs:complexType>
+                </xs:element>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="DSSResponse">
+        <xs:annotation>
+            <xs:documentation>Container for the response information sent from the DSS to the EHR</xs:documentation>
+        </xs:annotation>
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="Reminders" minOccurs="0" maxOccurs="1">
+                    <xs:annotation>
+                        <xs:documentation>The container for repetitive sequences of the Reminder element.</xs:documentation>
+                    </xs:annotation>
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:element name="Reminder" maxOccurs="unbounded">
+                                <xs:annotation>
+                                    <xs:documentation>The container for reminder data</xs:documentation>
+                                </xs:annotation>
+                                <xs:complexType>
+                                    <xs:sequence>
+                                        <xs:element name="ScriptID" type="xs:string" minOccurs="0" maxOccurs="1">
+                                            <xs:annotation>
+                                                <xs:documentation>A unique ID for the script returning a reminder</xs:documentation>
+                                            </xs:annotation>
+                                        </xs:element>
+                                        <xs:element name="ReminderID" type="xs:integer" minOccurs="0" maxOccurs="1">
+                                            <xs:annotation>
+                                                <xs:documentation>A unique ID for the reminder (not the reminder number in the script description). Element added in version 1.2.</xs:documentation>
+                                            </xs:annotation>
+                                        </xs:element>
+                                        <xs:element name="ReminderShort">
+                                            <xs:complexType mixed="true">
+                                                <xs:sequence>
+                                                    <xs:element name="a" minOccurs="0" maxOccurs="unbounded">
+                                                        <xs:annotation>
+                                                            <xs:documentation>The link element</xs:documentation>
+                                                        </xs:annotation>
+                                                        <xs:complexType>
+                                                            <xs:simpleContent>
+                                                                <xs:extension base="xs:string">
+                                                                    <xs:attribute name="href" type="xs:anyURI">
+                                                                        <xs:annotation>
+                                                                            <xs:documentation>The link URL. Attribute added in version 1.1</xs:documentation>
+                                                                        </xs:annotation>
+                                                                    </xs:attribute>
+                                                                    <xs:attribute name="target" type="xs:string">
+                                                                        <xs:annotation>
+                                                                            <xs:documentation>The display target. Attribute added in version 1.2</xs:documentation>
+                                                                        </xs:annotation>
+                                                                    </xs:attribute>
+                                                                </xs:extension>
+                                                            </xs:simpleContent>
+                                                        </xs:complexType>
+                                                    </xs:element>
+                                                </xs:sequence>
+                                            </xs:complexType>
+                                        </xs:element>
+                                        <xs:element name="ReminderLong">
+                                            <xs:complexType mixed="true">
+                                                <xs:sequence>
+                                                    <xs:element name="a" minOccurs="0" maxOccurs="unbounded">
+                                                        <xs:annotation>
+                                                            <xs:documentation>The link element</xs:documentation>
+                                                        </xs:annotation>
+                                                        <xs:complexType>
+                                                            <xs:simpleContent>
+                                                                <xs:extension base="xs:string">
+                                                                    <xs:attribute name="href" type="xs:anyURI">
+                                                                        <xs:annotation>
+                                                                            <xs:documentation>The link URL. Attribute added in version 1.1</xs:documentation>
+                                                                        </xs:annotation>
+                                                                    </xs:attribute>
+                                                                    <xs:attribute name="target" type="xs:string">
+                                                                        <xs:annotation>
+                                                                            <xs:documentation>The display target. Attribute added in version 1.2</xs:documentation>
+                                                                        </xs:annotation>
+                                                                    </xs:attribute>
+                                                                </xs:extension>
+                                                            </xs:simpleContent>
+                                                        </xs:complexType>
+                                                    </xs:element>
+                                                </xs:sequence>
+                                            </xs:complexType>
+                                        </xs:element>
+                                        <xs:element name="ReminderNurse">
+                                            <xs:complexType mixed="true">
+                                                <xs:sequence>
+                                                    <xs:element name="a" minOccurs="0" maxOccurs="unbounded">
+                                                        <xs:annotation>
+                                                            <xs:documentation>The link element</xs:documentation>
+                                                        </xs:annotation>
+                                                        <xs:complexType>
+                                                            <xs:simpleContent>
+                                                                <xs:extension base="xs:string">
+                                                                    <xs:attribute name="href" type="xs:anyURI">
+                                                                        <xs:annotation>
+                                                                            <xs:documentation>The link URL. Attribute added in version 1.1</xs:documentation>
+                                                                        </xs:annotation>
+                                                                    </xs:attribute>
+                                                                    <xs:attribute name="target" type="xs:string">
+                                                                        <xs:annotation>
+                                                                            <xs:documentation>The display target. Attribute added in version 1.2</xs:documentation>
+                                                                        </xs:annotation>
+                                                                    </xs:attribute>
+                                                                </xs:extension>
+                                                            </xs:simpleContent>
+                                                        </xs:complexType>
+                                                    </xs:element>
+                                                </xs:sequence>
+                                            </xs:complexType>
+                                        </xs:element>
+                                        <xs:element name="ReminderPatient">
+                                            <xs:complexType mixed="true">
+                                                <xs:sequence>
+                                                    <xs:element name="a" minOccurs="0" maxOccurs="unbounded">
+                                                        <xs:annotation>
+                                                            <xs:documentation>The link element</xs:documentation>
+                                                        </xs:annotation>
+                                                        <xs:complexType>
+                                                            <xs:simpleContent>
+                                                                <xs:extension base="xs:string">
+                                                                    <xs:attribute name="href" type="xs:anyURI">
+                                                                        <xs:annotation>
+                                                                            <xs:documentation>The link URL. Attribute added in version 1.1</xs:documentation>
+                                                                        </xs:annotation>
+                                                                    </xs:attribute>
+                                                                    <xs:attribute name="target" type="xs:string">
+                                                                        <xs:annotation>
+                                                                            <xs:documentation>The display target. Attribute added in version 1.2</xs:documentation>
+                                                                        </xs:annotation>
+                                                                    </xs:attribute>
+                                                                </xs:extension>
+                                                            </xs:simpleContent>
+                                                        </xs:complexType>
+                                                    </xs:element>
+                                                </xs:sequence>
+                                            </xs:complexType>
+                                        </xs:element>
+                                        <xs:element name="ReminderLevel">
+                                            <xs:annotation>
+                                                <xs:documentation>The importance level of a reminder according to the internal coding system</xs:documentation>
+                                            </xs:annotation>
+                                            <xs:simpleType>
+                                                <xs:restriction base="xs:int">
+                                                    <xs:enumeration value="0" />
+                                                    <xs:enumeration value="1" />
+                                                    <xs:enumeration value="2" />
+                                                </xs:restriction>
+                                            </xs:simpleType>
+                                        </xs:element>
+                                        <xs:element name="ReminderType" type="xs:int" minOccurs="0" maxOccurs="1">
+                                            <xs:annotation>
+                                                <xs:documentation>Reminder type according to the intervention it suggests (internal coding system). Element added in version 1.2</xs:documentation>
+                                            </xs:annotation>
+                                        </xs:element>
+                                        <xs:element name="SuggestedActions" minOccurs="0">
+                                            <xs:annotation>
+                                                <xs:documentation>The container for repetitive sequences of the element SuggestedAction. Element added in version 1.2</xs:documentation>
+                                            </xs:annotation>
+                                            <xs:complexType>
+                                                <xs:sequence>
+                                                    <xs:element name="SuggestedAction" maxOccurs="unbounded">
+                                                        <xs:annotation>
+                                                            <xs:documentation>The container for data describing an action suggested by the reminder. Element added in version 1.2.</xs:documentation>
+                                                        </xs:annotation>
+                                                        <xs:complexType>
+                                                            <xs:sequence>
+                                                                <xs:group ref="CodeGroup">
+                                                                    <xs:annotation>
+                                                                        <xs:documentation>Coding of the target for the action (e.g. a laboratory investigation to be ordered or drug to be prescribed). Group added in version 1.2.</xs:documentation>
+                                                                    </xs:annotation>
+                                                                </xs:group>
+                                                                <xs:group ref="TimeStampsGroup" />
+                                                                <xs:element name="ActionType" type="xs:int">
+                                                                    <xs:annotation>
+                                                                        <xs:documentation>Type of action, as defined in an internal coding system. Element added in version 1.2</xs:documentation>
+                                                                    </xs:annotation>
+                                                                </xs:element>
+                                                                <xs:element name="ActionText" type="xs:string" minOccurs="0">
+                                                                    <xs:annotation>
+                                                                        <xs:documentation>A string describing the content of the action. Element added in version 1.2</xs:documentation>
+                                                                    </xs:annotation>
+                                                                </xs:element>
+                                                            </xs:sequence>
+                                                        </xs:complexType>
+                                                    </xs:element>
+                                                </xs:sequence>
+                                            </xs:complexType>
+                                        </xs:element>
+                                    </xs:sequence>
+                                </xs:complexType>
+                            </xs:element>
+                        </xs:sequence>
+                    </xs:complexType>
+                </xs:element>
+                <xs:element name="Interactions" minOccurs="0" maxOccurs="1">
+                    <xs:annotation>
+                        <xs:documentation>The container for repetitive sequences of the Interaction element.</xs:documentation>
+                    </xs:annotation>
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:element name="Interaction" maxOccurs="unbounded">
+                                <xs:annotation>
+                                    <xs:documentation>The container for interaction data.</xs:documentation>
+                                </xs:annotation>
+                                <xs:complexType>
+                                    <xs:sequence>
+                                        <xs:element name="InteractionText" type="xs:string">
+                                            <xs:annotation>
+                                                <xs:documentation>A text describing the interaction between two drugs (Drug1 and Drug2)</xs:documentation>
+                                            </xs:annotation>
+                                        </xs:element>
+                                        <xs:element name="InteractionLevel">
+                                            <xs:annotation>
+                                                <xs:documentation>A classification code for the severity of the interaction, as defined in the internal coding system.</xs:documentation>
+                                            </xs:annotation>
+                                            <xs:simpleType>
+                                                <xs:restriction base="xs:string">
+                                                    <xs:enumeration value="C" />
+                                                    <xs:enumeration value="D" />
+                                                </xs:restriction>
+                                            </xs:simpleType>
+                                        </xs:element>
+                                        <xs:element name="Drug1">
+                                            <xs:annotation>
+                                                <xs:documentation>Container for Drug1 data</xs:documentation>
+                                            </xs:annotation>
+                                            <xs:complexType>
+                                                <xs:sequence>
+                                                    <xs:element name="DrugCode" type="xs:string">
+                                                        <xs:annotation>
+                                                            <xs:documentation>Drug1 code, as it appears in the request message</xs:documentation>
+                                                        </xs:annotation>
+                                                    </xs:element>
+                                                    <xs:element name="DrugName" type="xs:string" minOccurs="0" maxOccurs="1">
+                                                        <xs:annotation>
+                                                            <xs:documentation>The name of Drug1 (as it appears in the request message)</xs:documentation>
+                                                        </xs:annotation>
+                                                    </xs:element>
+                                                </xs:sequence>
+                                            </xs:complexType>
+                                        </xs:element>
+                                        <xs:element name="Drug2">
+                                            <xs:annotation>
+                                                <xs:documentation>Container for Drug2 data</xs:documentation>
+                                            </xs:annotation>
+                                            <xs:complexType>
+                                                <xs:sequence>
+                                                    <xs:element name="DrugCode" type="xs:string">
+                                                        <xs:annotation>
+                                                            <xs:documentation>Drug2 code, as it appears in the request message</xs:documentation>
+                                                        </xs:annotation>
+                                                    </xs:element>
+                                                    <xs:element name="DrugName" type="xs:string" minOccurs="0" maxOccurs="1">
+                                                        <xs:annotation>
+                                                            <xs:documentation>The name of Drug2 (as it appears in the request message)</xs:documentation>
+                                                        </xs:annotation>
+                                                    </xs:element>
+                                                </xs:sequence>
+                                            </xs:complexType>
+                                        </xs:element>
+                                        <xs:element name="InteractionLink" type="xs:string" minOccurs="0" maxOccurs="1">
+                                            <xs:annotation>
+                                                <xs:documentation>A link to a web page describing the interaction in more detail. Added in version 1.2</xs:documentation>
+                                            </xs:annotation>
+                                        </xs:element>
+                                    </xs:sequence>
+                                </xs:complexType>
+                            </xs:element>
+                        </xs:sequence>
+                    </xs:complexType>
+                </xs:element>
+                <xs:element name="Contraindications" minOccurs="0" maxOccurs="1">
+                    <xs:annotation>
+                        <xs:documentation>The container for repetitive sequences of the Contraindication element.</xs:documentation>
+                    </xs:annotation>
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:element name="Contraindication" maxOccurs="unbounded">
+                                <xs:annotation>
+                                    <xs:documentation>The container for contraindication data.</xs:documentation>
+                                </xs:annotation>
+                                <xs:complexType>
+                                    <xs:sequence>
+                                        <xs:element name="ContraindicationText" type="xs:string">
+                                            <xs:annotation>
+                                                <xs:documentation>A text describing the contraindication (diagnosis) for a drug</xs:documentation>
+                                            </xs:annotation>
+                                        </xs:element>
+                                        <xs:element name="ContraindicationLevel">
+                                            <xs:annotation>
+                                                <xs:documentation>The contraindication level according to the internal coding system
+</xs:documentation>
+                                            </xs:annotation>
+                                            <xs:simpleType>
+                                                <xs:restriction base="xs:integer">
+                                                    <xs:enumeration value="0" />
+                                                    <xs:enumeration value="1" />
+                                                </xs:restriction>
+                                            </xs:simpleType>
+                                        </xs:element>
+                                        <xs:element name="Drug">
+                                            <xs:annotation>
+                                                <xs:documentation>The container for drug data.</xs:documentation>
+                                            </xs:annotation>
+                                            <xs:complexType>
+                                                <xs:sequence>
+                                                    <xs:element name="DrugCode" type="xs:string">
+                                                        <xs:annotation>
+                                                            <xs:documentation>The drug code, as it appears in the request message.</xs:documentation>
+                                                        </xs:annotation>
+                                                    </xs:element>
+                                                    <xs:element name="DrugName" type="xs:string" minOccurs="0" maxOccurs="1">
+                                                        <xs:annotation>
+                                                            <xs:documentation>The name of the drug (as it appears in the request message)</xs:documentation>
+                                                        </xs:annotation>
+                                                    </xs:element>
+                                                </xs:sequence>
+                                            </xs:complexType>
+                                        </xs:element>
+                                        <xs:element name="Diagnosis">
+                                            <xs:annotation>
+                                                <xs:documentation>The container for the diagnosis data</xs:documentation>
+                                            </xs:annotation>
+                                            <xs:complexType>
+                                                <xs:sequence>
+                                                    <xs:element name="DiagnosisCode" type="xs:string" />
+                                                    <xs:element name="DiagnosisName" type="xs:string" minOccurs="0" maxOccurs="1">
+                                                        <xs:annotation>
+                                                            <xs:documentation>The name of the diagnosis (as it appears in the request message)</xs:documentation>
+                                                        </xs:annotation>
+                                                    </xs:element>
+                                                </xs:sequence>
+                                            </xs:complexType>
+                                        </xs:element>
+                                    </xs:sequence>
+                                </xs:complexType>
+                            </xs:element>
+                        </xs:sequence>
+                    </xs:complexType>
+                </xs:element>
+                <xs:element name="DrugsAndRenalFunction" minOccurs="0" maxOccurs="1">
+                    <xs:annotation>
+                        <xs:documentation>The container for repetitive sequences of the element DrugAndRenalFunction. Added in version 1.2.</xs:documentation>
+                    </xs:annotation>
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:element name="GFR" type="xs:int" minOccurs="1" maxOccurs="1">
+                                <xs:annotation>
+                                    <xs:documentation>The GFR value. Added in v1.21</xs:documentation>
+                                </xs:annotation>
+                            </xs:element>
+                            <xs:element name="DrugAndRenalFunction" maxOccurs="unbounded">
+                                <xs:annotation>
+                                    <xs:documentation>The container for data concerning drug use in renal malfunction. Added in version 1.2.</xs:documentation>
+                                </xs:annotation>
+                                <xs:complexType>
+                                    <xs:sequence>
+                                        <xs:element name="Drug">
+                                            <xs:annotation>
+                                                <xs:documentation>Container for the drug data. Added in version 1.2.</xs:documentation>
+                                            </xs:annotation>
+                                            <xs:complexType>
+                                                <xs:sequence>
+                                                    <xs:element name="DrugCode" type="xs:string">
+                                                        <xs:annotation>
+                                                            <xs:documentation>The drug code as it appears in the request message. Element added in version 1.2</xs:documentation>
+                                                        </xs:annotation>
+                                                    </xs:element>
+                                                    <xs:element name="DrugName" type="xs:string">
+                                                        <xs:annotation>
+                                                            <xs:documentation>The drug name as it appears in the request message. Element added in version 1.2</xs:documentation>
+                                                        </xs:annotation>
+                                                    </xs:element>
+                                                    <xs:element name="ActiveIngredientName" type="xs:string">
+                                                        <xs:annotation>
+                                                            <xs:documentation>The active ingredient name. Element added in version 1.2</xs:documentation>
+                                                        </xs:annotation>
+                                                    </xs:element>
+                                                </xs:sequence>
+                                            </xs:complexType>
+                                        </xs:element>
+                                        <xs:element name="DrugAndRenalFunctionText" type="xs:string">
+                                            <xs:annotation>
+                                                <xs:documentation>A text describing the use of the drug in renal malfunction. Added in version 1.2.</xs:documentation>
+                                            </xs:annotation>
+                                        </xs:element>
+                                        <xs:element name="ContraindicationLevel">
+                                            <xs:annotation>
+                                                <xs:documentation>The level of contraindication for use in renal malfunction. Element added in version 1.2. Restrictions to values "B", "C", "D" added in version 1.21</xs:documentation>
+                                            </xs:annotation>
+                                            <xs:simpleType>
+                                                <xs:restriction base="xs:string">
+                                                    <xs:enumeration value="B" />
+                                                    <xs:enumeration value="C" />
+                                                    <xs:enumeration value="D" />
+                                                </xs:restriction>
+                                            </xs:simpleType>
+                                        </xs:element>
+                                        <xs:element name="DrugAndRenalFunctionLink" type="xs:string" minOccurs="0">
+                                            <xs:annotation>
+                                                <xs:documentation>A link to additional information about the use of the drug in renal malfunction. Added in version 1.2.</xs:documentation>
+                                            </xs:annotation>
+                                        </xs:element>
+                                    </xs:sequence>
+                                </xs:complexType>
+                            </xs:element>
+                        </xs:sequence>
+                    </xs:complexType>
+                </xs:element>
+                <xs:element name="DrugsAndPregnancyOrLactation" minOccurs="0" maxOccurs="1">
+                    <xs:annotation>
+                        <xs:documentation>The container for repetitive sequences of the element DrugAndPregnancyOrLactation. Added in version 1.2</xs:documentation>
+                    </xs:annotation>
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:element name="DrugAndPregnancyOrLactation" maxOccurs="unbounded">
+                                <xs:annotation>
+                                    <xs:documentation>The container for data concerning drug use during pregnancy or lactation. Added in version 1.2</xs:documentation>
+                                </xs:annotation>
+                                <xs:complexType>
+                                    <xs:sequence>
+                                        <xs:element name="Drug">
+                                            <xs:annotation>
+                                                <xs:documentation>Container for the drug data. Added in version 1.2</xs:documentation>
+                                            </xs:annotation>
+                                            <xs:complexType>
+                                                <xs:sequence>
+                                                    <xs:element name="DrugCode" type="xs:string">
+                                                        <xs:annotation>
+                                                            <xs:documentation>The drug code as it appears in the request message. Added in version 1.2</xs:documentation>
+                                                        </xs:annotation>
+                                                    </xs:element>
+                                                    <xs:element name="DrugName" type="xs:string" minOccurs="0">
+                                                        <xs:annotation>
+                                                            <xs:documentation>The drug name as it appears in the request message. Added in version 1.2.</xs:documentation>
+                                                        </xs:annotation>
+                                                    </xs:element>
+                                                </xs:sequence>
+                                            </xs:complexType>
+                                        </xs:element>
+                                        <xs:element name="DrugAndPregnancyOrLactationText" type="xs:string">
+                                            <xs:annotation>
+                                                <xs:documentation>A text describing the use of the drug during pregnancy and lactation. Added in version 1.2.</xs:documentation>
+                                            </xs:annotation>
+                                        </xs:element>
+                                        <xs:element name="ContraindicationLevel" type="xs:string">
+                                            <xs:annotation>
+                                                <xs:documentation>The level of contraindication for use during pregnancy/lactation. Element added in version 1.2</xs:documentation>
+                                            </xs:annotation>
+                                        </xs:element>
+                                        <xs:element name="DrugAndPregnancyOrLactationLink" type="xs:string" minOccurs="0">
+                                            <xs:annotation>
+                                                <xs:documentation>A link to additional information about the use of the drug during pregnancy and lactation. Added in version 1.2</xs:documentation>
+                                            </xs:annotation>
+                                        </xs:element>
+                                    </xs:sequence>
+                                </xs:complexType>
+                            </xs:element>
+                        </xs:sequence>
+                    </xs:complexType>
+                </xs:element>
+                <xs:element name="DrugsToAvoid" minOccurs="0" maxOccurs="1">
+                    <xs:annotation>
+                        <xs:documentation>The container for repetitive sequences of the DrugToAvoid element.</xs:documentation>
+                    </xs:annotation>
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:element name="DrugToAvoid" maxOccurs="unbounded">
+                                <xs:annotation>
+                                    <xs:documentation>The container for data concerning drugs to avoid.</xs:documentation>
+                                </xs:annotation>
+                                <xs:complexType>
+                                    <xs:sequence>
+                                        <xs:element name="DrugCode" type="xs:string">
+                                            <xs:annotation>
+                                                <xs:documentation>The drug code as it appears in the request message.</xs:documentation>
+                                            </xs:annotation>
+                                        </xs:element>
+                                        <xs:element name="DrugName" type="xs:string" minOccurs="0" maxOccurs="1">
+                                            <xs:annotation>
+                                                <xs:documentation>The name of the drug to avoid (as it appears in the request message)</xs:documentation>
+                                            </xs:annotation>
+                                        </xs:element>
+                                        <xs:element name="RiskLevel" type="xs:int" minOccurs="0" maxOccurs="1">
+                                            <xs:annotation>
+                                                <xs:documentation>The risk level according to internal coding system. Element added in version 1.2</xs:documentation>
+                                            </xs:annotation>
+                                        </xs:element>
+                                    </xs:sequence>
+                                </xs:complexType>
+                            </xs:element>
+                        </xs:sequence>
+                    </xs:complexType>
+                </xs:element>
+                <xs:element name="Indications" minOccurs="0" maxOccurs="1">
+                    <xs:annotation>
+                        <xs:documentation>The container for repetitive sequences of the Indication element.</xs:documentation>
+                    </xs:annotation>
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:element name="Indication" maxOccurs="unbounded">
+                                <xs:annotation>
+                                    <xs:documentation>The container for indication data.</xs:documentation>
+                                </xs:annotation>
+                                <xs:complexType>
+                                    <xs:sequence>
+                                        <xs:element name="Drug">
+                                            <xs:annotation>
+                                                <xs:documentation>The container for drug data</xs:documentation>
+                                            </xs:annotation>
+                                            <xs:complexType>
+                                                <xs:sequence>
+                                                    <xs:element name="DrugCode" type="xs:string">
+                                                        <xs:annotation>
+                                                            <xs:documentation>The drug code.</xs:documentation>
+                                                        </xs:annotation>
+                                                    </xs:element>
+                                                    <xs:element name="DrugName" type="xs:string" minOccurs="0" maxOccurs="1">
+                                                        <xs:annotation>
+                                                            <xs:documentation>The generic name of the drug.</xs:documentation>
+                                                        </xs:annotation>
+                                                    </xs:element>
+                                                </xs:sequence>
+                                            </xs:complexType>
+                                        </xs:element>
+                                        <xs:element name="Diagnosis">
+                                            <xs:annotation>
+                                                <xs:documentation>The container for data concerning the diagnosis for which the drug treatment is indicated</xs:documentation>
+                                            </xs:annotation>
+                                            <xs:complexType>
+                                                <xs:sequence>
+                                                    <xs:element name="DiagnosisCode" type="xs:string">
+                                                        <xs:annotation>
+                                                            <xs:documentation>The diagnosis code as it appears in the request message</xs:documentation>
+                                                        </xs:annotation>
+                                                    </xs:element>
+                                                    <xs:element name="DiagnosisName" type="xs:string" minOccurs="0" maxOccurs="1">
+                                                        <xs:annotation>
+                                                            <xs:documentation>The diagnosis name as it appears in the request message.</xs:documentation>
+                                                        </xs:annotation>
+                                                    </xs:element>
+                                                </xs:sequence>
+                                            </xs:complexType>
+                                        </xs:element>
+                                        <xs:element name="IndicationLevel">
+                                            <xs:annotation>
+                                                <xs:documentation>The importance of the indication according to the internal coding system.
+</xs:documentation>
+                                            </xs:annotation>
+                                            <xs:simpleType>
+                                                <xs:restriction base="xs:int">
+                                                    <xs:enumeration value="0" />
+                                                    <xs:enumeration value="1" />
+                                                </xs:restriction>
+                                            </xs:simpleType>
+                                        </xs:element>
+                                        <xs:element name="IndicationText" type="xs:string">
+                                            <xs:annotation>
+                                                <xs:documentation>A text describing the indication for a drug. Moved from first to last subelement of the &lt;Indication&gt; element in version 1.21</xs:documentation>
+                                            </xs:annotation>
+                                        </xs:element>
+                                    </xs:sequence>
+                                </xs:complexType>
+                            </xs:element>
+                        </xs:sequence>
+                    </xs:complexType>
+                </xs:element>
+                <xs:element name="GuidelineLinks" minOccurs="0" maxOccurs="1">
+                    <xs:annotation>
+                        <xs:documentation>The container for repetitive sequences of the Guidelink element.</xs:documentation>
+                    </xs:annotation>
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:element name="GuidelineLink" maxOccurs="unbounded">
+                                <xs:annotation>
+                                    <xs:documentation>The container for guideline link data</xs:documentation>
+                                </xs:annotation>
+                                <xs:complexType>
+                                    <xs:sequence>
+                                        <xs:element name="GuidelineURL" type="xs:string">
+                                            <xs:annotation>
+                                                <xs:documentation>The URL of the guideline</xs:documentation>
+                                            </xs:annotation>
+                                        </xs:element>
+                                        <xs:element name="GuidelineTitle" type="xs:string">
+                                            <xs:annotation>
+                                                <xs:documentation>The title of the guideline</xs:documentation>
+                                            </xs:annotation>
+                                        </xs:element>
+                                        <xs:element name="GuidelinePriority">
+                                            <xs:annotation>
+                                                <xs:documentation>The priority of the guideline according to the internal coding system.
+</xs:documentation>
+                                            </xs:annotation>
+                                            <xs:simpleType>
+                                                <xs:restriction base="xs:int">
+                                                    <xs:enumeration value="0" />
+                                                    <xs:enumeration value="1" />
+                                                </xs:restriction>
+                                            </xs:simpleType>
+                                        </xs:element>
+                                        <xs:element name="GuidelineID" type="xs:string">
+                                            <xs:annotation>
+                                                <xs:documentation>A unique ID for the guideline</xs:documentation>
+                                            </xs:annotation>
+                                        </xs:element>
+                                        <xs:element name="DiagnosisCode" type="xs:string">
+                                            <xs:annotation>
+                                                <xs:documentation>The diagnosis code corresponding to the guideline (as it appears in the request message)</xs:documentation>
+                                            </xs:annotation>
+                                        </xs:element>
+                                        <xs:element name="DiagnosisName" type="xs:string" minOccurs="0" maxOccurs="1">
+                                            <xs:annotation>
+                                                <xs:documentation>The diagnosis name corresponding to the guideline (as it appears in the request message)</xs:documentation>
+                                            </xs:annotation>
+                                        </xs:element>
+                                    </xs:sequence>
+                                </xs:complexType>
+                            </xs:element>
+                        </xs:sequence>
+                    </xs:complexType>
+                </xs:element>
+                <xs:element name="RelevantBreakPoints" minOccurs="0" maxOccurs="1">
+                    <xs:annotation>
+                        <xs:documentation>The container for repetitive sequences of the element BreakPoint. Added in version 1.2</xs:documentation>
+                    </xs:annotation>
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:element name="RelevantBreakPoint" maxOccurs="unbounded">
+                                <xs:annotation>
+                                    <xs:documentation>Data describing a clinically relevant point the execution of a script. Added in version 1.2</xs:documentation>
+                                </xs:annotation>
+                                <xs:complexType>
+                                    <xs:sequence>
+                                        <xs:element name="ScriptID" type="xs:string">
+                                            <xs:annotation>
+                                                <xs:documentation>A unique script ID, for which the break point is returned. Added in version 1.2.</xs:documentation>
+                                            </xs:annotation>
+                                        </xs:element>
+                                        <xs:element name="MessageNumber" type="xs:int" minOccurs="0">
+                                            <xs:annotation>
+                                                <xs:documentation>The message number. Relevant only if Value = 1. Added in version 1.2.</xs:documentation>
+                                            </xs:annotation>
+                                        </xs:element>
+                                        <xs:element name="MessageID" type="xs:int" minOccurs="0">
+                                            <xs:annotation>
+                                                <xs:documentation>The unique message ID. Relevant only if Value = 1. Added in version 1.2.</xs:documentation>
+                                            </xs:annotation>
+                                        </xs:element>
+                                        <xs:element name="Value" type="xs:boolean">
+                                            <xs:annotation>
+                                                <xs:documentation>The boolean value (0/1) of the break point. 0 = no reminder returned, 1 = reminder returned. Added in version 1.2</xs:documentation>
+                                            </xs:annotation>
+                                        </xs:element>
+                                    </xs:sequence>
+                                </xs:complexType>
+                            </xs:element>
+                        </xs:sequence>
+                    </xs:complexType>
+                </xs:element>
+                <xs:element name="System">
+                    <xs:annotation>
+                        <xs:documentation>The container for system response data</xs:documentation>
+                    </xs:annotation>
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:element name="DSSVersion" minOccurs="0">
+                                <xs:annotation>
+                                    <xs:documentation>The version of the EBMeDS interface specification (this version is referenced to as "EBMeDS Basic v1.21"). Added in version 1.21</xs:documentation>
+                                </xs:annotation>
+                            </xs:element>
+                            <xs:element name="QueryID" type="xs:string" minOccurs="0" maxOccurs="1">
+                                <xs:annotation>
+                                    <xs:documentation>The unique query ID generated by the client application (as it appears in the request message)</xs:documentation>
+                                </xs:annotation>
+                            </xs:element>
+                            <xs:element name="ElapsedTime" type="xs:string" minOccurs="0" maxOccurs="1">
+                                <xs:annotation>
+                                    <xs:documentation>Time elapsed for the script execution</xs:documentation>
+                                </xs:annotation>
+                            </xs:element>
+                            <xs:element name="DebugMessages" minOccurs="0" maxOccurs="1">
+                                <xs:annotation>
+                                    <xs:documentation>The container for repetitive sequences of the DebugMessage element.</xs:documentation>
+                                </xs:annotation>
+                                <xs:complexType>
+                                    <xs:sequence>
+                                        <xs:element name="DebugMessage" type="xs:string" maxOccurs="unbounded">
+                                            <xs:annotation>
+                                                <xs:documentation>A message containing debug data</xs:documentation>
+                                            </xs:annotation>
+                                        </xs:element>
+                                    </xs:sequence>
+                                </xs:complexType>
+                            </xs:element>
+                            <xs:element name="Exceptions" minOccurs="0" maxOccurs="1">
+                                <xs:annotation>
+                                    <xs:documentation>The container for repetitive sequences of the Exceptions element. Element added in version 1.2.</xs:documentation>
+                                </xs:annotation>
+                                <xs:complexType>
+                                    <xs:sequence>
+                                        <xs:element name="Exception" type="xs:string" maxOccurs="unbounded">
+                                            <xs:annotation>
+                                                <xs:documentation>An exception according to the internal coding system.  Element added in version 1.2.</xs:documentation>
+                                            </xs:annotation>
+                                        </xs:element>
+                                    </xs:sequence>
+                                </xs:complexType>
+                            </xs:element>
+                        </xs:sequence>
+                    </xs:complexType>
+                </xs:element>
+                <xs:element name="ExperimentalDataSets" minOccurs="0" maxOccurs="1">
+                    <xs:annotation>
+                        <xs:documentation>The container for repetitive sequences of the ExperimentalDataSet element. Element added in version 1.1.</xs:documentation>
+                    </xs:annotation>
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:element name="ExperimentalDataSet" maxOccurs="unbounded">
+                                <xs:annotation>
+                                    <xs:documentation>The container for experimental response data not yet included in the XML Schema. Element added in version 1.1</xs:documentation>
+                                </xs:annotation>
+                                <xs:complexType>
+                                    <xs:sequence>
+                                        <xs:element name="DataSetName" type="xs:string">
+                                            <xs:annotation>
+                                                <xs:documentation>A descriptive name for the dataset. Element added in version 1.1</xs:documentation>
+                                            </xs:annotation>
+                                        </xs:element>
+                                        <xs:element name="DataSetText" type="xs:string">
+                                            <xs:annotation>
+                                                <xs:documentation>The data as a text string. Element added in version 1.1.</xs:documentation>
+                                            </xs:annotation>
+                                        </xs:element>
+                                    </xs:sequence>
+                                </xs:complexType>
+                            </xs:element>
+                        </xs:sequence>
+                    </xs:complexType>
+                </xs:element>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:group name="CodeGroup">
+        <xs:annotation>
+            <xs:documentation>A group container for declaring the coding system explicitly for each code value</xs:documentation>
+        </xs:annotation>
+        <xs:sequence>
+            <xs:element name="CodeValue" type="xs:string">
+                <xs:annotation>
+                    <xs:documentation>A classification code in the form it appears in the coding system specified in the element CodeSystem</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="CodeSystem" type="xs:string">
+                <xs:annotation>
+                    <xs:documentation>A unique ID for the coding system, preferably an OID code. The code system version may be a part of the OID.</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="CodeSystemVersion" type="xs:string" minOccurs="0" maxOccurs="1">
+                <xs:annotation>
+                    <xs:documentation>The version of the code system (if not included in the OID)</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+        </xs:sequence>
+    </xs:group>
+    <xs:group name="TimeStampsGroup">
+        <xs:annotation>
+            <xs:documentation>The group container for different forms of time stamps</xs:documentation>
+        </xs:annotation>
+        <xs:sequence>
+            <xs:element name="StartStamp" minOccurs="0" maxOccurs="1">
+                <xs:annotation>
+                    <xs:documentation>The start stamp for timestamp intervals (e.g. the start of a sick leave). Both the date and time can be specified.</xs:documentation>
+                </xs:annotation>
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element name="StartDate" type="xs:date" minOccurs="0" maxOccurs="1" nillable="true" />
+                        <xs:element name="StartTime" type="xs:time" minOccurs="0" maxOccurs="1" nillable="true" />
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="EndStamp" minOccurs="0" maxOccurs="1">
+                <xs:annotation>
+                    <xs:documentation>The end stamp for time stamp intervals (e.g. the end of an antibiotic medication). Both the end date and end time can be specified.</xs:documentation>
+                </xs:annotation>
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element name="EndDate" type="xs:date" minOccurs="0" maxOccurs="1" nillable="true" />
+                        <xs:element name="EndTime" type="xs:time" minOccurs="0" maxOccurs="1" nillable="true" />
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="PointStamp" minOccurs="0" maxOccurs="1">
+                <xs:annotation>
+                    <xs:documentation>A single time stamp for non-interval time stamps (e.g. the sampling date/time for most laboratory tests).</xs:documentation>
+                </xs:annotation>
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element name="PointDate" type="xs:date" minOccurs="0" maxOccurs="1" nillable="true" />
+                        <xs:element name="PointTime" type="xs:time" minOccurs="0" maxOccurs="1" nillable="true" />
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+        </xs:sequence>
+    </xs:group>
+</xs:schema>

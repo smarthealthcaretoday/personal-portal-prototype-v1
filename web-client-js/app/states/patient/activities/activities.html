@@ -1,0 +1,32 @@
+<div class="container">
+    <div class="row">
+
+        <ol class="breadcrumb">
+            <li><a ui-sref="personalPortal.patient.dashboard">Dashboard</a></li>
+            <li class="active">Activities</li>
+        </ol>
+
+
+        <div class="col-md-9">
+            <h3>Events and activities</h3>
+            </br>
+            <div ui-calendar="uiConfig.calendar" ng-model="eventSource" calendar="calendar"></div>
+        </div>
+
+        <div class="col-md-3">
+            <h3>&nbsp;</h3>
+            <br/>
+            <button class="fc-button fc-state-default fc-corner-left fc-corner-right" ng-click="addEvent()">Add new event</button>
+
+            <div class="events-container">
+                <div class="alert event alert-info" ng-repeat="event in events">
+                    <a class="close" ng-click=""><i class="fa fa-remove"></i></a>
+                    <b>{{event.title}}</b>
+
+                    <p><span>{{event.start | date:"MMM dd HH:mm"}} - {{event.end | date:"MMM dd HH:mm"}}</span></p>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>

@@ -1,0 +1,24 @@
+<ol class="breadcrumb">
+    <li><a ui-sref="personalPortal.patient.dashboard">Dashboard</a></li>
+    <li class="active">Notes</li>
+</ol>
+
+<div class="col-md-8">
+    <h3>Patient notes</h3>
+    <br/>
+
+    <form role="form" name="patientNotes">
+        <div class="alert alert-success" role="alert" ng-show="!patientNotes.$dirty && dataSaved">
+            Data saved
+            </br>
+        </div>
+        <div class="form-group">
+            <textarea style="width: 550px; height: 200px" ng-model="notes.notes"/>
+        </div>
+
+        <div class="col-sm-9 text-right">
+            <input type="submit" class="btn btn-default" ng-click="save(patientNotes)" value="Save"/>
+        </div>
+    </form>
+
+</div>

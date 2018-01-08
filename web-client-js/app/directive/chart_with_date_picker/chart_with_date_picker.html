@@ -1,0 +1,47 @@
+<div>
+    <div class="form-horizontal">
+        <div class="form-group">
+            <label class="col-sm-1 control-label">Date</label>
+            <div class="col-md-4">
+                <span class="input-group">
+                    <input type="text"
+                           class="form-control input-sm"
+                           name="endDate"
+                           datetime-picker="dd/MM/yyyy"
+                           ng-model="endDate"
+                           is-open="datepickerState.endDateOpened"
+                           ng-required="true"
+                           enable-time="false"
+                           max-date="{{today}}"
+                           datepicker-options="dateOptions"
+                           timepicker-options="timeOptions"/>
+
+                    <span class="input-group-btn">
+                        <button type="button" class="btn btn-sm" ng-click="openEndDate($event)"><i class="glyphicon glyphicon-calendar"></i></button>
+                    </span>
+                </span>
+            </div>
+
+            <label class="col-sm-1 control-label">Period</label>
+            <div class="col-md-2">
+                <select ng-model="period" class="form-control input-sm" ng-change="onPeriodSelected()">
+                    <option value="DAY">Day</option>
+                    <option value="WEEK">Week</option>
+                    <option value="MONTH">Month</option>
+                </select>
+            </div>
+        </div>
+    </div>
+
+    <br/>
+
+    <div ng-show="isLoading"> Loading data...</div>
+    <div ng-hide="isLoading">
+        <div ng-show="dataFound">
+            <linechart data="chartData" options="chartOptions" width="750" height="450"></linechart>
+        </div>
+        <div ng-hide="dataFound">
+            No data found
+        </div>
+    </div>
+</div>

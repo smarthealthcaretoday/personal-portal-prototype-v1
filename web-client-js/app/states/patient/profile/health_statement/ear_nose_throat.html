@@ -1,0 +1,148 @@
+<accordion-group heading="Ear nose throat">
+    <div ng-form="earNoseThroat">
+        <h4>Ear nose throat</h4>
+
+        <div class="form-group col-sm-9">
+            <input type="checkbox"
+                   id="healthStatement.earNoseThroat.noComplains"
+                   name="healthStatement.earNoseThroat.noComplains"
+                   class="form-control-static"
+                   ng-model="healthStatement.earNoseThroat.noComplains"
+                   ng-change="healthStatement.earNoseThroat.hearingLoss = false;
+                              healthStatement.earNoseThroat.hearingLossDetails = '';
+                              healthStatement.earNoseThroat.allergicRhinitis = false;
+                              healthStatement.earNoseThroat.allergicRhinitisDetails = '';
+                              healthStatement.earNoseThroat.chronicSinusitis = false;
+                              healthStatement.earNoseThroat.chronicSinusitisDetails = '';
+                              healthStatement.earNoseThroat.nasalObstruction = false;
+                              healthStatement.earNoseThroat.nasalObstructionDetails = '';
+                              healthStatement.earNoseThroat.frequentHhroatProblems = false;
+                              healthStatement.earNoseThroat.frequentHhroatProblemsDetails = '';
+                              healthStatement.earNoseThroat.otherDisease = false;
+                              healthStatement.earNoseThroat.otherDiseaseDetails = '';">
+            &nbsp;
+            <label class="control-label-left"
+                   for="healthStatement.earNoseThroat.noComplains">No complains</label>
+        </div>
+
+        <div class="form-group col-sm-9">
+            <input type="checkbox"
+                   id="healthStatement.earNoseThroat.hearingLoss"
+                   name="healthStatement.earNoseThroat.hearingLoss"
+                   class="form-control-static"
+                   ng-model="healthStatement.earNoseThroat.hearingLoss"
+                   ng-change="healthStatement.earNoseThroat.hearingLossDetails =
+                        healthStatement.earNoseThroat.hearingLoss ? healthStatement.earNoseThroat.hearingLossDetails : '';
+                        healthStatement.earNoseThroat.noComplains = false;">
+            &nbsp;
+            <label class="control-label-left"
+                   for="healthStatement.earNoseThroat.hearingLoss">Hearing loss</label>
+            <input type="text"
+                   id="healthStatement.earNoseThroat.hearingLossDetails"
+                   name="healthStatement.earNoseThroat.hearingLossDetails"
+                   class="form-control input-sm"
+                   ng-model="healthStatement.earNoseThroat.hearingLossDetails"
+                   ng-show="healthStatement.earNoseThroat.hearingLoss">
+        </div>
+
+        <div class="form-group col-sm-9">
+            <input type="checkbox"
+                   id="healthStatement.earNoseThroat.allergicRhinitis"
+                   name="healthStatement.earNoseThroat.allergicRhinitis"
+                   class="form-control-static"
+                   ng-model="healthStatement.earNoseThroat.allergicRhinitis"
+                   ng-change="healthStatement.earNoseThroat.allergicRhinitisDetails =
+                        healthStatement.earNoseThroat.allergicRhinitis ? healthStatement.earNoseThroat.allergicRhinitisDetails : '';
+                        healthStatement.earNoseThroat.noComplains = false;">
+            &nbsp;
+            <label class="control-label-left"
+                   for="healthStatement.earNoseThroat.allergicRhinitis">Allergic rhinitis</label>
+            <input type="text"
+                   id="healthStatement.earNoseThroat.allergicRhinitisDetails"
+                   name="healthStatement.earNoseThroat.allergicRhinitisDetails"
+                   class="form-control input-sm"
+                   ng-model="healthStatement.earNoseThroat.allergicRhinitisDetails"
+                   ng-show="healthStatement.earNoseThroat.allergicRhinitis">
+        </div>
+
+        <div class="form-group col-sm-9">
+            <input type="checkbox"
+                   id="healthStatement.earNoseThroat.chronicSinusitis"
+                   name="healthStatement.earNoseThroat.chronicSinusitis"
+                   class="form-control-static"
+                   ng-model="healthStatement.earNoseThroat.chronicSinusitis"
+                   ng-change="healthStatement.earNoseThroat.chronicSinusitisDetails =
+                        healthStatement.earNoseThroat.chronicSinusitis ? healthStatement.earNoseThroat.chronicSinusitisDetails : '';
+                        healthStatement.earNoseThroat.noComplains = false;">
+            &nbsp;
+            <label class="control-label-left"
+                   for="healthStatement.earNoseThroat.chronicSinusitis">Chronic sinusitis of frontal or maxillary sinuses</label>
+            <input type="text"
+                   id="healthStatement.earNoseThroat.chronicSinusitisDetails"
+                   name="healthStatement.earNoseThroat.chronicSinusitisDetails"
+                   class="form-control input-sm"
+                   ng-model="healthStatement.earNoseThroat.chronicSinusitisDetails"
+                   ng-show="healthStatement.earNoseThroat.chronicSinusitis">
+        </div>
+
+        <div class="form-group col-sm-9">
+            <input type="checkbox"
+                   id="healthStatement.earNoseThroat.nasalObstruction"
+                   name="healthStatement.earNoseThroat.nasalObstruction"
+                   class="form-control-static"
+                   ng-model="healthStatement.earNoseThroat.nasalObstruction"
+                   ng-change="healthStatement.earNoseThroat.nasalObstructionDetails =
+                        healthStatement.earNoseThroat.nasalObstruction ? healthStatement.earNoseThroat.nasalObstructionDetails : '';
+                        healthStatement.earNoseThroat.noComplains = false;">
+            &nbsp;
+            <label class="control-label-left"
+                   for="healthStatement.earNoseThroat.nasalObstruction">Nasal obstruction</label>
+            <input type="text"
+                   id="healthStatement.earNoseThroat.nasalObstructionDetails"
+                   name="healthStatement.earNoseThroat.nasalObstructionDetails"
+                   class="form-control input-sm"
+                   ng-model="healthStatement.earNoseThroat.nasalObstructionDetails"
+                   ng-show="healthStatement.earNoseThroat.nasalObstruction">
+        </div>
+
+        <div class="form-group col-sm-9">
+            <input type="checkbox"
+                   id="healthStatement.earNoseThroat.frequentHhroatProblems"
+                   name="healthStatement.earNoseThroat.frequentHhroatProblems"
+                   class="form-control-static"
+                   ng-model="healthStatement.earNoseThroat.frequentHhroatProblems"
+                   ng-change="healthStatement.earNoseThroat.frequentHhroatProblemsDetails =
+                        healthStatement.earNoseThroat.frequentHhroatProblems ? healthStatement.earNoseThroat.frequentHhroatProblemsDetails : '';
+                        healthStatement.earNoseThroat.noComplains = false;">
+            &nbsp;
+            <label class="control-label-left"
+                   for="healthStatement.earNoseThroat.frequentHhroatProblems">Frequent (more than 4x a year) throat problems</label>
+            <input type="text"
+                   id="healthStatement.earNoseThroat.frequentHhroatProblemsDetails"
+                   name="healthStatement.earNoseThroat.frequentHhroatProblemsDetails"
+                   class="form-control input-sm"
+                   ng-model="healthStatement.earNoseThroat.frequentHhroatProblemsDetails"
+                   ng-show="healthStatement.earNoseThroat.frequentHhroatProblems">
+        </div>
+
+        <div class="form-group col-sm-9">
+            <input type="checkbox"
+                   id="healthStatement.earNoseThroat.otherDisease"
+                   name="healthStatement.earNoseThroat.otherDisease"
+                   class="form-control-static"
+                   ng-model="healthStatement.earNoseThroat.otherDisease"
+                   ng-change="healthStatement.earNoseThroat.otherDiseaseDetails =
+                        healthStatement.earNoseThroat.otherDisease ? healthStatement.earNoseThroat.otherDiseaseDetails : '';
+                        healthStatement.earNoseThroat.noComplains = false;">
+            &nbsp;
+            <label class="control-label-left"
+                   for="healthStatement.earNoseThroat.otherDisease">Other disease / condition / symptom (please specify)</label>
+            <input type="text"
+                   id="healthStatement.earNoseThroat.otherDiseaseDetails"
+                   name="healthStatement.earNoseThroat.otherDiseaseDetails"
+                   class="form-control input-sm"
+                   ng-model="healthStatement.earNoseThroat.otherDiseaseDetails"
+                   ng-show="healthStatement.earNoseThroat.otherDisease">
+        </div>
+    </div>
+</accordion-group>

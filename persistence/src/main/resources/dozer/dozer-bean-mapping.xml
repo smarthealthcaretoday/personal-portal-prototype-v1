@@ -1,0 +1,230 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mappings xmlns="http://dozer.sourceforge.net"
+          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+          xsi:schemaLocation="http://dozer.sourceforge.net
+          http://dozer.sourceforge.net/schema/beanmapping.xsd">
+
+    <configuration>
+        <stop-on-errors>true</stop-on-errors>
+        <date-format>MM/dd/yyyy HH:mm</date-format>
+        <wildcard>true</wildcard>
+
+        <custom-converters> <!-- these are always bi-directional -->
+            <converter type="today.smarthealthcare.ppv1.persistence.mapper.PatientDrugToAvoidConverter">
+                <class-a>today.smarthealthcare.ppv1.dto.patient.PatientDrugToAvoidDto</class-a>
+                <class-b>today.smarthealthcare.ppv1.persistence.model.classifier.MedicationClassifier</class-b>
+            </converter>
+        </custom-converters>
+    </configuration>
+
+    <mapping map-null="false">
+        <class-a>today.smarthealthcare.ppv1.dto.patient.PatientDto</class-a>
+        <class-b>today.smarthealthcare.ppv1.persistence.model.patient.Patient</class-b>
+    </mapping>
+
+    <mapping>
+        <class-a>today.smarthealthcare.ppv1.dto.patient.PatientDiagnosisDto</class-a>
+        <class-b>today.smarthealthcare.ppv1.persistence.model.patient.PatientDiagnosis</class-b>
+    </mapping>
+
+    <mapping>
+        <class-a>today.smarthealthcare.ppv1.dto.patient.PatientMeasurementDto</class-a>
+        <class-b>today.smarthealthcare.ppv1.persistence.model.patient.PatientMeasurement</class-b>
+    </mapping>
+
+    <mapping>
+        <class-a>today.smarthealthcare.ppv1.dto.patient.PatientMedicationDto</class-a>
+        <class-b>today.smarthealthcare.ppv1.persistence.model.patient.PatientMedication</class-b>
+    </mapping>
+
+    <mapping>
+        <class-a>today.smarthealthcare.ppv1.dto.patient.PatientProcedureDto</class-a>
+        <class-b>today.smarthealthcare.ppv1.persistence.model.patient.PatientProcedure</class-b>
+    </mapping>
+
+    <mapping>
+        <class-a>today.smarthealthcare.ppv1.dto.patient.PatientVaccinationDto</class-a>
+        <class-b>today.smarthealthcare.ppv1.persistence.model.patient.PatientVaccination</class-b>
+    </mapping>
+
+    <mapping>
+        <class-a>today.smarthealthcare.ppv1.dto.patient.Gender</class-a>
+        <class-b>today.smarthealthcare.ppv1.persistence.model.patient.Gender</class-b>
+    </mapping>
+
+    <mapping>
+        <class-a>today.smarthealthcare.ppv1.dto.classifier.DiagnosisClassifierDto</class-a>
+        <class-b>today.smarthealthcare.ppv1.persistence.model.classifier.DiagnosisClassifier</class-b>
+        <field>
+            <a>name</a>
+            <b>id.name</b>
+        </field>
+        <field>
+            <a>code</a>
+            <b>id.code</b>
+        </field>
+    </mapping>
+
+    <mapping>
+        <class-a>today.smarthealthcare.ppv1.dto.classifier.MeasurementClassifierDto</class-a>
+        <class-b>today.smarthealthcare.ppv1.persistence.model.classifier.MeasurementClassifier</class-b>
+        <field>
+            <a>name</a>
+            <b>id.name</b>
+        </field>
+        <field>
+            <a>code</a>
+            <b>id.code</b>
+        </field>
+    </mapping>
+
+    <mapping>
+        <class-a>today.smarthealthcare.ppv1.dto.classifier.MedicationClassifierDto</class-a>
+        <class-b>today.smarthealthcare.ppv1.persistence.model.classifier.MedicationClassifier</class-b>
+        <field>
+            <a>name</a>
+            <b>id.name</b>
+        </field>
+        <field>
+            <a>code</a>
+            <b>id.code</b>
+        </field>
+    </mapping>
+
+    <mapping>
+        <class-a>today.smarthealthcare.ppv1.dto.classifier.ProcedureClassifierDto</class-a>
+        <class-b>today.smarthealthcare.ppv1.persistence.model.classifier.ProcedureClassifier</class-b>
+        <field>
+            <a>name</a>
+            <b>id.name</b>
+        </field>
+        <field>
+            <a>code</a>
+            <b>id.code</b>
+        </field>
+    </mapping>
+
+    <mapping>
+        <class-a>today.smarthealthcare.ppv1.dto.classifier.VaccineClassifierDto</class-a>
+        <class-b>today.smarthealthcare.ppv1.persistence.model.classifier.VaccineClassifier</class-b>
+        <field>
+            <a>name</a>
+            <b>id.name</b>
+        </field>
+        <field>
+            <a>code</a>
+            <b>id.code</b>
+        </field>
+    </mapping>
+
+    <mapping>
+        <class-a>today.smarthealthcare.ppv1.dto.healthStatement.AllergiesDto</class-a>
+        <class-b>today.smarthealthcare.ppv1.persistence.model.healthStatement.Allergies</class-b>
+    </mapping>
+
+    <mapping>
+        <class-a>today.smarthealthcare.ppv1.dto.healthStatement.CardiovascularConditionDto</class-a>
+        <class-b>today.smarthealthcare.ppv1.persistence.model.healthStatement.CardiovascularCondition</class-b>
+    </mapping>
+
+    <mapping>
+        <class-a>today.smarthealthcare.ppv1.dto.healthStatement.LifeStyleDto</class-a>
+        <class-b>today.smarthealthcare.ppv1.persistence.model.healthStatement.LifeStyle</class-b>
+    </mapping>
+
+    <mapping>
+        <class-a>today.smarthealthcare.ppv1.dto.healthStatement.MedicalDevicesDto</class-a>
+        <class-b>today.smarthealthcare.ppv1.persistence.model.healthStatement.MedicalDevices</class-b>
+    </mapping>
+
+    <mapping>
+        <class-a>today.smarthealthcare.ppv1.dto.healthStatement.WorkingEnvironmentDto</class-a>
+        <class-b>today.smarthealthcare.ppv1.persistence.model.healthStatement.WorkingEnvironment</class-b>
+    </mapping>
+
+    <mapping>
+        <class-a>today.smarthealthcare.ppv1.dto.healthStatement.BloodProblemsDto</class-a>
+        <class-b>today.smarthealthcare.ppv1.persistence.model.healthStatement.BloodProblems</class-b>
+    </mapping>
+
+    <mapping>
+        <class-a>today.smarthealthcare.ppv1.dto.healthStatement.BonesJointsMusclesDto</class-a>
+        <class-b>today.smarthealthcare.ppv1.persistence.model.healthStatement.BonesJointsMuscles</class-b>
+    </mapping>
+
+    <mapping>
+        <class-a>today.smarthealthcare.ppv1.dto.healthStatement.DigestiveOrgansDto</class-a>
+        <class-b>today.smarthealthcare.ppv1.persistence.model.healthStatement.DigestiveOrgans</class-b>
+    </mapping>
+
+    <mapping>
+        <class-a>today.smarthealthcare.ppv1.dto.healthStatement.EarNoseThroatDto</class-a>
+        <class-b>today.smarthealthcare.ppv1.persistence.model.healthStatement.EarNoseThroat</class-b>
+    </mapping>
+
+    <mapping>
+        <class-a>today.smarthealthcare.ppv1.dto.healthStatement.EyesAndVisionDto</class-a>
+        <class-b>today.smarthealthcare.ppv1.persistence.model.healthStatement.EyesAndVision</class-b>
+    </mapping>
+
+    <mapping>
+        <class-a>today.smarthealthcare.ppv1.dto.healthStatement.InfectiousDiseasesDto</class-a>
+        <class-b>today.smarthealthcare.ppv1.persistence.model.healthStatement.InfectiousDiseases</class-b>
+    </mapping>
+
+    <mapping>
+        <class-a>today.smarthealthcare.ppv1.dto.healthStatement.MentalHealthDto</class-a>
+        <class-b>today.smarthealthcare.ppv1.persistence.model.healthStatement.MentalHealth</class-b>
+    </mapping>
+
+    <mapping>
+        <class-a>today.smarthealthcare.ppv1.dto.healthStatement.MetabolicDisordersDto</class-a>
+        <class-b>today.smarthealthcare.ppv1.persistence.model.healthStatement.MetabolicDisorders</class-b>
+    </mapping>
+
+    <mapping>
+        <class-a>today.smarthealthcare.ppv1.dto.healthStatement.NervousSystemDto</class-a>
+        <class-b>today.smarthealthcare.ppv1.persistence.model.healthStatement.NervousSystem</class-b>
+    </mapping>
+
+    <mapping>
+        <class-a>today.smarthealthcare.ppv1.dto.healthStatement.OtherChronicDiseasesDto</class-a>
+        <class-b>today.smarthealthcare.ppv1.persistence.model.healthStatement.OtherChronicDiseases</class-b>
+    </mapping>
+
+    <mapping>
+        <class-a>today.smarthealthcare.ppv1.dto.healthStatement.RespiratorySystemDto</class-a>
+        <class-b>today.smarthealthcare.ppv1.persistence.model.healthStatement.RespiratorySystem</class-b>
+    </mapping>
+
+    <mapping>
+        <class-a>today.smarthealthcare.ppv1.dto.healthStatement.SkinDisordersDto</class-a>
+        <class-b>today.smarthealthcare.ppv1.persistence.model.healthStatement.SkinDisorders</class-b>
+    </mapping>
+
+    <mapping>
+        <class-a>today.smarthealthcare.ppv1.dto.healthStatement.TraumasDto</class-a>
+        <class-b>today.smarthealthcare.ppv1.persistence.model.healthStatement.Traumas</class-b>
+    </mapping>
+
+    <mapping>
+        <class-a>today.smarthealthcare.ppv1.dto.healthStatement.TreatmentUpToNowDto</class-a>
+        <class-b>today.smarthealthcare.ppv1.persistence.model.healthStatement.TreatmentUpToNow</class-b>
+    </mapping>
+
+    <mapping>
+        <class-a>today.smarthealthcare.ppv1.dto.healthStatement.UrogenitalSystemDto</class-a>
+        <class-b>today.smarthealthcare.ppv1.persistence.model.healthStatement.UrogenitalSystem</class-b>
+    </mapping>
+
+    <mapping>
+        <class-a>today.smarthealthcare.ppv1.dto.healthStatement.HealthStatementDto</class-a>
+        <class-b>today.smarthealthcare.ppv1.persistence.model.healthStatement.HealthStatement</class-b>
+    </mapping>
+
+    <mapping>
+        <class-a>today.smarthealthcare.ppv1.dto.patient.NotesDto</class-a>
+        <class-b>today.smarthealthcare.ppv1.persistence.model.patient.Notes</class-b>
+    </mapping>
+
+</mappings>

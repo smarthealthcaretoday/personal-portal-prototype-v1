@@ -1,0 +1,24 @@
+<ol class="breadcrumb">
+    <li><a ui-sref="personalPortal.patient.dashboard">Dashboard</a></li>
+    <li class="active">Live Chart</li>
+</ol>
+
+<div class="col-md-8">
+    <h3>Patient data live chart</h3>
+    <br/>
+    <h3>Blood pressure</h3>
+    <br/>
+    <chart-with-date-picker chart-series="patientBPChartSeries" load-data-service-function="patientBPServiceFunction"></chart-with-date-picker>
+    <br/>
+    <h3>Weight</h3>
+    <br/>
+    <chart-with-date-picker chart-series="patientWeightChartSeries" load-data-service-function="patientWeightServiceFunction"></chart-with-date-picker>
+    <br/>
+    <h3>Blood oxygen</h3>
+    <br/>
+    <chart-with-date-picker chart-series="patientBOChartSeries" load-data-service-function="patientBOServiceFunction"></chart-with-date-picker>
+    <br/>
+    <h3>Heart rate</h3>
+    <br/>
+    <chart-with-date-picker chart-series="patientHRChartSeries" load-data-service-function="patientHRServiceFunction"></chart-with-date-picker>
+</div>

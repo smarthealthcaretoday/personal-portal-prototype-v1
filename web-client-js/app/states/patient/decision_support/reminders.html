@@ -1,0 +1,45 @@
+    <ol class="breadcrumb">
+        <li><a ui-sref="personalPortal.patient.dashboard">Dashboard</a></li>
+        <li class="active">Clinical Decision Support</li>
+    </ol>
+
+    <div class="col-md-10">
+        <h3>Following section contains suggestions received from external system</h3>
+
+        </br>
+
+        <div class="row">
+            <p><i>Patient profile data may be send to external system (EBMeDS) to generate personal health care
+                suggestions</i></p>
+            </br>
+            </br>
+        </div>
+
+        <div ng-show="reminders.length > 0" class="row">
+            <br/>
+
+            <h3>Reminders from EBMeDS system</h3>
+
+            <div ng-repeat="reminder in reminders">
+                Short description
+                <div class="alert alert-success" role="alert">
+                    {{reminder.shortDescription}}
+                </div>
+                <br/>
+                Long description
+                <div class="alert alert-success" role="alert">
+                    {{reminder.longDescription}}
+                </div>
+                <br/>
+                For nurse
+                <div class="alert alert-info" role="alert">
+                    {{reminder.froNurse}}
+                </div>
+                <br/>
+                For patient
+                <div class="alert alert-info" role="alert">
+                    {{reminder.forPatient}}
+                </div>
+            </div>
+        </div>
+    </div>

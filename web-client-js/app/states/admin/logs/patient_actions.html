@@ -1,0 +1,50 @@
+<div class="about">
+    <div class="container">
+        <section class="title-section">
+            <h1 class="title-header">Patients action log</h1>
+        </section>
+    </div>
+</div>
+<div class="container">
+    <div class="row">
+        <table st-table="patientActionsDisplay" st-safe-src="patientActions" class="table table-striped">
+            <thead>
+            <tr>
+                <th st-sort="patientName">Patient</th>
+                <th st-sort="date">Date</th>
+                <th st-sort="actionType">Action</th>
+                <th>Details</th>
+            </tr>
+            <tr>
+                <th>
+                    <input st-search="'patientName'" placeholder="Search by name" class="input-sm form-control"
+                           type="search"/>
+                </th>
+                <th>
+                    <input st-search="'date'" placeholder="Search by date" class="input-sm form-control" type="search"/>
+                </th>
+                <th>
+                    <input st-search="'actionType'" placeholder="Search by action" class="input-sm form-control"
+                           type="search"/>
+                </th>
+                <th></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr ng-repeat="patientAction in patientActionsDisplay">
+                <td>{{patientAction.patientName}}</td>
+                <td>{{patientAction.date | date}}</td>
+                <td>{{patientAction.actionType}}</td>
+                <td>{{patientAction.details}}</td>
+            </tr>
+            </tbody>
+            <tfoot>
+            <tr>
+                <td colspan="4" class="text-center">
+                    <div st-pagination="" st-items-by-page="itemsByPage" st-displayed-pages="10"></div>
+                </td>
+            </tr>
+            </tfoot>
+        </table>
+    </div>
+</div>

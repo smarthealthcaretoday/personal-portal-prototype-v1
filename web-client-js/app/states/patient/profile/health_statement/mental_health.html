@@ -1,0 +1,148 @@
+<accordion-group heading="Mental health">
+    <div ng-form="mentalHealth">
+        <h4>Mental health</h4>
+
+        <div class="form-group col-sm-8">
+            <input type="checkbox"
+                   id="healthStatement.mentalHealth.noComplains"
+                   name="healthStatement.mentalHealth.noComplains"
+                   class="form-control-static"
+                   ng-model="healthStatement.mentalHealth.noComplains"
+                   ng-change="healthStatement.mentalHealth.depression = false;
+                              healthStatement.mentalHealth.depressionDetails = '';
+                              healthStatement.mentalHealth.schizophrenia = false;
+                              healthStatement.mentalHealth.schizophreniaDetails = '';
+                              healthStatement.mentalHealth.fearOfWorkingAlone = false;
+                              healthStatement.mentalHealth.fearOfWorkingAloneDetails = '';
+                              healthStatement.mentalHealth.fearOfClosedSpaces = false;
+                              healthStatement.mentalHealth.fearOfClosedSpacesDetails = '';
+                              healthStatement.mentalHealth.fearOfHeights = false;
+                              healthStatement.mentalHealth.fearOfHeightsDetails = '';
+                              healthStatement.mentalHealth.otherDisease = false;
+                              healthStatement.mentalHealth.otherDiseaseDetails = '';">
+            &nbsp;
+            <label class="control-label-left"
+                   for="healthStatement.mentalHealth.noComplains">No complains</label>
+        </div>
+
+        <div class="form-group col-sm-8">
+            <input type="checkbox"
+                   id="healthStatement.mentalHealth.depression"
+                   name="healthStatement.mentalHealth.depression"
+                   class="form-control-static"
+                   ng-model="healthStatement.mentalHealth.depression"
+                   ng-change="healthStatement.mentalHealth.depressionDetails =
+                        healthStatement.mentalHealth.depression ? healthStatement.mentalHealth.depressionDetails : '';
+                        healthStatement.mentalHealth.noComplains = false;">
+            &nbsp;
+            <label class="control-label-left"
+                   for="healthStatement.mentalHealth.depression">Depression</label>
+            <input type="text"
+                   id="healthStatement.mentalHealth.depressionDetails"
+                   name="healthStatement.mentalHealth.depressionDetails"
+                   class="form-control input-sm"
+                   ng-model="healthStatement.mentalHealth.depressionDetails"
+                   ng-show="healthStatement.mentalHealth.depression">
+        </div>
+
+        <div class="form-group col-sm-8">
+            <input type="checkbox"
+                   id="healthStatement.mentalHealth.schizophrenia"
+                   name="healthStatement.mentalHealth.schizophrenia"
+                   class="form-control-static"
+                   ng-model="healthStatement.mentalHealth.schizophrenia"
+                   ng-change="healthStatement.mentalHealth.schizophreniaDetails =
+                        healthStatement.mentalHealth.schizophrenia ? healthStatement.mentalHealth.schizophreniaDetails : '';
+                        healthStatement.mentalHealth.noComplains = false;">
+            &nbsp;
+            <label class="control-label-left"
+                   for="healthStatement.mentalHealth.schizophrenia">Schizophrenia</label>
+            <input type="text"
+                   id="healthStatement.mentalHealth.schizophreniaDetails"
+                   name="healthStatement.mentalHealth.schizophreniaDetails"
+                   class="form-control input-sm"
+                   ng-model="healthStatement.mentalHealth.schizophreniaDetails"
+                   ng-show="healthStatement.mentalHealth.schizophrenia">
+        </div>
+
+        <div class="form-group col-sm-8">
+            <input type="checkbox"
+                   id="healthStatement.mentalHealth.fearOfWorkingAlone"
+                   name="healthStatement.mentalHealth.fearOfWorkingAlone"
+                   class="form-control-static"
+                   ng-model="healthStatement.mentalHealth.fearOfWorkingAlone"
+                   ng-change="healthStatement.mentalHealth.fearOfWorkingAloneDetails =
+                        healthStatement.mentalHealth.fearOfWorkingAlone ? healthStatement.mentalHealth.fearOfWorkingAloneDetails : '';
+                        healthStatement.mentalHealth.noComplains = false;">
+            &nbsp;
+            <label class="control-label-left"
+                   for="healthStatement.mentalHealth.fearOfWorkingAlone">Fear of working alone</label>
+            <input type="text"
+                   id="healthStatement.mentalHealth.fearOfWorkingAloneDetails"
+                   name="healthStatement.mentalHealth.fearOfWorkingAloneDetails"
+                   class="form-control input-sm"
+                   ng-model="healthStatement.mentalHealth.fearOfWorkingAloneDetails"
+                   ng-show="healthStatement.mentalHealth.fearOfWorkingAlone">
+        </div>
+
+        <div class="form-group col-sm-8">
+            <input type="checkbox"
+                   id="healthStatement.mentalHealth.fearOfClosedSpaces"
+                   name="healthStatement.mentalHealth.fearOfClosedSpaces"
+                   class="form-control-static"
+                   ng-model="healthStatement.mentalHealth.fearOfClosedSpaces"
+                   ng-change="healthStatement.mentalHealth.fearOfClosedSpacesDetails =
+                        healthStatement.mentalHealth.fearOfClosedSpaces ? healthStatement.mentalHealth.fearOfClosedSpacesDetails : '';
+                        healthStatement.mentalHealth.noComplains = false;">
+            &nbsp;
+            <label class="control-label-left"
+                   for="healthStatement.mentalHealth.fearOfClosedSpaces">Fear of closed spaces</label>
+            <input type="text"
+                   id="healthStatement.mentalHealth.fearOfClosedSpacesDetails"
+                   name="healthStatement.mentalHealth.fearOfClosedSpacesDetails"
+                   class="form-control input-sm"
+                   ng-model="healthStatement.mentalHealth.fearOfClosedSpacesDetails"
+                   ng-show="healthStatement.mentalHealth.fearOfClosedSpaces">
+        </div>
+
+        <div class="form-group col-sm-8">
+            <input type="checkbox"
+                   id="healthStatement.mentalHealth.fearOfHeights"
+                   name="healthStatement.mentalHealth.fearOfHeights"
+                   class="form-control-static"
+                   ng-model="healthStatement.mentalHealth.fearOfHeights"
+                   ng-change="healthStatement.mentalHealth.fearOfHeightsDetails =
+                        healthStatement.mentalHealth.fearOfHeights ? healthStatement.mentalHealth.fearOfHeightsDetails : '';
+                        healthStatement.mentalHealth.noComplains = false;">
+            &nbsp;
+            <label class="control-label-left"
+                   for="healthStatement.mentalHealth.fearOfHeights">Fear of heights</label>
+            <input type="text"
+                   id="healthStatement.mentalHealth.fearOfHeightsDetails"
+                   name="healthStatement.mentalHealth.fearOfHeightsDetails"
+                   class="form-control input-sm"
+                   ng-model="healthStatement.mentalHealth.fearOfHeightsDetails"
+                   ng-show="healthStatement.mentalHealth.fearOfHeights">
+        </div>
+
+        <div class="form-group col-sm-8">
+            <input type="checkbox"
+                   id="healthStatement.mentalHealth.otherDisease"
+                   name="healthStatement.mentalHealth.otherDisease"
+                   class="form-control-static"
+                   ng-model="healthStatement.mentalHealth.otherDisease"
+                   ng-change="healthStatement.mentalHealth.otherDiseaseDetails =
+                        healthStatement.mentalHealth.otherDisease ? healthStatement.mentalHealth.otherDiseaseDetails : '';
+                        healthStatement.mentalHealth.noComplains = false;">
+            &nbsp;
+            <label class="control-label-left"
+                   for="healthStatement.mentalHealth.otherDisease">Other disease / condition / symptom (please specify)</label>
+            <input type="text"
+                   id="healthStatement.mentalHealth.otherDiseaseDetails"
+                   name="healthStatement.mentalHealth.otherDiseaseDetails"
+                   class="form-control input-sm"
+                   ng-model="healthStatement.mentalHealth.otherDiseaseDetails"
+                   ng-show="healthStatement.mentalHealth.otherDisease">
+        </div>
+    </div>
+</accordion-group>
